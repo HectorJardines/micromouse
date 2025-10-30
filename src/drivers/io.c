@@ -4,6 +4,7 @@
 #define PORT_COUNT          (3U)
 #define IO_CRx_CNF_OFF      (2U)
 #define NO_OF_HI_BITS       (8U)
+#define NO_BITS_PER_EXTI    (4U)
 
 #define IO_PORT_OFFSET      (4U)
 #define IO_PORT_MASK        (0x3U << IO_PORT_OFFSET)
@@ -32,6 +33,9 @@ io_config_t pin_configurations[PIN_COUNT] = {
 };
 
 static GPIO_TypeDef *gpiox[PORT_COUNT] = { GPIOA, GPIOB, GPIOC };
+
+typedef void (*irq_handler)(void);
+static irq_handler interrupt_handlers[PIN_COUNT];
 
 /************************
  *      IO CONFIG APIs
@@ -82,8 +86,6 @@ void io_get_configuration(io_e io, io_config_t *actual)
         // get pin configuration
         actual->mode_config = (gpiox[port]->CRL & (0x3U << (pin_mode_bit + IO_CRx_CNF_OFF)));
     }
-
-    // TODO: Retrieve AF configuration if present
 }
 
 void io_init(io_e io, const io_config_t *io_config)
@@ -106,9 +108,6 @@ void io_init(io_e io, const io_config_t *io_config)
         // set pin configuration
         gpiox[port]->CRL |= (io_config->mode_config << (pin_mode_bit + IO_CRx_CNF_OFF));
     }
-
-    // TODO: AF FUNCTIONALITY
-
 }
 
 void io_configure(void)
@@ -123,4 +122,41 @@ void io_configure(void)
             }
         }
     }
+}
+
+/********************************
+ *       IO INTERRUPT APIs
+ */
+
+void register_interrupt(io_e io, irq_handler handler)
+{
+    interrupt_handlers[io] = handler;
+}
+
+void io_interrupt_configure(io_e io, exti_no_e exti_no, io_it_trigger_e trigger)
+{
+    uint8_t port_num = io_port(io);
+
+    uint8_t exticr_num = exti_no / 4;
+    uint8_t exticr_bit_idx = (exti_no % 4) * NO_BITS_PER_EXTI;
+
+    // set port for EXTI line to be configured to
+    AFIO->EXTICR[exticr_num] |= (port_num << exticr_bit_idx);
+
+    // configure the interrupt trigger selection
+    if (trigger == io_it_ft) {
+        EXTI->FTSR |= (SET << exti_no);
+        EXTI->RTSR &= ~(SET << exti_no);
+    }
+    else if (trigger == io_it_rt) {
+        EXTI->RTSR |= (SET << exti_no);
+        EXTI->FTSR &= ~(SET << exti_no);
+    }
+    else {
+        EXTI->FTSR |= (SET << exti_no);
+        EXTI->RTSR |= (SET << exti_no);
+    }
+
+    // unmask the interrupts on corresponding exti line
+    EXTI->IMR |= (SET << exti_no);
 }

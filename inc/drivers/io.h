@@ -125,6 +125,33 @@ typedef enum
     io_cnf_output_af_od
 } io_cnf_output_e;
 
+typedef enum
+{
+    exit_no_0,
+    exti_no_1,
+    exti_no_2,
+    exit_no_3,
+    exti_no_4,
+    exti_no_5,
+    exit_no_6,
+    exti_no_7,
+    exti_no_8,
+    exit_no_9,
+    exti_no_10,
+    exti_no_11,
+    exit_no_12,
+    exti_no_13,
+    exti_no_14,
+    exti_no_15
+} exti_no_e;
+
+typedef enum
+{
+    io_it_ft,
+    io_it_rt,
+    io_it_ft_rt
+} io_it_trigger_e;
+
 /**********************************
 *          USER IO Structs
 ***********************************/
@@ -162,7 +189,7 @@ void io_init(io_e io, const io_config_t *io_config);
  *  @param io - io pin to retrieve configuration of
  *  @return io_config_t
  */
-void io_get_configuration(io_e io, io_config_t *actual)
+void io_get_configuration(io_e io, io_config_t *actual);
 
 /**
  *  io_verify_config -  compares configured io pin with config struct
