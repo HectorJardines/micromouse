@@ -1,0 +1,2203 @@
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"main.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.file 1 "Core/Src/main.c"
+  18              		.section	.text.SystemClock_Config,"ax",%progbits
+  19              		.align	1
+  20              		.global	SystemClock_Config
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  25              	SystemClock_Config:
+  26              	.LFB398:
+   1:Core/Src/main.c **** /* USER CODE BEGIN Header */
+   2:Core/Src/main.c **** /**
+   3:Core/Src/main.c ****   ******************************************************************************
+   4:Core/Src/main.c ****   * @file           : main.c
+   5:Core/Src/main.c ****   * @brief          : Main program body
+   6:Core/Src/main.c ****   ******************************************************************************
+   7:Core/Src/main.c ****   * @attention
+   8:Core/Src/main.c ****   *
+   9:Core/Src/main.c ****   * Copyright (c) 2025 STMicroelectronics.
+  10:Core/Src/main.c ****   * All rights reserved.
+  11:Core/Src/main.c ****   *
+  12:Core/Src/main.c ****   * This software is licensed under terms that can be found in the LICENSE file
+  13:Core/Src/main.c ****   * in the root directory of this software component.
+  14:Core/Src/main.c ****   * If no LICENSE file comes with this software, it is provided AS-IS.
+  15:Core/Src/main.c ****   *
+  16:Core/Src/main.c ****   ******************************************************************************
+  17:Core/Src/main.c ****   */
+  18:Core/Src/main.c **** /* USER CODE END Header */
+  19:Core/Src/main.c **** /* Includes ------------------------------------------------------------------*/
+  20:Core/Src/main.c **** #include "main.h"
+  21:Core/Src/main.c **** 
+  22:Core/Src/main.c **** /* Private includes ----------------------------------------------------------*/
+  23:Core/Src/main.c **** /* USER CODE BEGIN Includes */
+  24:Core/Src/main.c **** 
+  25:Core/Src/main.c **** /* USER CODE END Includes */
+  26:Core/Src/main.c **** 
+  27:Core/Src/main.c **** /* Private typedef -----------------------------------------------------------*/
+  28:Core/Src/main.c **** /* USER CODE BEGIN PTD */
+  29:Core/Src/main.c **** 
+  30:Core/Src/main.c **** /* USER CODE END PTD */
+  31:Core/Src/main.c **** 
+  32:Core/Src/main.c **** /* Private define ------------------------------------------------------------*/
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 2
+
+
+  33:Core/Src/main.c **** /* USER CODE BEGIN PD */
+  34:Core/Src/main.c **** 
+  35:Core/Src/main.c **** /* USER CODE END PD */
+  36:Core/Src/main.c **** 
+  37:Core/Src/main.c **** /* Private macro -------------------------------------------------------------*/
+  38:Core/Src/main.c **** /* USER CODE BEGIN PM */
+  39:Core/Src/main.c **** 
+  40:Core/Src/main.c **** /* USER CODE END PM */
+  41:Core/Src/main.c **** 
+  42:Core/Src/main.c **** /* Private variables ---------------------------------------------------------*/
+  43:Core/Src/main.c **** 
+  44:Core/Src/main.c **** /* USER CODE BEGIN PV */
+  45:Core/Src/main.c **** 
+  46:Core/Src/main.c **** /* USER CODE END PV */
+  47:Core/Src/main.c **** 
+  48:Core/Src/main.c **** /* Private function prototypes -----------------------------------------------*/
+  49:Core/Src/main.c **** void SystemClock_Config(void);
+  50:Core/Src/main.c **** /* USER CODE BEGIN PFP */
+  51:Core/Src/main.c **** 
+  52:Core/Src/main.c **** /* USER CODE END PFP */
+  53:Core/Src/main.c **** 
+  54:Core/Src/main.c **** /* Private user code ---------------------------------------------------------*/
+  55:Core/Src/main.c **** /* USER CODE BEGIN 0 */
+  56:Core/Src/main.c **** 
+  57:Core/Src/main.c **** /* USER CODE END 0 */
+  58:Core/Src/main.c **** 
+  59:Core/Src/main.c **** /**
+  60:Core/Src/main.c ****   * @brief  The application entry point.
+  61:Core/Src/main.c ****   * @retval int
+  62:Core/Src/main.c ****   */
+  63:Core/Src/main.c **** 
+  64:Core/Src/main.c **** /**
+  65:Core/Src/main.c ****   * @brief System Clock Configuration
+  66:Core/Src/main.c ****   * @retval None
+  67:Core/Src/main.c ****   */
+  68:Core/Src/main.c **** void SystemClock_Config(void)
+  69:Core/Src/main.c **** {
+  27              		.loc 1 69 1 view -0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 10B5     		push	{r4, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 4, -8
+  35              		.cfi_offset 14, -4
+  70:Core/Src/main.c ****   LL_FLASH_SetLatency(LL_FLASH_LATENCY_0);
+  36              		.loc 1 70 3 view .LVU1
+  37              	.LVL0:
+  38              	.LBB24:
+  39              	.LBI24:
+  40              		.file 2 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h"
+   1:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /**
+   2:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   ******************************************************************************
+   3:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @file    stm32f1xx_ll_system.h
+   4:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @author  MCD Application Team
+   5:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @brief   Header file of SYSTEM LL module.
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 3
+
+
+   6:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *
+   7:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   ******************************************************************************
+   8:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @attention
+   9:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *
+  10:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * Copyright (c) 2016 STMicroelectronics.
+  11:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * All rights reserved.
+  12:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *
+  13:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * This software is licensed under terms that can be found in the LICENSE file
+  14:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * in the root directory of this software component.
+  15:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * If no LICENSE file comes with this software, it is provided AS-IS.
+  16:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *
+  17:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   ******************************************************************************
+  18:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   @verbatim
+  19:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   ==============================================================================
+  20:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****                      ##### How to use this driver #####
+  21:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   ==============================================================================
+  22:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****     [..]
+  23:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****     The LL SYSTEM driver contains a set of generic APIs that can be
+  24:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****     used by user:
+  25:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****       (+) Some of the FLASH features need to be handled in the SYSTEM file.
+  26:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****       (+) Access to DBGCMU registers
+  27:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****       (+) Access to SYSCFG registers
+  28:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+  29:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   @endverbatim
+  30:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   ******************************************************************************
+  31:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+  32:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+  33:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /* Define to prevent recursive inclusion -------------------------------------*/
+  34:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #ifndef __STM32F1xx_LL_SYSTEM_H
+  35:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #define __STM32F1xx_LL_SYSTEM_H
+  36:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+  37:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #ifdef __cplusplus
+  38:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** extern "C" {
+  39:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #endif
+  40:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+  41:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /* Includes ------------------------------------------------------------------*/
+  42:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #include "stm32f1xx.h"
+  43:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+  44:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /** @addtogroup STM32F1xx_LL_Driver
+  45:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @{
+  46:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+  47:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+  48:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #if defined (FLASH) || defined (DBGMCU)
+  49:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+  50:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /** @defgroup SYSTEM_LL SYSTEM
+  51:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @{
+  52:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+  53:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+  54:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /* Private types -------------------------------------------------------------*/
+  55:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /* Private variables ---------------------------------------------------------*/
+  56:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+  57:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /* Private constants ---------------------------------------------------------*/
+  58:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /** @defgroup SYSTEM_LL_Private_Constants SYSTEM Private Constants
+  59:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @{
+  60:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+  61:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+  62:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /**
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 4
+
+
+  63:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @}
+  64:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+  65:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+  66:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /* Private macros ------------------------------------------------------------*/
+  67:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+  68:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /* Exported types ------------------------------------------------------------*/
+  69:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /* Exported constants --------------------------------------------------------*/
+  70:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /** @defgroup SYSTEM_LL_Exported_Constants SYSTEM Exported Constants
+  71:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @{
+  72:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+  73:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+  74:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+  75:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+  76:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /** @defgroup SYSTEM_LL_EC_TRACE DBGMCU TRACE Pin Assignment
+  77:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @{
+  78:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+  79:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #define LL_DBGMCU_TRACE_NONE               0x00000000U                                     /*!< TRA
+  80:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #define LL_DBGMCU_TRACE_ASYNCH             DBGMCU_CR_TRACE_IOEN                            /*!< TRA
+  81:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #define LL_DBGMCU_TRACE_SYNCH_SIZE1        (DBGMCU_CR_TRACE_IOEN | DBGMCU_CR_TRACE_MODE_0) /*!< TRA
+  82:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #define LL_DBGMCU_TRACE_SYNCH_SIZE2        (DBGMCU_CR_TRACE_IOEN | DBGMCU_CR_TRACE_MODE_1) /*!< TRA
+  83:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #define LL_DBGMCU_TRACE_SYNCH_SIZE4        (DBGMCU_CR_TRACE_IOEN | DBGMCU_CR_TRACE_MODE)   /*!< TRA
+  84:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /**
+  85:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @}
+  86:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+  87:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+  88:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /** @defgroup SYSTEM_LL_EC_APB1_GRP1_STOP_IP DBGMCU APB1 GRP1 STOP IP
+  89:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @{
+  90:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+  91:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #define LL_DBGMCU_APB1_GRP1_TIM2_STOP      DBGMCU_CR_DBG_TIM2_STOP          /*!< TIM2 counter stopp
+  92:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #define LL_DBGMCU_APB1_GRP1_TIM3_STOP      DBGMCU_CR_DBG_TIM3_STOP          /*!< TIM3 counter stopp
+  93:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #define LL_DBGMCU_APB1_GRP1_TIM4_STOP      DBGMCU_CR_DBG_TIM4_STOP          /*!< TIM4 counter stopp
+  94:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #if defined(DBGMCU_CR_DBG_TIM5_STOP)
+  95:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #define LL_DBGMCU_APB1_GRP1_TIM5_STOP      DBGMCU_CR_DBG_TIM5_STOP          /*!< TIM5 counter stopp
+  96:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #endif /* DBGMCU_CR_DBG_TIM5_STOP */
+  97:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #if defined(DBGMCU_CR_DBG_TIM6_STOP)
+  98:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #define LL_DBGMCU_APB1_GRP1_TIM6_STOP      DBGMCU_CR_DBG_TIM6_STOP          /*!< TIM6 counter stopp
+  99:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #endif /* DBGMCU_CR_DBG_TIM6_STOP */
+ 100:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #if defined(DBGMCU_CR_DBG_TIM7_STOP)
+ 101:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #define LL_DBGMCU_APB1_GRP1_TIM7_STOP      DBGMCU_CR_DBG_TIM7_STOP          /*!< TIM7 counter stopp
+ 102:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #endif /* DBGMCU_CR_DBG_TIM7_STOP */
+ 103:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #if defined(DBGMCU_CR_DBG_TIM12_STOP)
+ 104:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #define LL_DBGMCU_APB1_GRP1_TIM12_STOP     DBGMCU_CR_DBG_TIM12_STOP         /*!< TIM12 counter stop
+ 105:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #endif /* DBGMCU_CR_DBG_TIM12_STOP */
+ 106:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #if defined(DBGMCU_CR_DBG_TIM13_STOP)
+ 107:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #define LL_DBGMCU_APB1_GRP1_TIM13_STOP     DBGMCU_CR_DBG_TIM13_STOP         /*!< TIM13 counter stop
+ 108:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #endif /* DBGMCU_CR_DBG_TIM13_STOP */
+ 109:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #if defined(DBGMCU_CR_DBG_TIM14_STOP)
+ 110:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #define LL_DBGMCU_APB1_GRP1_TIM14_STOP     DBGMCU_CR_DBG_TIM14_STOP         /*!< TIM14 counter stop
+ 111:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #endif /* DBGMCU_CR_DBG_TIM14_STOP */
+ 112:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #define LL_DBGMCU_APB1_GRP1_WWDG_STOP      DBGMCU_CR_DBG_WWDG_STOP          /*!< Debug Window Watch
+ 113:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #define LL_DBGMCU_APB1_GRP1_IWDG_STOP      DBGMCU_CR_DBG_IWDG_STOP          /*!< Debug Independent 
+ 114:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #define LL_DBGMCU_APB1_GRP1_I2C1_STOP      DBGMCU_CR_DBG_I2C1_SMBUS_TIMEOUT /*!< I2C1 SMBUS timeout
+ 115:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #if defined(DBGMCU_CR_DBG_I2C2_SMBUS_TIMEOUT)
+ 116:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #define LL_DBGMCU_APB1_GRP1_I2C2_STOP      DBGMCU_CR_DBG_I2C2_SMBUS_TIMEOUT /*!< I2C2 SMBUS timeout
+ 117:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #endif /* DBGMCU_CR_DBG_I2C2_SMBUS_TIMEOUT */
+ 118:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #if defined(DBGMCU_CR_DBG_CAN1_STOP)
+ 119:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #define LL_DBGMCU_APB1_GRP1_CAN1_STOP      DBGMCU_CR_DBG_CAN1_STOP          /*!< CAN1 debug stopped
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 5
+
+
+ 120:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #endif /* DBGMCU_CR_DBG_CAN1_STOP */
+ 121:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #if defined(DBGMCU_CR_DBG_CAN2_STOP)
+ 122:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #define LL_DBGMCU_APB1_GRP1_CAN2_STOP      DBGMCU_CR_DBG_CAN2_STOP          /*!< CAN2 debug stopped
+ 123:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #endif /* DBGMCU_CR_DBG_CAN2_STOP */
+ 124:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /**
+ 125:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @}
+ 126:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+ 127:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+ 128:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /** @defgroup SYSTEM_LL_EC_APB2_GRP1_STOP_IP DBGMCU APB2 GRP1 STOP IP
+ 129:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @{
+ 130:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+ 131:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #define LL_DBGMCU_APB2_GRP1_TIM1_STOP      DBGMCU_CR_DBG_TIM1_STOP   /*!< TIM1 counter stopped when
+ 132:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #if defined(DBGMCU_CR_DBG_TIM8_STOP)
+ 133:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #define LL_DBGMCU_APB2_GRP1_TIM8_STOP      DBGMCU_CR_DBG_TIM8_STOP   /*!< TIM8 counter stopped when
+ 134:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #endif /* DBGMCU_CR_DBG_CAN1_STOP */
+ 135:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #if defined(DBGMCU_CR_DBG_TIM9_STOP)
+ 136:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #define LL_DBGMCU_APB2_GRP1_TIM9_STOP      DBGMCU_CR_DBG_TIM9_STOP   /*!< TIM9 counter stopped when
+ 137:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #endif /* DBGMCU_CR_DBG_TIM9_STOP */
+ 138:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #if defined(DBGMCU_CR_DBG_TIM10_STOP)
+ 139:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #define LL_DBGMCU_APB2_GRP1_TIM10_STOP     DBGMCU_CR_DBG_TIM10_STOP   /*!< TIM10 counter stopped wh
+ 140:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #endif /* DBGMCU_CR_DBG_TIM10_STOP */
+ 141:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #if defined(DBGMCU_CR_DBG_TIM11_STOP)
+ 142:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #define LL_DBGMCU_APB2_GRP1_TIM11_STOP     DBGMCU_CR_DBG_TIM11_STOP   /*!< TIM11 counter stopped wh
+ 143:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #endif /* DBGMCU_CR_DBG_TIM11_STOP */
+ 144:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #if defined(DBGMCU_CR_DBG_TIM15_STOP)
+ 145:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #define LL_DBGMCU_APB2_GRP1_TIM15_STOP     DBGMCU_CR_DBG_TIM15_STOP   /*!< TIM15 counter stopped wh
+ 146:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #endif /* DBGMCU_CR_DBG_TIM15_STOP */
+ 147:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #if defined(DBGMCU_CR_DBG_TIM16_STOP)
+ 148:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #define LL_DBGMCU_APB2_GRP1_TIM16_STOP     DBGMCU_CR_DBG_TIM16_STOP   /*!< TIM16 counter stopped wh
+ 149:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #endif /* DBGMCU_CR_DBG_TIM16_STOP */
+ 150:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #if defined(DBGMCU_CR_DBG_TIM17_STOP)
+ 151:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #define LL_DBGMCU_APB2_GRP1_TIM17_STOP     DBGMCU_CR_DBG_TIM17_STOP   /*!< TIM17 counter stopped wh
+ 152:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #endif /* DBGMCU_CR_DBG_TIM17_STOP */
+ 153:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /**
+ 154:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @}
+ 155:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+ 156:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+ 157:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /** @defgroup SYSTEM_LL_EC_LATENCY FLASH LATENCY
+ 158:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @{
+ 159:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+ 160:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #if defined(FLASH_ACR_LATENCY)
+ 161:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #define LL_FLASH_LATENCY_0                 0x00000000U             /*!< FLASH Zero Latency cycle */
+ 162:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #define LL_FLASH_LATENCY_1                 FLASH_ACR_LATENCY_0     /*!< FLASH One Latency cycle */
+ 163:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #define LL_FLASH_LATENCY_2                 FLASH_ACR_LATENCY_1     /*!< FLASH Two wait states */
+ 164:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #else
+ 165:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #endif /* FLASH_ACR_LATENCY */
+ 166:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /**
+ 167:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @}
+ 168:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+ 169:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+ 170:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /**
+ 171:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @}
+ 172:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+ 173:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+ 174:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /* Exported macro ------------------------------------------------------------*/
+ 175:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+ 176:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /* Exported functions --------------------------------------------------------*/
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 6
+
+
+ 177:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /** @defgroup SYSTEM_LL_Exported_Functions SYSTEM Exported Functions
+ 178:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @{
+ 179:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+ 180:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+ 181:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+ 182:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+ 183:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /** @defgroup SYSTEM_LL_EF_DBGMCU DBGMCU
+ 184:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @{
+ 185:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+ 186:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+ 187:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /**
+ 188:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @brief  Return the device identifier
+ 189:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @note For Low Density devices, the device ID is 0x412
+ 190:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @note For Medium Density devices, the device ID is 0x410
+ 191:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @note For High Density devices, the device ID is 0x414
+ 192:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @note For XL Density devices, the device ID is 0x430
+ 193:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @note For Connectivity Line devices, the device ID is 0x418
+ 194:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @rmtoll DBGMCU_IDCODE DEV_ID        LL_DBGMCU_GetDeviceID
+ 195:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @retval Values between Min_Data=0x00 and Max_Data=0xFFF
+ 196:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+ 197:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** __STATIC_INLINE uint32_t LL_DBGMCU_GetDeviceID(void)
+ 198:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** {
+ 199:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   return (uint32_t)(READ_BIT(DBGMCU->IDCODE, DBGMCU_IDCODE_DEV_ID));
+ 200:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** }
+ 201:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+ 202:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /**
+ 203:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @brief  Return the device revision identifier
+ 204:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @note This field indicates the revision of the device.
+ 205:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****           For example, it is read as revA -> 0x1000,for Low Density devices
+ 206:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****           For example, it is read as revA -> 0x0000, revB -> 0x2000, revZ -> 0x2001, rev1,2,3,X or 
+ 207:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****           For example, it is read as revA or 1 -> 0x1000, revZ -> 0x1001,rev1,2,3,X or Y -> 0x1003,
+ 208:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****           For example, it is read as revA or 1 -> 0x1003,for XL Density devices
+ 209:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****           For example, it is read as revA -> 0x1000, revZ -> 0x1001 for  Connectivity line devices
+ 210:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @rmtoll DBGMCU_IDCODE REV_ID        LL_DBGMCU_GetRevisionID
+ 211:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @retval Values between Min_Data=0x00 and Max_Data=0xFFFF
+ 212:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+ 213:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** __STATIC_INLINE uint32_t LL_DBGMCU_GetRevisionID(void)
+ 214:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** {
+ 215:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   return (uint32_t)(READ_BIT(DBGMCU->IDCODE, DBGMCU_IDCODE_REV_ID) >> DBGMCU_IDCODE_REV_ID_Pos);
+ 216:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** }
+ 217:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+ 218:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /**
+ 219:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @brief  Enable the Debug Module during SLEEP mode
+ 220:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @rmtoll DBGMCU_CR    DBG_SLEEP     LL_DBGMCU_EnableDBGSleepMode
+ 221:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @retval None
+ 222:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+ 223:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** __STATIC_INLINE void LL_DBGMCU_EnableDBGSleepMode(void)
+ 224:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** {
+ 225:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   SET_BIT(DBGMCU->CR, DBGMCU_CR_DBG_SLEEP);
+ 226:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** }
+ 227:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+ 228:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /**
+ 229:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @brief  Disable the Debug Module during SLEEP mode
+ 230:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @rmtoll DBGMCU_CR    DBG_SLEEP     LL_DBGMCU_DisableDBGSleepMode
+ 231:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @retval None
+ 232:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+ 233:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** __STATIC_INLINE void LL_DBGMCU_DisableDBGSleepMode(void)
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 7
+
+
+ 234:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** {
+ 235:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   CLEAR_BIT(DBGMCU->CR, DBGMCU_CR_DBG_SLEEP);
+ 236:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** }
+ 237:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+ 238:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /**
+ 239:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @brief  Enable the Debug Module during STOP mode
+ 240:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @rmtoll DBGMCU_CR    DBG_STOP      LL_DBGMCU_EnableDBGStopMode
+ 241:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @retval None
+ 242:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+ 243:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** __STATIC_INLINE void LL_DBGMCU_EnableDBGStopMode(void)
+ 244:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** {
+ 245:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   SET_BIT(DBGMCU->CR, DBGMCU_CR_DBG_STOP);
+ 246:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** }
+ 247:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+ 248:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /**
+ 249:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @brief  Disable the Debug Module during STOP mode
+ 250:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @rmtoll DBGMCU_CR    DBG_STOP      LL_DBGMCU_DisableDBGStopMode
+ 251:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @retval None
+ 252:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+ 253:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** __STATIC_INLINE void LL_DBGMCU_DisableDBGStopMode(void)
+ 254:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** {
+ 255:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   CLEAR_BIT(DBGMCU->CR, DBGMCU_CR_DBG_STOP);
+ 256:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** }
+ 257:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+ 258:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /**
+ 259:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @brief  Enable the Debug Module during STANDBY mode
+ 260:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @rmtoll DBGMCU_CR    DBG_STANDBY   LL_DBGMCU_EnableDBGStandbyMode
+ 261:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @retval None
+ 262:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+ 263:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** __STATIC_INLINE void LL_DBGMCU_EnableDBGStandbyMode(void)
+ 264:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** {
+ 265:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   SET_BIT(DBGMCU->CR, DBGMCU_CR_DBG_STANDBY);
+ 266:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** }
+ 267:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+ 268:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /**
+ 269:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @brief  Disable the Debug Module during STANDBY mode
+ 270:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @rmtoll DBGMCU_CR    DBG_STANDBY   LL_DBGMCU_DisableDBGStandbyMode
+ 271:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @retval None
+ 272:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+ 273:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** __STATIC_INLINE void LL_DBGMCU_DisableDBGStandbyMode(void)
+ 274:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** {
+ 275:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   CLEAR_BIT(DBGMCU->CR, DBGMCU_CR_DBG_STANDBY);
+ 276:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** }
+ 277:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+ 278:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /**
+ 279:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @brief  Set Trace pin assignment control
+ 280:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @rmtoll DBGMCU_CR    TRACE_IOEN    LL_DBGMCU_SetTracePinAssignment\n
+ 281:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR    TRACE_MODE    LL_DBGMCU_SetTracePinAssignment
+ 282:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @param  PinAssignment This parameter can be one of the following values:
+ 283:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_TRACE_NONE
+ 284:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_TRACE_ASYNCH
+ 285:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_TRACE_SYNCH_SIZE1
+ 286:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_TRACE_SYNCH_SIZE2
+ 287:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_TRACE_SYNCH_SIZE4
+ 288:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @retval None
+ 289:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+ 290:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** __STATIC_INLINE void LL_DBGMCU_SetTracePinAssignment(uint32_t PinAssignment)
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 8
+
+
+ 291:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** {
+ 292:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   MODIFY_REG(DBGMCU->CR, DBGMCU_CR_TRACE_IOEN | DBGMCU_CR_TRACE_MODE, PinAssignment);
+ 293:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** }
+ 294:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+ 295:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /**
+ 296:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @brief  Get Trace pin assignment control
+ 297:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @rmtoll DBGMCU_CR    TRACE_IOEN    LL_DBGMCU_GetTracePinAssignment\n
+ 298:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR    TRACE_MODE    LL_DBGMCU_GetTracePinAssignment
+ 299:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @retval Returned value can be one of the following values:
+ 300:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_TRACE_NONE
+ 301:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_TRACE_ASYNCH
+ 302:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_TRACE_SYNCH_SIZE1
+ 303:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_TRACE_SYNCH_SIZE2
+ 304:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_TRACE_SYNCH_SIZE4
+ 305:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+ 306:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** __STATIC_INLINE uint32_t LL_DBGMCU_GetTracePinAssignment(void)
+ 307:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** {
+ 308:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   return (uint32_t)(READ_BIT(DBGMCU->CR, DBGMCU_CR_TRACE_IOEN | DBGMCU_CR_TRACE_MODE));
+ 309:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** }
+ 310:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+ 311:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /**
+ 312:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @brief  Freeze APB1 peripherals (group1 peripherals)
+ 313:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @rmtoll DBGMCU_CR_APB1      DBG_TIM2_STOP           LL_DBGMCU_APB1_GRP1_FreezePeriph\n
+ 314:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB1      DBG_TIM3_STOP           LL_DBGMCU_APB1_GRP1_FreezePeriph\n
+ 315:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB1      DBG_TIM4_STOP           LL_DBGMCU_APB1_GRP1_FreezePeriph\n
+ 316:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB1      DBG_TIM5_STOP           LL_DBGMCU_APB1_GRP1_FreezePeriph\n
+ 317:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB1      DBG_TIM6_STOP           LL_DBGMCU_APB1_GRP1_FreezePeriph\n
+ 318:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB1      DBG_TIM7_STOP           LL_DBGMCU_APB1_GRP1_FreezePeriph\n
+ 319:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB1      DBG_TIM12_STOP          LL_DBGMCU_APB1_GRP1_FreezePeriph\n
+ 320:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB1      DBG_TIM13_STOP          LL_DBGMCU_APB1_GRP1_FreezePeriph\n
+ 321:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB1      DBG_TIM14_STOP          LL_DBGMCU_APB1_GRP1_FreezePeriph\n
+ 322:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB1      DBG_RTC_STOP            LL_DBGMCU_APB1_GRP1_FreezePeriph\n
+ 323:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB1      DBG_WWDG_STOP           LL_DBGMCU_APB1_GRP1_FreezePeriph\n
+ 324:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB1      DBG_IWDG_STOP           LL_DBGMCU_APB1_GRP1_FreezePeriph\n
+ 325:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB1      DBG_I2C1_SMBUS_TIMEOUT  LL_DBGMCU_APB1_GRP1_FreezePeriph\n
+ 326:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB1      DBG_I2C2_SMBUS_TIMEOUT  LL_DBGMCU_APB1_GRP1_FreezePeriph\n
+ 327:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB1      DBG_CAN1_STOP           LL_DBGMCU_APB1_GRP1_FreezePeriph\n
+ 328:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB1      DBG_CAN2_STOP           LL_DBGMCU_APB1_GRP1_FreezePeriph
+ 329:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @param  Periphs This parameter can be a combination of the following values:
+ 330:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB1_GRP1_TIM2_STOP
+ 331:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB1_GRP1_TIM3_STOP
+ 332:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB1_GRP1_TIM4_STOP
+ 333:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB1_GRP1_TIM5_STOP
+ 334:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB1_GRP1_TIM6_STOP
+ 335:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB1_GRP1_TIM7_STOP
+ 336:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB1_GRP1_TIM12_STOP
+ 337:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB1_GRP1_TIM13_STOP
+ 338:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB1_GRP1_TIM14_STOP
+ 339:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB1_GRP1_WWDG_STOP
+ 340:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB1_GRP1_IWDG_STOP
+ 341:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB1_GRP1_I2C1_STOP
+ 342:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB1_GRP1_I2C2_STOP (*)
+ 343:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB1_GRP1_CAN1_STOP (*)
+ 344:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB1_GRP1_CAN2_STOP (*)
+ 345:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *
+ 346:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         (*) value not defined in all devices.
+ 347:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @retval None
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 9
+
+
+ 348:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+ 349:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** __STATIC_INLINE void LL_DBGMCU_APB1_GRP1_FreezePeriph(uint32_t Periphs)
+ 350:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** {
+ 351:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   SET_BIT(DBGMCU->CR, Periphs);
+ 352:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** }
+ 353:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+ 354:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /**
+ 355:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @brief  Unfreeze APB1 peripherals (group1 peripherals)
+ 356:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @rmtoll DBGMCU_CR_APB1      DBG_TIM2_STOP           LL_DBGMCU_APB1_GRP1_UnFreezePeriph\n
+ 357:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB1      DBG_TIM3_STOP           LL_DBGMCU_APB1_GRP1_UnFreezePeriph\n
+ 358:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB1      DBG_TIM4_STOP           LL_DBGMCU_APB1_GRP1_UnFreezePeriph\n
+ 359:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB1      DBG_TIM5_STOP           LL_DBGMCU_APB1_GRP1_UnFreezePeriph\n
+ 360:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB1      DBG_TIM6_STOP           LL_DBGMCU_APB1_GRP1_UnFreezePeriph\n
+ 361:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB1      DBG_TIM7_STOP           LL_DBGMCU_APB1_GRP1_UnFreezePeriph\n
+ 362:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB1      DBG_TIM12_STOP          LL_DBGMCU_APB1_GRP1_UnFreezePeriph\n
+ 363:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB1      DBG_TIM13_STOP          LL_DBGMCU_APB1_GRP1_UnFreezePeriph\n
+ 364:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB1      DBG_TIM14_STOP          LL_DBGMCU_APB1_GRP1_UnFreezePeriph\n
+ 365:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB1      DBG_RTC_STOP            LL_DBGMCU_APB1_GRP1_UnFreezePeriph\n
+ 366:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB1      DBG_WWDG_STOP           LL_DBGMCU_APB1_GRP1_UnFreezePeriph\n
+ 367:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB1      DBG_IWDG_STOP           LL_DBGMCU_APB1_GRP1_UnFreezePeriph\n
+ 368:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB1      DBG_I2C1_SMBUS_TIMEOUT  LL_DBGMCU_APB1_GRP1_UnFreezePeriph\n
+ 369:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB1      DBG_I2C2_SMBUS_TIMEOUT  LL_DBGMCU_APB1_GRP1_UnFreezePeriph\n
+ 370:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB1      DBG_CAN1_STOP           LL_DBGMCU_APB1_GRP1_UnFreezePeriph\n
+ 371:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB1      DBG_CAN2_STOP           LL_DBGMCU_APB1_GRP1_UnFreezePeriph
+ 372:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @param  Periphs This parameter can be a combination of the following values:
+ 373:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB1_GRP1_TIM2_STOP
+ 374:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB1_GRP1_TIM3_STOP
+ 375:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB1_GRP1_TIM4_STOP
+ 376:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB1_GRP1_TIM5_STOP
+ 377:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB1_GRP1_TIM6_STOP
+ 378:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB1_GRP1_TIM7_STOP
+ 379:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB1_GRP1_TIM12_STOP
+ 380:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB1_GRP1_TIM13_STOP
+ 381:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB1_GRP1_TIM14_STOP
+ 382:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB1_GRP1_RTC_STOP
+ 383:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB1_GRP1_WWDG_STOP
+ 384:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB1_GRP1_IWDG_STOP
+ 385:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB1_GRP1_I2C1_STOP
+ 386:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB1_GRP1_I2C2_STOP (*)
+ 387:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB1_GRP1_CAN1_STOP (*)
+ 388:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB1_GRP1_CAN2_STOP (*)
+ 389:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *
+ 390:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         (*) value not defined in all devices.
+ 391:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @retval None
+ 392:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+ 393:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** __STATIC_INLINE void LL_DBGMCU_APB1_GRP1_UnFreezePeriph(uint32_t Periphs)
+ 394:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** {
+ 395:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   CLEAR_BIT(DBGMCU->CR, Periphs);
+ 396:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** }
+ 397:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+ 398:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /**
+ 399:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @brief  Freeze APB2 peripherals
+ 400:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @rmtoll DBGMCU_CR_APB2      DBG_TIM1_STOP    LL_DBGMCU_APB2_GRP1_FreezePeriph\n
+ 401:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB2      DBG_TIM8_STOP    LL_DBGMCU_APB2_GRP1_FreezePeriph\n
+ 402:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB2      DBG_TIM9_STOP    LL_DBGMCU_APB2_GRP1_FreezePeriph\n
+ 403:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB2      DBG_TIM10_STOP   LL_DBGMCU_APB2_GRP1_FreezePeriph\n
+ 404:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB2      DBG_TIM11_STOP   LL_DBGMCU_APB2_GRP1_FreezePeriph\n
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 10
+
+
+ 405:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB2      DBG_TIM15_STOP   LL_DBGMCU_APB2_GRP1_FreezePeriph\n
+ 406:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB2      DBG_TIM16_STOP   LL_DBGMCU_APB2_GRP1_FreezePeriph\n
+ 407:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB2      DBG_TIM17_STOP   LL_DBGMCU_APB2_GRP1_FreezePeriph
+ 408:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @param  Periphs This parameter can be a combination of the following values:
+ 409:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB2_GRP1_TIM1_STOP
+ 410:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB2_GRP1_TIM8_STOP (*)
+ 411:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB2_GRP1_TIM9_STOP (*)
+ 412:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB2_GRP1_TIM10_STOP (*)
+ 413:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB2_GRP1_TIM11_STOP (*)
+ 414:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB2_GRP1_TIM15_STOP (*)
+ 415:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB2_GRP1_TIM16_STOP (*)
+ 416:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB2_GRP1_TIM17_STOP (*)
+ 417:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *
+ 418:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         (*) value not defined in all devices.
+ 419:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @retval None
+ 420:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+ 421:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** __STATIC_INLINE void LL_DBGMCU_APB2_GRP1_FreezePeriph(uint32_t Periphs)
+ 422:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** {
+ 423:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   SET_BIT(DBGMCU->CR, Periphs);
+ 424:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** }
+ 425:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+ 426:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /**
+ 427:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @brief  Unfreeze APB2 peripherals
+ 428:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @rmtoll DBGMCU_CR_APB2      DBG_TIM1_STOP    LL_DBGMCU_APB2_GRP1_FreezePeriph\n
+ 429:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB2      DBG_TIM8_STOP    LL_DBGMCU_APB2_GRP1_FreezePeriph\n
+ 430:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB2      DBG_TIM9_STOP    LL_DBGMCU_APB2_GRP1_FreezePeriph\n
+ 431:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB2      DBG_TIM10_STOP   LL_DBGMCU_APB2_GRP1_FreezePeriph\n
+ 432:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB2      DBG_TIM11_STOP   LL_DBGMCU_APB2_GRP1_FreezePeriph\n
+ 433:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB2      DBG_TIM15_STOP   LL_DBGMCU_APB2_GRP1_FreezePeriph\n
+ 434:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB2      DBG_TIM16_STOP   LL_DBGMCU_APB2_GRP1_FreezePeriph\n
+ 435:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         DBGMCU_CR_APB2      DBG_TIM17_STOP   LL_DBGMCU_APB2_GRP1_FreezePeriph
+ 436:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @param  Periphs This parameter can be a combination of the following values:
+ 437:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB2_GRP1_TIM1_STOP
+ 438:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB2_GRP1_TIM8_STOP (*)
+ 439:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB2_GRP1_TIM9_STOP (*)
+ 440:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB2_GRP1_TIM10_STOP (*)
+ 441:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB2_GRP1_TIM11_STOP (*)
+ 442:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB2_GRP1_TIM15_STOP (*)
+ 443:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB2_GRP1_TIM16_STOP (*)
+ 444:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_DBGMCU_APB2_GRP1_TIM17_STOP (*)
+ 445:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *
+ 446:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         (*) value not defined in all devices.
+ 447:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @retval None
+ 448:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+ 449:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** __STATIC_INLINE void LL_DBGMCU_APB2_GRP1_UnFreezePeriph(uint32_t Periphs)
+ 450:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** {
+ 451:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   CLEAR_BIT(DBGMCU->CR, Periphs);
+ 452:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** }
+ 453:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /**
+ 454:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @}
+ 455:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+ 456:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+ 457:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** #if defined(FLASH_ACR_LATENCY)
+ 458:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /** @defgroup SYSTEM_LL_EF_FLASH FLASH
+ 459:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @{
+ 460:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+ 461:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 11
+
+
+ 462:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /**
+ 463:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @brief  Set FLASH Latency
+ 464:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @rmtoll FLASH_ACR    LATENCY       LL_FLASH_SetLatency
+ 465:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @param  Latency This parameter can be one of the following values:
+ 466:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_FLASH_LATENCY_0
+ 467:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_FLASH_LATENCY_1
+ 468:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_FLASH_LATENCY_2
+ 469:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @retval None
+ 470:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+ 471:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** __STATIC_INLINE void LL_FLASH_SetLatency(uint32_t Latency)
+  41              		.loc 2 471 22 view .LVU2
+  42              	.LBB25:
+ 472:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** {
+ 473:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   MODIFY_REG(FLASH->ACR, FLASH_ACR_LATENCY, Latency);
+  43              		.loc 2 473 3 view .LVU3
+  44 0002 1C4A     		ldr	r2, .L6
+  45 0004 1368     		ldr	r3, [r2]
+  46 0006 23F00703 		bic	r3, r3, #7
+  47 000a 1360     		str	r3, [r2]
+  48              	.LVL1:
+  49              	.L2:
+  50              		.loc 2 473 3 is_stmt 0 view .LVU4
+  51              	.LBE25:
+  52              	.LBE24:
+  71:Core/Src/main.c ****   while(LL_FLASH_GetLatency()!= LL_FLASH_LATENCY_0)
+  72:Core/Src/main.c ****   {
+  73:Core/Src/main.c ****   }
+  53              		.loc 1 73 3 is_stmt 1 discriminator 1 view .LVU5
+  71:Core/Src/main.c ****   while(LL_FLASH_GetLatency()!= LL_FLASH_LATENCY_0)
+  54              		.loc 1 71 30 discriminator 1 view .LVU6
+  55              	.LBB26:
+  56              	.LBI26:
+ 474:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** }
+ 475:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** 
+ 476:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** /**
+ 477:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @brief  Get FLASH Latency
+ 478:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @rmtoll FLASH_ACR    LATENCY       LL_FLASH_GetLatency
+ 479:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   * @retval Returned value can be one of the following values:
+ 480:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_FLASH_LATENCY_0
+ 481:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_FLASH_LATENCY_1
+ 482:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   *         @arg @ref LL_FLASH_LATENCY_2
+ 483:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   */
+ 484:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** __STATIC_INLINE uint32_t LL_FLASH_GetLatency(void)
+  57              		.loc 2 484 26 discriminator 1 view .LVU7
+  58              	.LBB27:
+ 485:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h **** {
+ 486:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h ****   return (uint32_t)(READ_BIT(FLASH->ACR, FLASH_ACR_LATENCY));
+  59              		.loc 2 486 3 discriminator 1 view .LVU8
+  60              		.loc 2 486 21 is_stmt 0 discriminator 1 view .LVU9
+  61 000c 194B     		ldr	r3, .L6
+  62 000e 1B68     		ldr	r3, [r3]
+  63              	.LBE27:
+  64              	.LBE26:
+  71:Core/Src/main.c ****   {
+  65              		.loc 1 71 30 discriminator 1 view .LVU10
+  66 0010 13F0070F 		tst	r3, #7
+  67 0014 FAD1     		bne	.L2
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 12
+
+
+  74:Core/Src/main.c ****   LL_RCC_HSI_SetCalibTrimming(16);
+  68              		.loc 1 74 3 is_stmt 1 view .LVU11
+  69              	.LVL2:
+  70              	.LBB28:
+  71              	.LBI28:
+  72              		.file 3 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h"
+   1:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+   2:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   ******************************************************************************
+   3:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @file    stm32f1xx_ll_rcc.h
+   4:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @author  MCD Application Team
+   5:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief   Header file of RCC LL module.
+   6:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   ******************************************************************************
+   7:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @attention
+   8:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *
+   9:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * Copyright (c) 2016 STMicroelectronics.
+  10:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * All rights reserved.
+  11:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *
+  12:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * This software is licensed under terms that can be found in the LICENSE file in
+  13:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * the root directory of this software component.
+  14:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * If no LICENSE file comes with this software, it is provided AS-IS.
+  15:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   ******************************************************************************
+  16:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+  17:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+  18:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /* Define to prevent recursive inclusion -------------------------------------*/
+  19:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #ifndef __STM32F1xx_LL_RCC_H
+  20:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define __STM32F1xx_LL_RCC_H
+  21:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+  22:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #ifdef __cplusplus
+  23:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** extern "C" {
+  24:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #endif
+  25:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+  26:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /* Includes ------------------------------------------------------------------*/
+  27:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #include "stm32f1xx.h"
+  28:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+  29:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @addtogroup STM32F1xx_LL_Driver
+  30:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+  31:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+  32:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+  33:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #if defined(RCC)
+  34:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+  35:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL RCC
+  36:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+  37:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+  38:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+  39:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /* Private types -------------------------------------------------------------*/
+  40:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /* Private variables ---------------------------------------------------------*/
+  41:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /* Private constants ---------------------------------------------------------*/
+  42:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /* Private macros ------------------------------------------------------------*/
+  43:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #if defined(USE_FULL_LL_DRIVER)
+  44:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_Private_Macros RCC Private Macros
+  45:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+  46:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+  47:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+  48:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+  49:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+  50:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #endif /*USE_FULL_LL_DRIVER*/
+  51:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /* Exported types ------------------------------------------------------------*/
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 13
+
+
+  52:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #if defined(USE_FULL_LL_DRIVER)
+  53:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_Exported_Types RCC Exported Types
+  54:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+  55:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+  56:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+  57:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup LL_ES_CLOCK_FREQ Clocks Frequency Structure
+  58:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+  59:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+  60:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+  61:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+  62:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  RCC Clocks Frequency Structure
+  63:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+  64:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** typedef struct
+  65:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** {
+  66:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   uint32_t SYSCLK_Frequency;        /*!< SYSCLK clock frequency */
+  67:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   uint32_t HCLK_Frequency;          /*!< HCLK clock frequency */
+  68:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   uint32_t PCLK1_Frequency;         /*!< PCLK1 clock frequency */
+  69:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   uint32_t PCLK2_Frequency;         /*!< PCLK2 clock frequency */
+  70:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** } LL_RCC_ClocksTypeDef;
+  71:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+  72:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+  73:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+  74:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+  75:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+  76:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+  77:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+  78:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+  79:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #endif /* USE_FULL_LL_DRIVER */
+  80:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+  81:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /* Exported constants --------------------------------------------------------*/
+  82:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_Exported_Constants RCC Exported Constants
+  83:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+  84:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+  85:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+  86:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_EC_OSC_VALUES Oscillator Values adaptation
+  87:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief    Defines used to adapt values of different oscillators
+  88:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @note     These values could be modified in the user environment according to
+  89:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *           HW set-up.
+  90:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+  91:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+  92:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #if !defined  (HSE_VALUE)
+  93:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define HSE_VALUE    8000000U  /*!< Value of the HSE oscillator in Hz */
+  94:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #endif /* HSE_VALUE */
+  95:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+  96:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #if !defined  (HSI_VALUE)
+  97:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define HSI_VALUE    8000000U  /*!< Value of the HSI oscillator in Hz */
+  98:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #endif /* HSI_VALUE */
+  99:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 100:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #if !defined  (LSE_VALUE)
+ 101:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LSE_VALUE    32768U    /*!< Value of the LSE oscillator in Hz */
+ 102:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #endif /* LSE_VALUE */
+ 103:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 104:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #if !defined  (LSI_VALUE)
+ 105:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LSI_VALUE    40000U    /*!< Value of the LSI oscillator in Hz */
+ 106:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #endif /* LSI_VALUE */
+ 107:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 108:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 14
+
+
+ 109:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 110:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 111:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_EC_CLEAR_FLAG Clear Flags Defines
+ 112:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief    Flags defines which can be used with LL_RCC_WriteReg function
+ 113:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+ 114:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 115:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_CIR_LSIRDYC                RCC_CIR_LSIRDYC     /*!< LSI Ready Interrupt Clear */
+ 116:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_CIR_LSERDYC                RCC_CIR_LSERDYC     /*!< LSE Ready Interrupt Clear */
+ 117:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_CIR_HSIRDYC                RCC_CIR_HSIRDYC     /*!< HSI Ready Interrupt Clear */
+ 118:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_CIR_HSERDYC                RCC_CIR_HSERDYC     /*!< HSE Ready Interrupt Clear */
+ 119:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_CIR_PLLRDYC                RCC_CIR_PLLRDYC     /*!< PLL Ready Interrupt Clear */
+ 120:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_CIR_PLL3RDYC               RCC_CIR_PLL3RDYC    /*!< PLL3(PLLI2S) Ready Interrupt Cle
+ 121:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_CIR_PLL2RDYC               RCC_CIR_PLL2RDYC    /*!< PLL2 Ready Interrupt Clear */
+ 122:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_CIR_CSSC                   RCC_CIR_CSSC        /*!< Clock Security System Interrupt 
+ 123:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 124:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+ 125:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 126:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 127:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_EC_GET_FLAG Get Flags Defines
+ 128:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief    Flags defines which can be used with LL_RCC_ReadReg function
+ 129:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+ 130:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 131:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_CIR_LSIRDYF                RCC_CIR_LSIRDYF     /*!< LSI Ready Interrupt flag */
+ 132:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_CIR_LSERDYF                RCC_CIR_LSERDYF     /*!< LSE Ready Interrupt flag */
+ 133:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_CIR_HSIRDYF                RCC_CIR_HSIRDYF     /*!< HSI Ready Interrupt flag */
+ 134:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_CIR_HSERDYF                RCC_CIR_HSERDYF     /*!< HSE Ready Interrupt flag */
+ 135:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_CIR_PLLRDYF                RCC_CIR_PLLRDYF     /*!< PLL Ready Interrupt flag */
+ 136:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_CIR_PLL3RDYF               RCC_CIR_PLL3RDYF    /*!< PLL3(PLLI2S) Ready Interrupt fla
+ 137:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_CIR_PLL2RDYF               RCC_CIR_PLL2RDYF    /*!< PLL2 Ready Interrupt flag */
+ 138:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_CIR_CSSF                   RCC_CIR_CSSF        /*!< Clock Security System Interrupt 
+ 139:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_CSR_PINRSTF                RCC_CSR_PINRSTF     /*!< PIN reset flag */
+ 140:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_CSR_PORRSTF                RCC_CSR_PORRSTF     /*!< POR/PDR reset flag */
+ 141:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_CSR_SFTRSTF                RCC_CSR_SFTRSTF     /*!< Software Reset flag */
+ 142:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_CSR_IWDGRSTF               RCC_CSR_IWDGRSTF    /*!< Independent Watchdog reset flag 
+ 143:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_CSR_WWDGRSTF               RCC_CSR_WWDGRSTF    /*!< Window watchdog reset flag */
+ 144:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_CSR_LPWRRSTF               RCC_CSR_LPWRRSTF    /*!< Low-Power reset flag */
+ 145:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 146:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+ 147:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 148:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 149:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_EC_IT IT Defines
+ 150:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief    IT defines which can be used with LL_RCC_ReadReg and  LL_RCC_WriteReg functions
+ 151:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+ 152:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 153:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_CIR_LSIRDYIE               RCC_CIR_LSIRDYIE      /*!< LSI Ready Interrupt Enable */
+ 154:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_CIR_LSERDYIE               RCC_CIR_LSERDYIE      /*!< LSE Ready Interrupt Enable */
+ 155:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_CIR_HSIRDYIE               RCC_CIR_HSIRDYIE      /*!< HSI Ready Interrupt Enable */
+ 156:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_CIR_HSERDYIE               RCC_CIR_HSERDYIE      /*!< HSE Ready Interrupt Enable */
+ 157:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_CIR_PLLRDYIE               RCC_CIR_PLLRDYIE      /*!< PLL Ready Interrupt Enable */
+ 158:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_CIR_PLL3RDYIE              RCC_CIR_PLL3RDYIE     /*!< PLL3(PLLI2S) Ready Interrupt E
+ 159:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_CIR_PLL2RDYIE              RCC_CIR_PLL2RDYIE     /*!< PLL2 Ready Interrupt Enable */
+ 160:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 161:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+ 162:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 163:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 164:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #if defined(RCC_CFGR2_PREDIV2)
+ 165:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_EC_HSE_PREDIV2_DIV HSE PREDIV2 Division factor
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 15
+
+
+ 166:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+ 167:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 168:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_HSE_PREDIV2_DIV_1           RCC_CFGR2_PREDIV2_DIV1   /*!< PREDIV2 input clock not di
+ 169:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_HSE_PREDIV2_DIV_2           RCC_CFGR2_PREDIV2_DIV2   /*!< PREDIV2 input clock divide
+ 170:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_HSE_PREDIV2_DIV_3           RCC_CFGR2_PREDIV2_DIV3   /*!< PREDIV2 input clock divide
+ 171:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_HSE_PREDIV2_DIV_4           RCC_CFGR2_PREDIV2_DIV4   /*!< PREDIV2 input clock divide
+ 172:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_HSE_PREDIV2_DIV_5           RCC_CFGR2_PREDIV2_DIV5   /*!< PREDIV2 input clock divide
+ 173:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_HSE_PREDIV2_DIV_6           RCC_CFGR2_PREDIV2_DIV6   /*!< PREDIV2 input clock divide
+ 174:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_HSE_PREDIV2_DIV_7           RCC_CFGR2_PREDIV2_DIV7   /*!< PREDIV2 input clock divide
+ 175:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_HSE_PREDIV2_DIV_8           RCC_CFGR2_PREDIV2_DIV8   /*!< PREDIV2 input clock divide
+ 176:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_HSE_PREDIV2_DIV_9           RCC_CFGR2_PREDIV2_DIV9   /*!< PREDIV2 input clock divide
+ 177:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_HSE_PREDIV2_DIV_10          RCC_CFGR2_PREDIV2_DIV10  /*!< PREDIV2 input clock divide
+ 178:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_HSE_PREDIV2_DIV_11          RCC_CFGR2_PREDIV2_DIV11  /*!< PREDIV2 input clock divide
+ 179:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_HSE_PREDIV2_DIV_12          RCC_CFGR2_PREDIV2_DIV12  /*!< PREDIV2 input clock divide
+ 180:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_HSE_PREDIV2_DIV_13          RCC_CFGR2_PREDIV2_DIV13  /*!< PREDIV2 input clock divide
+ 181:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_HSE_PREDIV2_DIV_14          RCC_CFGR2_PREDIV2_DIV14  /*!< PREDIV2 input clock divide
+ 182:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_HSE_PREDIV2_DIV_15          RCC_CFGR2_PREDIV2_DIV15  /*!< PREDIV2 input clock divide
+ 183:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_HSE_PREDIV2_DIV_16          RCC_CFGR2_PREDIV2_DIV16  /*!< PREDIV2 input clock divide
+ 184:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 185:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+ 186:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 187:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 188:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #endif /* RCC_CFGR2_PREDIV2 */
+ 189:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 190:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_EC_SYS_CLKSOURCE  System clock switch
+ 191:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+ 192:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 193:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_SYS_CLKSOURCE_HSI           RCC_CFGR_SW_HSI    /*!< HSI selection as system clock */
+ 194:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_SYS_CLKSOURCE_HSE           RCC_CFGR_SW_HSE    /*!< HSE selection as system clock */
+ 195:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_SYS_CLKSOURCE_PLL           RCC_CFGR_SW_PLL    /*!< PLL selection as system clock */
+ 196:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 197:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+ 198:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 199:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 200:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_EC_SYS_CLKSOURCE_STATUS  System clock switch status
+ 201:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+ 202:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 203:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_SYS_CLKSOURCE_STATUS_HSI    RCC_CFGR_SWS_HSI   /*!< HSI used as system clock */
+ 204:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_SYS_CLKSOURCE_STATUS_HSE    RCC_CFGR_SWS_HSE   /*!< HSE used as system clock */
+ 205:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_SYS_CLKSOURCE_STATUS_PLL    RCC_CFGR_SWS_PLL   /*!< PLL used as system clock */
+ 206:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 207:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+ 208:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 209:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 210:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_EC_SYSCLK_DIV  AHB prescaler
+ 211:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+ 212:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 213:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_SYSCLK_DIV_1                RCC_CFGR_HPRE_DIV1   /*!< SYSCLK not divided */
+ 214:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_SYSCLK_DIV_2                RCC_CFGR_HPRE_DIV2   /*!< SYSCLK divided by 2 */
+ 215:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_SYSCLK_DIV_4                RCC_CFGR_HPRE_DIV4   /*!< SYSCLK divided by 4 */
+ 216:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_SYSCLK_DIV_8                RCC_CFGR_HPRE_DIV8   /*!< SYSCLK divided by 8 */
+ 217:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_SYSCLK_DIV_16               RCC_CFGR_HPRE_DIV16  /*!< SYSCLK divided by 16 */
+ 218:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_SYSCLK_DIV_64               RCC_CFGR_HPRE_DIV64  /*!< SYSCLK divided by 64 */
+ 219:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_SYSCLK_DIV_128              RCC_CFGR_HPRE_DIV128 /*!< SYSCLK divided by 128 */
+ 220:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_SYSCLK_DIV_256              RCC_CFGR_HPRE_DIV256 /*!< SYSCLK divided by 256 */
+ 221:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_SYSCLK_DIV_512              RCC_CFGR_HPRE_DIV512 /*!< SYSCLK divided by 512 */
+ 222:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 16
+
+
+ 223:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+ 224:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 225:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 226:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_EC_APB1_DIV  APB low-speed prescaler (APB1)
+ 227:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+ 228:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 229:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_APB1_DIV_1                  RCC_CFGR_PPRE1_DIV1  /*!< HCLK not divided */
+ 230:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_APB1_DIV_2                  RCC_CFGR_PPRE1_DIV2  /*!< HCLK divided by 2 */
+ 231:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_APB1_DIV_4                  RCC_CFGR_PPRE1_DIV4  /*!< HCLK divided by 4 */
+ 232:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_APB1_DIV_8                  RCC_CFGR_PPRE1_DIV8  /*!< HCLK divided by 8 */
+ 233:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_APB1_DIV_16                 RCC_CFGR_PPRE1_DIV16 /*!< HCLK divided by 16 */
+ 234:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 235:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+ 236:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 237:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 238:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_EC_APB2_DIV  APB high-speed prescaler (APB2)
+ 239:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+ 240:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 241:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_APB2_DIV_1                  RCC_CFGR_PPRE2_DIV1  /*!< HCLK not divided */
+ 242:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_APB2_DIV_2                  RCC_CFGR_PPRE2_DIV2  /*!< HCLK divided by 2 */
+ 243:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_APB2_DIV_4                  RCC_CFGR_PPRE2_DIV4  /*!< HCLK divided by 4 */
+ 244:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_APB2_DIV_8                  RCC_CFGR_PPRE2_DIV8  /*!< HCLK divided by 8 */
+ 245:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_APB2_DIV_16                 RCC_CFGR_PPRE2_DIV16 /*!< HCLK divided by 16 */
+ 246:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 247:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+ 248:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 249:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 250:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_EC_MCO1SOURCE  MCO1 SOURCE selection
+ 251:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+ 252:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 253:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_MCO1SOURCE_NOCLOCK          RCC_CFGR_MCO_NOCLOCK      /*!< MCO output disabled, no c
+ 254:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_MCO1SOURCE_SYSCLK           RCC_CFGR_MCO_SYSCLK       /*!< SYSCLK selection as MCO s
+ 255:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_MCO1SOURCE_HSI              RCC_CFGR_MCO_HSI          /*!< HSI selection as MCO sour
+ 256:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_MCO1SOURCE_HSE              RCC_CFGR_MCO_HSE          /*!< HSE selection as MCO sour
+ 257:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_MCO1SOURCE_PLLCLK_DIV_2     RCC_CFGR_MCO_PLLCLK_DIV2  /*!< PLL clock divided by 2*/
+ 258:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #if defined(RCC_CFGR_MCO_PLL2CLK)
+ 259:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_MCO1SOURCE_PLL2CLK          RCC_CFGR_MCO_PLL2CLK      /*!< PLL2 clock selected as MC
+ 260:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #endif /* RCC_CFGR_MCO_PLL2CLK */
+ 261:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #if defined(RCC_CFGR_MCO_PLL3CLK_DIV2)
+ 262:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_MCO1SOURCE_PLLI2SCLK_DIV2   RCC_CFGR_MCO_PLL3CLK_DIV2 /*!< PLLI2S clock divided by 2
+ 263:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #endif /* RCC_CFGR_MCO_PLL3CLK_DIV2 */
+ 264:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #if defined(RCC_CFGR_MCO_EXT_HSE)
+ 265:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_MCO1SOURCE_EXT_HSE          RCC_CFGR_MCO_EXT_HSE      /*!< XT1 external 3-25 MHz osc
+ 266:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #endif /* RCC_CFGR_MCO_EXT_HSE */
+ 267:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #if defined(RCC_CFGR_MCO_PLL3CLK)
+ 268:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_MCO1SOURCE_PLLI2SCLK        RCC_CFGR_MCO_PLL3CLK      /*!< PLLI2S clock selected as 
+ 269:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #endif /* RCC_CFGR_MCO_PLL3CLK */
+ 270:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 271:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+ 272:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 273:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 274:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #if defined(USE_FULL_LL_DRIVER)
+ 275:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_EC_PERIPH_FREQUENCY Peripheral clock frequency
+ 276:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+ 277:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 278:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PERIPH_FREQUENCY_NO         0x00000000U      /*!< No clock enabled for the periphera
+ 279:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PERIPH_FREQUENCY_NA         0xFFFFFFFFU      /*!< Frequency cannot be provided as ex
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 17
+
+
+ 280:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 281:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+ 282:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 283:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #endif /* USE_FULL_LL_DRIVER */
+ 284:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 285:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #if defined(RCC_CFGR2_I2S2SRC)
+ 286:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_EC_I2S2CLKSOURCE Peripheral I2S clock source selection
+ 287:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+ 288:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 289:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_I2S2_CLKSOURCE_SYSCLK        RCC_CFGR2_I2S2SRC                                      
+ 290:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_I2S2_CLKSOURCE_PLLI2S_VCO    (uint32_t)(RCC_CFGR2_I2S2SRC | (RCC_CFGR2_I2S2SRC >> 16
+ 291:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_I2S3_CLKSOURCE_SYSCLK        RCC_CFGR2_I2S3SRC                                      
+ 292:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_I2S3_CLKSOURCE_PLLI2S_VCO    (uint32_t)(RCC_CFGR2_I2S3SRC | (RCC_CFGR2_I2S3SRC >> 16
+ 293:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 294:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+ 295:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 296:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #endif /* RCC_CFGR2_I2S2SRC */
+ 297:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 298:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #if defined(USB_OTG_FS) || defined(USB)
+ 299:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_EC_USB_CLKSOURCE Peripheral USB clock source selection
+ 300:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+ 301:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 302:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #if defined(RCC_CFGR_USBPRE)
+ 303:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_USB_CLKSOURCE_PLL             RCC_CFGR_USBPRE        /*!< PLL clock is not divided *
+ 304:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_USB_CLKSOURCE_PLL_DIV_1_5     0x00000000U            /*!< PLL clock is divided by 1.
+ 305:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #endif /*RCC_CFGR_USBPRE*/
+ 306:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #if defined(RCC_CFGR_OTGFSPRE)
+ 307:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_USB_CLKSOURCE_PLL_DIV_2       RCC_CFGR_OTGFSPRE      /*!< PLL clock is divided by 2 
+ 308:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_USB_CLKSOURCE_PLL_DIV_3       0x00000000U            /*!< PLL clock is divided by 3 
+ 309:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #endif /*RCC_CFGR_OTGFSPRE*/
+ 310:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 311:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+ 312:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 313:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #endif /* USB_OTG_FS || USB */
+ 314:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 315:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_EC_ADC_CLKSOURCE_PCLK2 Peripheral ADC clock source selection
+ 316:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+ 317:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 318:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_ADC_CLKSRC_PCLK2_DIV_2    RCC_CFGR_ADCPRE_DIV2 /*ADC prescaler PCLK2 divided by 2*/
+ 319:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_ADC_CLKSRC_PCLK2_DIV_4    RCC_CFGR_ADCPRE_DIV4 /*ADC prescaler PCLK2 divided by 4*/
+ 320:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_ADC_CLKSRC_PCLK2_DIV_6    RCC_CFGR_ADCPRE_DIV6 /*ADC prescaler PCLK2 divided by 6*/
+ 321:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_ADC_CLKSRC_PCLK2_DIV_8    RCC_CFGR_ADCPRE_DIV8 /*ADC prescaler PCLK2 divided by 8*/
+ 322:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 323:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+ 324:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 325:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 326:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #if defined(RCC_CFGR2_I2S2SRC)
+ 327:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_EC_I2S2 Peripheral I2S get clock source
+ 328:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+ 329:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 330:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_I2S2_CLKSOURCE              RCC_CFGR2_I2S2SRC       /*!< I2S2 Clock source selection
+ 331:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_I2S3_CLKSOURCE              RCC_CFGR2_I2S3SRC       /*!< I2S3 Clock source selection
+ 332:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 333:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+ 334:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 335:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 336:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #endif /* RCC_CFGR2_I2S2SRC */
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 18
+
+
+ 337:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 338:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #if defined(USB_OTG_FS) || defined(USB)
+ 339:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_EC_USB Peripheral USB get clock source
+ 340:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+ 341:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 342:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_USB_CLKSOURCE               0x00400000U     /*!< USB Clock source selection */
+ 343:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 344:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+ 345:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 346:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 347:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #endif /* USB_OTG_FS || USB */
+ 348:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 349:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_EC_ADC Peripheral ADC get clock source
+ 350:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+ 351:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 352:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_ADC_CLKSOURCE               RCC_CFGR_ADCPRE /*!< ADC Clock source selection */
+ 353:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 354:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+ 355:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 356:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 357:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_EC_RTC_CLKSOURCE  RTC clock source selection
+ 358:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+ 359:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 360:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_RTC_CLKSOURCE_NONE          0x00000000U             /*!< No clock used as RTC clock 
+ 361:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_RTC_CLKSOURCE_LSE           RCC_BDCR_RTCSEL_0       /*!< LSE oscillator clock used a
+ 362:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_RTC_CLKSOURCE_LSI           RCC_BDCR_RTCSEL_1       /*!< LSI oscillator clock used a
+ 363:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_RTC_CLKSOURCE_HSE_DIV128    RCC_BDCR_RTCSEL         /*!< HSE oscillator clock divide
+ 364:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 365:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+ 366:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 367:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 368:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_EC_PLL_MUL PLL Multiplicator factor
+ 369:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+ 370:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 371:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #if defined(RCC_CFGR_PLLMULL2)
+ 372:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLL_MUL_2                   RCC_CFGR_PLLMULL2  /*!< PLL input clock*2 */
+ 373:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #endif /*RCC_CFGR_PLLMULL2*/
+ 374:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #if defined(RCC_CFGR_PLLMULL3)
+ 375:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLL_MUL_3                   RCC_CFGR_PLLMULL3  /*!< PLL input clock*3 */
+ 376:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #endif /*RCC_CFGR_PLLMULL3*/
+ 377:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLL_MUL_4                   RCC_CFGR_PLLMULL4  /*!< PLL input clock*4 */
+ 378:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLL_MUL_5                   RCC_CFGR_PLLMULL5  /*!< PLL input clock*5 */
+ 379:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLL_MUL_6                   RCC_CFGR_PLLMULL6  /*!< PLL input clock*6 */
+ 380:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLL_MUL_7                   RCC_CFGR_PLLMULL7  /*!< PLL input clock*7 */
+ 381:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLL_MUL_8                   RCC_CFGR_PLLMULL8  /*!< PLL input clock*8 */
+ 382:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLL_MUL_9                   RCC_CFGR_PLLMULL9  /*!< PLL input clock*9 */
+ 383:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #if defined(RCC_CFGR_PLLMULL6_5)
+ 384:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLL_MUL_6_5                 RCC_CFGR_PLLMULL6_5 /*!< PLL input clock*6 */
+ 385:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #else
+ 386:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLL_MUL_10                  RCC_CFGR_PLLMULL10  /*!< PLL input clock*10 */
+ 387:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLL_MUL_11                  RCC_CFGR_PLLMULL11  /*!< PLL input clock*11 */
+ 388:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLL_MUL_12                  RCC_CFGR_PLLMULL12  /*!< PLL input clock*12 */
+ 389:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLL_MUL_13                  RCC_CFGR_PLLMULL13  /*!< PLL input clock*13 */
+ 390:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLL_MUL_14                  RCC_CFGR_PLLMULL14  /*!< PLL input clock*14 */
+ 391:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLL_MUL_15                  RCC_CFGR_PLLMULL15  /*!< PLL input clock*15 */
+ 392:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLL_MUL_16                  RCC_CFGR_PLLMULL16  /*!< PLL input clock*16 */
+ 393:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #endif /*RCC_CFGR_PLLMULL6_5*/
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 19
+
+
+ 394:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 395:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+ 396:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 397:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 398:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_EC_PLLSOURCE PLL SOURCE
+ 399:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+ 400:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 401:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_HSI_DIV_2         0x00000000U                                    /*!< HSI 
+ 402:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_HSE               RCC_CFGR_PLLSRC                                /*!< HSE/
+ 403:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #if defined(RCC_CFGR2_PREDIV1SRC)
+ 404:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_PLL2              (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1SRC << 4U) /*!< PLL2
+ 405:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #endif /*RCC_CFGR2_PREDIV1SRC*/
+ 406:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 407:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #if defined(RCC_CFGR2_PREDIV1)
+ 408:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_HSE_DIV_1         (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV1)    /*!< HSE/1
+ 409:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_HSE_DIV_2         (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV2)    /*!< HSE/2
+ 410:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_HSE_DIV_3         (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV3)    /*!< HSE/3
+ 411:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_HSE_DIV_4         (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV4)    /*!< HSE/4
+ 412:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_HSE_DIV_5         (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV5)    /*!< HSE/5
+ 413:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_HSE_DIV_6         (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV6)    /*!< HSE/6
+ 414:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_HSE_DIV_7         (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV7)    /*!< HSE/7
+ 415:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_HSE_DIV_8         (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV8)    /*!< HSE/8
+ 416:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_HSE_DIV_9         (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV9)    /*!< HSE/9
+ 417:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_HSE_DIV_10        (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV10)   /*!< HSE/1
+ 418:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_HSE_DIV_11        (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV11)   /*!< HSE/1
+ 419:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_HSE_DIV_12        (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV12)   /*!< HSE/1
+ 420:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_HSE_DIV_13        (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV13)   /*!< HSE/1
+ 421:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_HSE_DIV_14        (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV14)   /*!< HSE/1
+ 422:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_HSE_DIV_15        (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV15)   /*!< HSE/1
+ 423:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_HSE_DIV_16        (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV16)   /*!< HSE/1
+ 424:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #if defined(RCC_CFGR2_PREDIV1SRC)
+ 425:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_PLL2_DIV_1        (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV1 | RCC_CFGR2_PR
+ 426:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_PLL2_DIV_2        (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV2 | RCC_CFGR2_PR
+ 427:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_PLL2_DIV_3        (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV3 | RCC_CFGR2_PR
+ 428:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_PLL2_DIV_4        (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV4 | RCC_CFGR2_PR
+ 429:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_PLL2_DIV_5        (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV5 | RCC_CFGR2_PR
+ 430:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_PLL2_DIV_6        (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV6 | RCC_CFGR2_PR
+ 431:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_PLL2_DIV_7        (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV7 | RCC_CFGR2_PR
+ 432:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_PLL2_DIV_8        (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV8 | RCC_CFGR2_PR
+ 433:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_PLL2_DIV_9        (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV9 | RCC_CFGR2_PR
+ 434:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_PLL2_DIV_10       (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV10 | RCC_CFGR2_P
+ 435:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_PLL2_DIV_11       (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV11 | RCC_CFGR2_P
+ 436:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_PLL2_DIV_12       (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV12 | RCC_CFGR2_P
+ 437:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_PLL2_DIV_13       (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV13 | RCC_CFGR2_P
+ 438:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_PLL2_DIV_14       (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV14 | RCC_CFGR2_P
+ 439:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_PLL2_DIV_15       (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV15 | RCC_CFGR2_P
+ 440:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_PLL2_DIV_16       (RCC_CFGR_PLLSRC | RCC_CFGR2_PREDIV1_DIV16 | RCC_CFGR2_P
+ 441:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #endif /*RCC_CFGR2_PREDIV1SRC*/
+ 442:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #else
+ 443:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_HSE_DIV_1         (RCC_CFGR_PLLSRC | 0x00000000U)               /*!< HSE/1
+ 444:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLSOURCE_HSE_DIV_2         (RCC_CFGR_PLLSRC | RCC_CFGR_PLLXTPRE)         /*!< HSE/2
+ 445:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #endif /*RCC_CFGR2_PREDIV1*/
+ 446:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 447:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+ 448:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 449:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 450:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_EC_PREDIV_DIV PREDIV Division factor
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 20
+
+
+ 451:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+ 452:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 453:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #if defined(RCC_CFGR2_PREDIV1)
+ 454:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PREDIV_DIV_1                RCC_CFGR2_PREDIV1_DIV1   /*!< PREDIV1 input clock not di
+ 455:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PREDIV_DIV_2                RCC_CFGR2_PREDIV1_DIV2   /*!< PREDIV1 input clock divide
+ 456:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PREDIV_DIV_3                RCC_CFGR2_PREDIV1_DIV3   /*!< PREDIV1 input clock divide
+ 457:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PREDIV_DIV_4                RCC_CFGR2_PREDIV1_DIV4   /*!< PREDIV1 input clock divide
+ 458:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PREDIV_DIV_5                RCC_CFGR2_PREDIV1_DIV5   /*!< PREDIV1 input clock divide
+ 459:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PREDIV_DIV_6                RCC_CFGR2_PREDIV1_DIV6   /*!< PREDIV1 input clock divide
+ 460:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PREDIV_DIV_7                RCC_CFGR2_PREDIV1_DIV7   /*!< PREDIV1 input clock divide
+ 461:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PREDIV_DIV_8                RCC_CFGR2_PREDIV1_DIV8   /*!< PREDIV1 input clock divide
+ 462:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PREDIV_DIV_9                RCC_CFGR2_PREDIV1_DIV9   /*!< PREDIV1 input clock divide
+ 463:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PREDIV_DIV_10               RCC_CFGR2_PREDIV1_DIV10  /*!< PREDIV1 input clock divide
+ 464:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PREDIV_DIV_11               RCC_CFGR2_PREDIV1_DIV11  /*!< PREDIV1 input clock divide
+ 465:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PREDIV_DIV_12               RCC_CFGR2_PREDIV1_DIV12  /*!< PREDIV1 input clock divide
+ 466:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PREDIV_DIV_13               RCC_CFGR2_PREDIV1_DIV13  /*!< PREDIV1 input clock divide
+ 467:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PREDIV_DIV_14               RCC_CFGR2_PREDIV1_DIV14  /*!< PREDIV1 input clock divide
+ 468:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PREDIV_DIV_15               RCC_CFGR2_PREDIV1_DIV15  /*!< PREDIV1 input clock divide
+ 469:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PREDIV_DIV_16               RCC_CFGR2_PREDIV1_DIV16  /*!< PREDIV1 input clock divide
+ 470:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #else
+ 471:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PREDIV_DIV_1                0x00000000U              /*!< HSE divider clock clock no
+ 472:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PREDIV_DIV_2                RCC_CFGR_PLLXTPRE        /*!< HSE divider clock divided 
+ 473:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #endif /*RCC_CFGR2_PREDIV1*/
+ 474:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 475:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+ 476:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 477:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 478:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #if defined(RCC_PLLI2S_SUPPORT)
+ 479:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_EC_PLLI2S_MUL PLLI2S MUL
+ 480:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+ 481:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 482:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLI2S_MUL_8                RCC_CFGR2_PLL3MUL8   /*!< PLLI2S input clock * 8 */
+ 483:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLI2S_MUL_9                RCC_CFGR2_PLL3MUL9   /*!< PLLI2S input clock * 9 */
+ 484:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLI2S_MUL_10               RCC_CFGR2_PLL3MUL10  /*!< PLLI2S input clock * 10 */
+ 485:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLI2S_MUL_11               RCC_CFGR2_PLL3MUL11  /*!< PLLI2S input clock * 11 */
+ 486:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLI2S_MUL_12               RCC_CFGR2_PLL3MUL12  /*!< PLLI2S input clock * 12 */
+ 487:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLI2S_MUL_13               RCC_CFGR2_PLL3MUL13  /*!< PLLI2S input clock * 13 */
+ 488:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLI2S_MUL_14               RCC_CFGR2_PLL3MUL14  /*!< PLLI2S input clock * 14 */
+ 489:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLI2S_MUL_16               RCC_CFGR2_PLL3MUL16  /*!< PLLI2S input clock * 16 */
+ 490:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLLI2S_MUL_20               RCC_CFGR2_PLL3MUL20  /*!< PLLI2S input clock * 20 */
+ 491:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 492:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+ 493:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 494:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 495:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #endif /* RCC_PLLI2S_SUPPORT */
+ 496:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 497:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #if defined(RCC_PLL2_SUPPORT)
+ 498:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_EC_PLL2_MUL PLL2 MUL
+ 499:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+ 500:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 501:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLL2_MUL_8                  RCC_CFGR2_PLL2MUL8   /*!< PLL2 input clock * 8 */
+ 502:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLL2_MUL_9                  RCC_CFGR2_PLL2MUL9   /*!< PLL2 input clock * 9 */
+ 503:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLL2_MUL_10                 RCC_CFGR2_PLL2MUL10  /*!< PLL2 input clock * 10 */
+ 504:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLL2_MUL_11                 RCC_CFGR2_PLL2MUL11  /*!< PLL2 input clock * 11 */
+ 505:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLL2_MUL_12                 RCC_CFGR2_PLL2MUL12  /*!< PLL2 input clock * 12 */
+ 506:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLL2_MUL_13                 RCC_CFGR2_PLL2MUL13  /*!< PLL2 input clock * 13 */
+ 507:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLL2_MUL_14                 RCC_CFGR2_PLL2MUL14  /*!< PLL2 input clock * 14 */
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 21
+
+
+ 508:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLL2_MUL_16                 RCC_CFGR2_PLL2MUL16  /*!< PLL2 input clock * 16 */
+ 509:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_PLL2_MUL_20                 RCC_CFGR2_PLL2MUL20  /*!< PLL2 input clock * 20 */
+ 510:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 511:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+ 512:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 513:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 514:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #endif /* RCC_PLL2_SUPPORT */
+ 515:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 516:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 517:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+ 518:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 519:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 520:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /* Exported macro ------------------------------------------------------------*/
+ 521:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_Exported_Macros RCC Exported Macros
+ 522:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+ 523:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 524:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 525:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_EM_WRITE_READ Common Write and read registers Macros
+ 526:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+ 527:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 528:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 529:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 530:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Write a value in RCC register
+ 531:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @param  __REG__ Register to be written
+ 532:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @param  __VALUE__ Value to be written in the register
+ 533:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval None
+ 534:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 535:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_WriteReg(__REG__, __VALUE__) WRITE_REG(RCC->__REG__, (__VALUE__))
+ 536:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 537:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 538:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Read a value in RCC register
+ 539:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @param  __REG__ Register to be read
+ 540:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval Register value
+ 541:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 542:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define LL_RCC_ReadReg(__REG__) READ_REG(RCC->__REG__)
+ 543:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 544:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+ 545:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 546:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 547:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_EM_CALC_FREQ Calculate frequencies
+ 548:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+ 549:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 550:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 551:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #if defined(RCC_CFGR_PLLMULL6_5)
+ 552:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 553:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Helper macro to calculate the PLLCLK frequency
+ 554:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @note ex: @ref __LL_RCC_CALC_PLLCLK_FREQ (HSE_VALUE / (@ref LL_RCC_PLL_GetPrediv () + 1), @ref 
+ 555:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @param  __INPUTFREQ__ PLL Input frequency (based on HSE div Prediv1 / HSI div 2 / PLL2 div Pred
+ 556:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @param  __PLLMUL__: This parameter can be one of the following values:
+ 557:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLL_MUL_4
+ 558:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLL_MUL_5
+ 559:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLL_MUL_6
+ 560:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLL_MUL_7
+ 561:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLL_MUL_8
+ 562:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLL_MUL_9
+ 563:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLL_MUL_6_5
+ 564:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval PLL clock frequency (in Hz)
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 22
+
+
+ 565:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 566:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define __LL_RCC_CALC_PLLCLK_FREQ(__INPUTFREQ__, __PLLMUL__) \
+ 567:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****           (((__PLLMUL__) != RCC_CFGR_PLLMULL6_5) ? \
+ 568:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****               ((__INPUTFREQ__) * ((((__PLLMUL__) & RCC_CFGR_PLLMULL) >> RCC_CFGR_PLLMULL_Pos) + 2U)
+ 569:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****               (((__INPUTFREQ__) * 13U) / 2U))
+ 570:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 571:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #else
+ 572:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 573:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Helper macro to calculate the PLLCLK frequency
+ 574:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @note ex: @ref __LL_RCC_CALC_PLLCLK_FREQ (HSE_VALUE / (@ref LL_RCC_PLL_GetPrediv () + 1), @ref 
+ 575:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @param  __INPUTFREQ__ PLL Input frequency (based on HSE div Prediv1 or div 2 / HSI div 2)
+ 576:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @param  __PLLMUL__: This parameter can be one of the following values:
+ 577:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLL_MUL_2
+ 578:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLL_MUL_3
+ 579:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLL_MUL_4
+ 580:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLL_MUL_5
+ 581:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLL_MUL_6
+ 582:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLL_MUL_7
+ 583:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLL_MUL_8
+ 584:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLL_MUL_9
+ 585:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLL_MUL_10
+ 586:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLL_MUL_11
+ 587:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLL_MUL_12
+ 588:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLL_MUL_13
+ 589:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLL_MUL_14
+ 590:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLL_MUL_15
+ 591:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLL_MUL_16
+ 592:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval PLL clock frequency (in Hz)
+ 593:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 594:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define __LL_RCC_CALC_PLLCLK_FREQ(__INPUTFREQ__, __PLLMUL__) ((__INPUTFREQ__) * (((__PLLMUL__) >> R
+ 595:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #endif /* RCC_CFGR_PLLMULL6_5 */
+ 596:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 597:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #if defined(RCC_PLLI2S_SUPPORT)
+ 598:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 599:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Helper macro to calculate the PLLI2S frequency
+ 600:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @note ex: @ref __LL_RCC_CALC_PLLI2SCLK_FREQ (HSE_VALUE, @ref LL_RCC_PLLI2S_GetMultiplicator (),
+ 601:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @param  __INPUTFREQ__ PLLI2S Input frequency (based on HSE value)
+ 602:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @param  __PLLI2SMUL__: This parameter can be one of the following values:
+ 603:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLLI2S_MUL_8
+ 604:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLLI2S_MUL_9
+ 605:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLLI2S_MUL_10
+ 606:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLLI2S_MUL_11
+ 607:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLLI2S_MUL_12
+ 608:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLLI2S_MUL_13
+ 609:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLLI2S_MUL_14
+ 610:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLLI2S_MUL_16
+ 611:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLLI2S_MUL_20
+ 612:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @param  __PLLI2SDIV__: This parameter can be one of the following values:
+ 613:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_1
+ 614:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_2
+ 615:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_3
+ 616:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_4
+ 617:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_5
+ 618:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_6
+ 619:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_7
+ 620:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_8
+ 621:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_9
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 23
+
+
+ 622:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_10
+ 623:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_11
+ 624:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_12
+ 625:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_13
+ 626:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_14
+ 627:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_15
+ 628:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_16
+ 629:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval PLLI2S clock frequency (in Hz)
+ 630:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 631:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define __LL_RCC_CALC_PLLI2SCLK_FREQ(__INPUTFREQ__, __PLLI2SMUL__, __PLLI2SDIV__) (((__INPUTFREQ__)
+ 632:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #endif /* RCC_PLLI2S_SUPPORT */
+ 633:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 634:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #if defined(RCC_PLL2_SUPPORT)
+ 635:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 636:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Helper macro to calculate the PLL2 frequency
+ 637:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @note ex: @ref __LL_RCC_CALC_PLL2CLK_FREQ (HSE_VALUE, @ref LL_RCC_PLL2_GetMultiplicator (), @re
+ 638:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @param  __INPUTFREQ__ PLL2 Input frequency (based on HSE value)
+ 639:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @param  __PLL2MUL__: This parameter can be one of the following values:
+ 640:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLL2_MUL_8
+ 641:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLL2_MUL_9
+ 642:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLL2_MUL_10
+ 643:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLL2_MUL_11
+ 644:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLL2_MUL_12
+ 645:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLL2_MUL_13
+ 646:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLL2_MUL_14
+ 647:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLL2_MUL_16
+ 648:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_PLL2_MUL_20
+ 649:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @param  __PLL2DIV__: This parameter can be one of the following values:
+ 650:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_1
+ 651:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_2
+ 652:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_3
+ 653:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_4
+ 654:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_5
+ 655:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_6
+ 656:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_7
+ 657:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_8
+ 658:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_9
+ 659:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_10
+ 660:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_11
+ 661:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_12
+ 662:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_13
+ 663:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_14
+ 664:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_15
+ 665:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_16
+ 666:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval PLL2 clock frequency (in Hz)
+ 667:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 668:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define __LL_RCC_CALC_PLL2CLK_FREQ(__INPUTFREQ__, __PLL2MUL__, __PLL2DIV__) (((__INPUTFREQ__) * (((
+ 669:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #endif /* RCC_PLL2_SUPPORT */
+ 670:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 671:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 672:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Helper macro to calculate the HCLK frequency
+ 673:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @note: __AHBPRESCALER__ be retrieved by @ref LL_RCC_GetAHBPrescaler
+ 674:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *        ex: __LL_RCC_CALC_HCLK_FREQ(LL_RCC_GetAHBPrescaler())
+ 675:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @param  __SYSCLKFREQ__ SYSCLK frequency (based on HSE/HSI/PLLCLK)
+ 676:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @param  __AHBPRESCALER__: This parameter can be one of the following values:
+ 677:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_SYSCLK_DIV_1
+ 678:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_SYSCLK_DIV_2
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 24
+
+
+ 679:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_SYSCLK_DIV_4
+ 680:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_SYSCLK_DIV_8
+ 681:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_SYSCLK_DIV_16
+ 682:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_SYSCLK_DIV_64
+ 683:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_SYSCLK_DIV_128
+ 684:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_SYSCLK_DIV_256
+ 685:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_SYSCLK_DIV_512
+ 686:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval HCLK clock frequency (in Hz)
+ 687:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 688:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define __LL_RCC_CALC_HCLK_FREQ(__SYSCLKFREQ__, __AHBPRESCALER__) ((__SYSCLKFREQ__) >> AHBPrescTabl
+ 689:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 690:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 691:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Helper macro to calculate the PCLK1 frequency (ABP1)
+ 692:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @note: __APB1PRESCALER__ be retrieved by @ref LL_RCC_GetAPB1Prescaler
+ 693:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *        ex: __LL_RCC_CALC_PCLK1_FREQ(LL_RCC_GetAPB1Prescaler())
+ 694:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @param  __HCLKFREQ__ HCLK frequency
+ 695:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @param  __APB1PRESCALER__: This parameter can be one of the following values:
+ 696:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_APB1_DIV_1
+ 697:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_APB1_DIV_2
+ 698:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_APB1_DIV_4
+ 699:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_APB1_DIV_8
+ 700:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_APB1_DIV_16
+ 701:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval PCLK1 clock frequency (in Hz)
+ 702:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 703:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define __LL_RCC_CALC_PCLK1_FREQ(__HCLKFREQ__, __APB1PRESCALER__) ((__HCLKFREQ__) >> APBPrescTable[
+ 704:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 705:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 706:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Helper macro to calculate the PCLK2 frequency (ABP2)
+ 707:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @note: __APB2PRESCALER__ be retrieved by @ref LL_RCC_GetAPB2Prescaler
+ 708:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *        ex: __LL_RCC_CALC_PCLK2_FREQ(LL_RCC_GetAPB2Prescaler())
+ 709:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @param  __HCLKFREQ__ HCLK frequency
+ 710:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @param  __APB2PRESCALER__: This parameter can be one of the following values:
+ 711:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_APB2_DIV_1
+ 712:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_APB2_DIV_2
+ 713:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_APB2_DIV_4
+ 714:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_APB2_DIV_8
+ 715:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_APB2_DIV_16
+ 716:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval PCLK2 clock frequency (in Hz)
+ 717:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 718:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #define __LL_RCC_CALC_PCLK2_FREQ(__HCLKFREQ__, __APB2PRESCALER__) ((__HCLKFREQ__) >> APBPrescTable[
+ 719:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 720:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 721:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+ 722:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 723:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 724:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 725:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+ 726:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 727:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 728:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /* Exported functions --------------------------------------------------------*/
+ 729:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_Exported_Functions RCC Exported Functions
+ 730:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+ 731:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 732:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 733:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_EF_HSE HSE
+ 734:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+ 735:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 25
+
+
+ 736:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 737:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 738:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Enable the Clock Security System.
+ 739:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @rmtoll CR           CSSON         LL_RCC_HSE_EnableCSS
+ 740:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval None
+ 741:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 742:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** __STATIC_INLINE void LL_RCC_HSE_EnableCSS(void)
+ 743:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** {
+ 744:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   SET_BIT(RCC->CR, RCC_CR_CSSON);
+ 745:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** }
+ 746:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 747:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 748:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Enable HSE external oscillator (HSE Bypass)
+ 749:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @rmtoll CR           HSEBYP        LL_RCC_HSE_EnableBypass
+ 750:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval None
+ 751:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 752:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** __STATIC_INLINE void LL_RCC_HSE_EnableBypass(void)
+ 753:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** {
+ 754:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   SET_BIT(RCC->CR, RCC_CR_HSEBYP);
+ 755:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** }
+ 756:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 757:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 758:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Disable HSE external oscillator (HSE Bypass)
+ 759:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @rmtoll CR           HSEBYP        LL_RCC_HSE_DisableBypass
+ 760:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval None
+ 761:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 762:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** __STATIC_INLINE void LL_RCC_HSE_DisableBypass(void)
+ 763:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** {
+ 764:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   CLEAR_BIT(RCC->CR, RCC_CR_HSEBYP);
+ 765:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** }
+ 766:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 767:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 768:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Enable HSE crystal oscillator (HSE ON)
+ 769:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @rmtoll CR           HSEON         LL_RCC_HSE_Enable
+ 770:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval None
+ 771:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 772:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** __STATIC_INLINE void LL_RCC_HSE_Enable(void)
+ 773:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** {
+ 774:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   SET_BIT(RCC->CR, RCC_CR_HSEON);
+ 775:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** }
+ 776:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 777:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 778:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Disable HSE crystal oscillator (HSE ON)
+ 779:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @rmtoll CR           HSEON         LL_RCC_HSE_Disable
+ 780:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval None
+ 781:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 782:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** __STATIC_INLINE void LL_RCC_HSE_Disable(void)
+ 783:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** {
+ 784:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   CLEAR_BIT(RCC->CR, RCC_CR_HSEON);
+ 785:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** }
+ 786:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 787:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 788:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Check if HSE oscillator Ready
+ 789:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @rmtoll CR           HSERDY        LL_RCC_HSE_IsReady
+ 790:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval State of bit (1 or 0).
+ 791:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 792:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** __STATIC_INLINE uint32_t LL_RCC_HSE_IsReady(void)
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 26
+
+
+ 793:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** {
+ 794:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   return (READ_BIT(RCC->CR, RCC_CR_HSERDY) == (RCC_CR_HSERDY));
+ 795:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** }
+ 796:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 797:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #if defined(RCC_CFGR2_PREDIV2)
+ 798:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 799:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Get PREDIV2 division factor
+ 800:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @rmtoll CFGR2        PREDIV2       LL_RCC_HSE_GetPrediv2
+ 801:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval Returned value can be one of the following values:
+ 802:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_1
+ 803:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_2
+ 804:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_3
+ 805:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_4
+ 806:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_5
+ 807:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_6
+ 808:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_7
+ 809:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_8
+ 810:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_9
+ 811:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_10
+ 812:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_11
+ 813:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_12
+ 814:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_13
+ 815:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_14
+ 816:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_15
+ 817:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_HSE_PREDIV2_DIV_16
+ 818:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 819:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** __STATIC_INLINE uint32_t LL_RCC_HSE_GetPrediv2(void)
+ 820:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** {
+ 821:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   return (uint32_t)(READ_BIT(RCC->CFGR2, RCC_CFGR2_PREDIV2));
+ 822:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** }
+ 823:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** #endif /* RCC_CFGR2_PREDIV2 */
+ 824:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 825:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 826:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+ 827:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 828:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 829:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_EF_HSI HSI
+ 830:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+ 831:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 832:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 833:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 834:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Enable HSI oscillator
+ 835:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @rmtoll CR           HSION         LL_RCC_HSI_Enable
+ 836:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval None
+ 837:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 838:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** __STATIC_INLINE void LL_RCC_HSI_Enable(void)
+ 839:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** {
+ 840:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   SET_BIT(RCC->CR, RCC_CR_HSION);
+ 841:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** }
+ 842:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 843:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 844:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Disable HSI oscillator
+ 845:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @rmtoll CR           HSION         LL_RCC_HSI_Disable
+ 846:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval None
+ 847:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 848:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** __STATIC_INLINE void LL_RCC_HSI_Disable(void)
+ 849:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** {
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 27
+
+
+ 850:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   CLEAR_BIT(RCC->CR, RCC_CR_HSION);
+ 851:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** }
+ 852:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 853:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 854:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Check if HSI clock is ready
+ 855:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @rmtoll CR           HSIRDY        LL_RCC_HSI_IsReady
+ 856:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval State of bit (1 or 0).
+ 857:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 858:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** __STATIC_INLINE uint32_t LL_RCC_HSI_IsReady(void)
+ 859:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** {
+ 860:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   return (READ_BIT(RCC->CR, RCC_CR_HSIRDY) == (RCC_CR_HSIRDY));
+ 861:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** }
+ 862:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 863:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 864:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Get HSI Calibration value
+ 865:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @note When HSITRIM is written, HSICAL is updated with the sum of
+ 866:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *       HSITRIM and the factory trim value
+ 867:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @rmtoll CR        HSICAL        LL_RCC_HSI_GetCalibration
+ 868:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval Between Min_Data = 0x00 and Max_Data = 0xFF
+ 869:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 870:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** __STATIC_INLINE uint32_t LL_RCC_HSI_GetCalibration(void)
+ 871:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** {
+ 872:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   return (uint32_t)(READ_BIT(RCC->CR, RCC_CR_HSICAL) >> RCC_CR_HSICAL_Pos);
+ 873:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** }
+ 874:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 875:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 876:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Set HSI Calibration trimming
+ 877:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @note user-programmable trimming value that is added to the HSICAL
+ 878:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @note Default value is 16, which, when added to the HSICAL value,
+ 879:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *       should trim the HSI to 16 MHz +/- 1 %
+ 880:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @rmtoll CR        HSITRIM       LL_RCC_HSI_SetCalibTrimming
+ 881:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @param  Value between Min_Data = 0x00 and Max_Data = 0x1F
+ 882:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval None
+ 883:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 884:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** __STATIC_INLINE void LL_RCC_HSI_SetCalibTrimming(uint32_t Value)
+  73              		.loc 3 884 22 view .LVU12
+  74              	.LBB29:
+ 885:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** {
+ 886:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   MODIFY_REG(RCC->CR, RCC_CR_HSITRIM, Value << RCC_CR_HSITRIM_Pos);
+  75              		.loc 3 886 3 view .LVU13
+  76 0016 184A     		ldr	r2, .L6+4
+  77 0018 1368     		ldr	r3, [r2]
+  78 001a 23F0F803 		bic	r3, r3, #248
+  79 001e 43F08003 		orr	r3, r3, #128
+  80 0022 1360     		str	r3, [r2]
+  81              	.LVL3:
+  82              		.loc 3 886 3 is_stmt 0 view .LVU14
+  83              	.LBE29:
+  84              	.LBE28:
+  75:Core/Src/main.c ****   LL_RCC_HSI_Enable();
+  85              		.loc 1 75 3 is_stmt 1 view .LVU15
+  86              	.LBB30:
+  87              	.LBI30:
+ 838:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** {
+  88              		.loc 3 838 22 view .LVU16
+  89              	.LBB31:
+ 840:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** }
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 28
+
+
+  90              		.loc 3 840 3 view .LVU17
+  91 0024 1368     		ldr	r3, [r2]
+  92 0026 43F00103 		orr	r3, r3, #1
+  93 002a 1360     		str	r3, [r2]
+  94              	.L3:
+  95              	.LBE31:
+  96              	.LBE30:
+  76:Core/Src/main.c **** 
+  77:Core/Src/main.c ****    /* Wait till HSI is ready */
+  78:Core/Src/main.c ****   while(LL_RCC_HSI_IsReady() != 1)
+  79:Core/Src/main.c ****   {
+  80:Core/Src/main.c **** 
+  81:Core/Src/main.c ****   }
+  97              		.loc 1 81 3 discriminator 1 view .LVU18
+  78:Core/Src/main.c ****   {
+  98              		.loc 1 78 30 discriminator 1 view .LVU19
+  99              	.LBB32:
+ 100              	.LBI32:
+ 858:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** {
+ 101              		.loc 3 858 26 discriminator 1 view .LVU20
+ 102              	.LBB33:
+ 860:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** }
+ 103              		.loc 3 860 3 discriminator 1 view .LVU21
+ 860:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** }
+ 104              		.loc 3 860 11 is_stmt 0 discriminator 1 view .LVU22
+ 105 002c 124B     		ldr	r3, .L6+4
+ 106 002e 1B68     		ldr	r3, [r3]
+ 107              	.LBE33:
+ 108              	.LBE32:
+  78:Core/Src/main.c ****   {
+ 109              		.loc 1 78 30 discriminator 1 view .LVU23
+ 110 0030 13F0020F 		tst	r3, #2
+ 111 0034 FAD0     		beq	.L3
+  82:Core/Src/main.c ****   LL_RCC_SetAHBPrescaler(LL_RCC_SYSCLK_DIV_1);
+ 112              		.loc 1 82 3 is_stmt 1 view .LVU24
+ 113              	.LVL4:
+ 114              	.LBB34:
+ 115              	.LBI34:
+ 887:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** }
+ 888:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 889:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 890:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Get HSI Calibration trimming
+ 891:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @rmtoll CR        HSITRIM       LL_RCC_HSI_GetCalibTrimming
+ 892:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval Between Min_Data = 0x00 and Max_Data = 0x1F
+ 893:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 894:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** __STATIC_INLINE uint32_t LL_RCC_HSI_GetCalibTrimming(void)
+ 895:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** {
+ 896:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   return (uint32_t)(READ_BIT(RCC->CR, RCC_CR_HSITRIM) >> RCC_CR_HSITRIM_Pos);
+ 897:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** }
+ 898:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 899:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 900:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+ 901:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 902:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 903:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_EF_LSE LSE
+ 904:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+ 905:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 29
+
+
+ 906:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 907:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 908:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Enable  Low Speed External (LSE) crystal.
+ 909:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @rmtoll BDCR         LSEON         LL_RCC_LSE_Enable
+ 910:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval None
+ 911:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 912:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** __STATIC_INLINE void LL_RCC_LSE_Enable(void)
+ 913:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** {
+ 914:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   SET_BIT(RCC->BDCR, RCC_BDCR_LSEON);
+ 915:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** }
+ 916:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 917:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 918:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Disable  Low Speed External (LSE) crystal.
+ 919:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @rmtoll BDCR         LSEON         LL_RCC_LSE_Disable
+ 920:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval None
+ 921:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 922:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** __STATIC_INLINE void LL_RCC_LSE_Disable(void)
+ 923:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** {
+ 924:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   CLEAR_BIT(RCC->BDCR, RCC_BDCR_LSEON);
+ 925:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** }
+ 926:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 927:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 928:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Enable external clock source (LSE bypass).
+ 929:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @rmtoll BDCR         LSEBYP        LL_RCC_LSE_EnableBypass
+ 930:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval None
+ 931:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 932:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** __STATIC_INLINE void LL_RCC_LSE_EnableBypass(void)
+ 933:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** {
+ 934:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   SET_BIT(RCC->BDCR, RCC_BDCR_LSEBYP);
+ 935:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** }
+ 936:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 937:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 938:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Disable external clock source (LSE bypass).
+ 939:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @rmtoll BDCR         LSEBYP        LL_RCC_LSE_DisableBypass
+ 940:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval None
+ 941:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 942:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** __STATIC_INLINE void LL_RCC_LSE_DisableBypass(void)
+ 943:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** {
+ 944:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   CLEAR_BIT(RCC->BDCR, RCC_BDCR_LSEBYP);
+ 945:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** }
+ 946:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 947:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 948:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Check if LSE oscillator Ready
+ 949:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @rmtoll BDCR         LSERDY        LL_RCC_LSE_IsReady
+ 950:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval State of bit (1 or 0).
+ 951:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 952:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** __STATIC_INLINE uint32_t LL_RCC_LSE_IsReady(void)
+ 953:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** {
+ 954:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   return (READ_BIT(RCC->BDCR, RCC_BDCR_LSERDY) == (RCC_BDCR_LSERDY));
+ 955:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** }
+ 956:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 957:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 958:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+ 959:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 960:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 961:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_EF_LSI LSI
+ 962:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 30
+
+
+ 963:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 964:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 965:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 966:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Enable LSI Oscillator
+ 967:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @rmtoll CSR          LSION         LL_RCC_LSI_Enable
+ 968:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval None
+ 969:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 970:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** __STATIC_INLINE void LL_RCC_LSI_Enable(void)
+ 971:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** {
+ 972:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   SET_BIT(RCC->CSR, RCC_CSR_LSION);
+ 973:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** }
+ 974:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 975:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 976:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Disable LSI Oscillator
+ 977:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @rmtoll CSR          LSION         LL_RCC_LSI_Disable
+ 978:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval None
+ 979:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 980:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** __STATIC_INLINE void LL_RCC_LSI_Disable(void)
+ 981:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** {
+ 982:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   CLEAR_BIT(RCC->CSR, RCC_CSR_LSION);
+ 983:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** }
+ 984:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 985:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 986:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Check if LSI is Ready
+ 987:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @rmtoll CSR          LSIRDY        LL_RCC_LSI_IsReady
+ 988:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval State of bit (1 or 0).
+ 989:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 990:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** __STATIC_INLINE uint32_t LL_RCC_LSI_IsReady(void)
+ 991:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** {
+ 992:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   return (READ_BIT(RCC->CSR, RCC_CSR_LSIRDY) == (RCC_CSR_LSIRDY));
+ 993:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** }
+ 994:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 995:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+ 996:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @}
+ 997:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+ 998:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+ 999:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /** @defgroup RCC_LL_EF_System System
+1000:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @{
+1001:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+1002:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+1003:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+1004:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Configure the system clock source
+1005:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @rmtoll CFGR         SW            LL_RCC_SetSysClkSource
+1006:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @param  Source This parameter can be one of the following values:
+1007:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_SYS_CLKSOURCE_HSI
+1008:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_SYS_CLKSOURCE_HSE
+1009:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_SYS_CLKSOURCE_PLL
+1010:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval None
+1011:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+1012:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** __STATIC_INLINE void LL_RCC_SetSysClkSource(uint32_t Source)
+1013:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** {
+1014:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   MODIFY_REG(RCC->CFGR, RCC_CFGR_SW, Source);
+1015:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** }
+1016:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+1017:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+1018:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Get the system clock source
+1019:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @rmtoll CFGR         SWS           LL_RCC_GetSysClkSource
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 31
+
+
+1020:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval Returned value can be one of the following values:
+1021:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_SYS_CLKSOURCE_STATUS_HSI
+1022:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_SYS_CLKSOURCE_STATUS_HSE
+1023:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_SYS_CLKSOURCE_STATUS_PLL
+1024:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+1025:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** __STATIC_INLINE uint32_t LL_RCC_GetSysClkSource(void)
+1026:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** {
+1027:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   return (uint32_t)(READ_BIT(RCC->CFGR, RCC_CFGR_SWS));
+1028:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** }
+1029:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+1030:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+1031:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Set AHB prescaler
+1032:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @rmtoll CFGR         HPRE          LL_RCC_SetAHBPrescaler
+1033:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @param  Prescaler This parameter can be one of the following values:
+1034:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_SYSCLK_DIV_1
+1035:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_SYSCLK_DIV_2
+1036:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_SYSCLK_DIV_4
+1037:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_SYSCLK_DIV_8
+1038:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_SYSCLK_DIV_16
+1039:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_SYSCLK_DIV_64
+1040:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_SYSCLK_DIV_128
+1041:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_SYSCLK_DIV_256
+1042:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_SYSCLK_DIV_512
+1043:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval None
+1044:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+1045:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** __STATIC_INLINE void LL_RCC_SetAHBPrescaler(uint32_t Prescaler)
+ 116              		.loc 3 1045 22 view .LVU25
+ 117              	.LBB35:
+1046:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** {
+1047:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   MODIFY_REG(RCC->CFGR, RCC_CFGR_HPRE, Prescaler);
+ 118              		.loc 3 1047 3 view .LVU26
+ 119 0036 104B     		ldr	r3, .L6+4
+ 120 0038 5A68     		ldr	r2, [r3, #4]
+ 121 003a 22F0F002 		bic	r2, r2, #240
+ 122 003e 5A60     		str	r2, [r3, #4]
+ 123              	.LVL5:
+ 124              		.loc 3 1047 3 is_stmt 0 view .LVU27
+ 125              	.LBE35:
+ 126              	.LBE34:
+  83:Core/Src/main.c ****   LL_RCC_SetAPB1Prescaler(LL_RCC_APB1_DIV_1);
+ 127              		.loc 1 83 3 is_stmt 1 view .LVU28
+ 128              	.LBB36:
+ 129              	.LBI36:
+1048:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** }
+1049:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+1050:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+1051:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Set APB1 prescaler
+1052:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @rmtoll CFGR         PPRE1         LL_RCC_SetAPB1Prescaler
+1053:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @param  Prescaler This parameter can be one of the following values:
+1054:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_APB1_DIV_1
+1055:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_APB1_DIV_2
+1056:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_APB1_DIV_4
+1057:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_APB1_DIV_8
+1058:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_APB1_DIV_16
+1059:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval None
+1060:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+1061:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** __STATIC_INLINE void LL_RCC_SetAPB1Prescaler(uint32_t Prescaler)
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 32
+
+
+ 130              		.loc 3 1061 22 view .LVU29
+ 131              	.LBB37:
+1062:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** {
+1063:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   MODIFY_REG(RCC->CFGR, RCC_CFGR_PPRE1, Prescaler);
+ 132              		.loc 3 1063 3 view .LVU30
+ 133 0040 5A68     		ldr	r2, [r3, #4]
+ 134 0042 22F4E062 		bic	r2, r2, #1792
+ 135 0046 5A60     		str	r2, [r3, #4]
+ 136              	.LVL6:
+ 137              		.loc 3 1063 3 is_stmt 0 view .LVU31
+ 138              	.LBE37:
+ 139              	.LBE36:
+  84:Core/Src/main.c ****   LL_RCC_SetAPB2Prescaler(LL_RCC_APB2_DIV_1);
+ 140              		.loc 1 84 3 is_stmt 1 view .LVU32
+ 141              	.LBB38:
+ 142              	.LBI38:
+1064:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** }
+1065:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** 
+1066:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** /**
+1067:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @brief  Set APB2 prescaler
+1068:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @rmtoll CFGR         PPRE2         LL_RCC_SetAPB2Prescaler
+1069:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @param  Prescaler This parameter can be one of the following values:
+1070:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_APB2_DIV_1
+1071:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_APB2_DIV_2
+1072:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_APB2_DIV_4
+1073:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_APB2_DIV_8
+1074:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   *         @arg @ref LL_RCC_APB2_DIV_16
+1075:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   * @retval None
+1076:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   */
+1077:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** __STATIC_INLINE void LL_RCC_SetAPB2Prescaler(uint32_t Prescaler)
+ 143              		.loc 3 1077 22 view .LVU33
+ 144              	.LBB39:
+1078:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** {
+1079:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h ****   MODIFY_REG(RCC->CFGR, RCC_CFGR_PPRE2, Prescaler);
+ 145              		.loc 3 1079 3 view .LVU34
+ 146 0048 5A68     		ldr	r2, [r3, #4]
+ 147 004a 22F46052 		bic	r2, r2, #14336
+ 148 004e 5A60     		str	r2, [r3, #4]
+ 149              	.LVL7:
+ 150              		.loc 3 1079 3 is_stmt 0 view .LVU35
+ 151              	.LBE39:
+ 152              	.LBE38:
+  85:Core/Src/main.c ****   LL_RCC_SetSysClkSource(LL_RCC_SYS_CLKSOURCE_HSI);
+ 153              		.loc 1 85 3 is_stmt 1 view .LVU36
+ 154              	.LBB40:
+ 155              	.LBI40:
+1012:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** {
+ 156              		.loc 3 1012 22 view .LVU37
+ 157              	.LBB41:
+1014:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** }
+ 158              		.loc 3 1014 3 view .LVU38
+ 159 0050 5A68     		ldr	r2, [r3, #4]
+ 160 0052 22F00302 		bic	r2, r2, #3
+ 161 0056 5A60     		str	r2, [r3, #4]
+ 162              	.LVL8:
+ 163              	.L4:
+1014:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** }
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 33
+
+
+ 164              		.loc 3 1014 3 is_stmt 0 view .LVU39
+ 165              	.LBE41:
+ 166              	.LBE40:
+  86:Core/Src/main.c **** 
+  87:Core/Src/main.c ****    /* Wait till System clock is ready */
+  88:Core/Src/main.c ****   while(LL_RCC_GetSysClkSource() != LL_RCC_SYS_CLKSOURCE_STATUS_HSI)
+  89:Core/Src/main.c ****   {
+  90:Core/Src/main.c **** 
+  91:Core/Src/main.c ****   }
+ 167              		.loc 1 91 3 is_stmt 1 discriminator 1 view .LVU40
+  88:Core/Src/main.c ****   {
+ 168              		.loc 1 88 34 discriminator 1 view .LVU41
+ 169              	.LBB42:
+ 170              	.LBI42:
+1025:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** {
+ 171              		.loc 3 1025 26 discriminator 1 view .LVU42
+ 172              	.LBB43:
+1027:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** }
+ 173              		.loc 3 1027 3 discriminator 1 view .LVU43
+1027:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h **** }
+ 174              		.loc 3 1027 21 is_stmt 0 discriminator 1 view .LVU44
+ 175 0058 074B     		ldr	r3, .L6+4
+ 176 005a 5B68     		ldr	r3, [r3, #4]
+ 177              	.LBE43:
+ 178              	.LBE42:
+  88:Core/Src/main.c ****   {
+ 179              		.loc 1 88 34 discriminator 1 view .LVU45
+ 180 005c 13F00C0F 		tst	r3, #12
+ 181 0060 FAD1     		bne	.L4
+  92:Core/Src/main.c ****   LL_Init1msTick(8000000);
+ 182              		.loc 1 92 3 is_stmt 1 view .LVU46
+ 183 0062 064C     		ldr	r4, .L6+8
+ 184 0064 2046     		mov	r0, r4
+ 185 0066 FFF7FEFF 		bl	LL_Init1msTick
+ 186              	.LVL9:
+  93:Core/Src/main.c ****   LL_SetSystemCoreClock(8000000);
+ 187              		.loc 1 93 3 view .LVU47
+ 188 006a 2046     		mov	r0, r4
+ 189 006c FFF7FEFF 		bl	LL_SetSystemCoreClock
+ 190              	.LVL10:
+  94:Core/Src/main.c **** }
+ 191              		.loc 1 94 1 is_stmt 0 view .LVU48
+ 192 0070 10BD     		pop	{r4, pc}
+ 193              	.L7:
+ 194 0072 00BF     		.align	2
+ 195              	.L6:
+ 196 0074 00200240 		.word	1073881088
+ 197 0078 00100240 		.word	1073876992
+ 198 007c 00127A00 		.word	8000000
+ 199              		.cfi_endproc
+ 200              	.LFE398:
+ 202              		.section	.text.Error_Handler,"ax",%progbits
+ 203              		.align	1
+ 204              		.global	Error_Handler
+ 205              		.syntax unified
+ 206              		.thumb
+ 207              		.thumb_func
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 34
+
+
+ 209              	Error_Handler:
+ 210              	.LFB399:
+  95:Core/Src/main.c **** 
+  96:Core/Src/main.c **** /* USER CODE BEGIN 4 */
+  97:Core/Src/main.c **** 
+  98:Core/Src/main.c **** /* USER CODE END 4 */
+  99:Core/Src/main.c **** 
+ 100:Core/Src/main.c **** /**
+ 101:Core/Src/main.c ****   * @brief  This function is executed in case of error occurrence.
+ 102:Core/Src/main.c ****   * @retval None
+ 103:Core/Src/main.c ****   */
+ 104:Core/Src/main.c **** void Error_Handler(void)
+ 105:Core/Src/main.c **** {
+ 211              		.loc 1 105 1 is_stmt 1 view -0
+ 212              		.cfi_startproc
+ 213              		@ Volatile: function does not return.
+ 214              		@ args = 0, pretend = 0, frame = 0
+ 215              		@ frame_needed = 0, uses_anonymous_args = 0
+ 216              		@ link register save eliminated.
+ 106:Core/Src/main.c ****   /* USER CODE BEGIN Error_Handler_Debug */
+ 107:Core/Src/main.c ****   /* User can add his own implementation to report the HAL error return state */
+ 108:Core/Src/main.c ****   __disable_irq();
+ 217              		.loc 1 108 3 view .LVU50
+ 218              	.LBB44:
+ 219              	.LBI44:
+ 220              		.file 4 "Drivers/CMSIS/Include/cmsis_gcc.h"
+   1:Drivers/CMSIS/Include/cmsis_gcc.h **** /**************************************************************************//**
+   2:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @file     cmsis_gcc.h
+   3:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @brief    CMSIS compiler GCC header file
+   4:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @version  V5.0.4
+   5:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @date     09. April 2018
+   6:Drivers/CMSIS/Include/cmsis_gcc.h ****  ******************************************************************************/
+   7:Drivers/CMSIS/Include/cmsis_gcc.h **** /*
+   8:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Copyright (c) 2009-2018 Arm Limited. All rights reserved.
+   9:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
+  10:Drivers/CMSIS/Include/cmsis_gcc.h ****  * SPDX-License-Identifier: Apache-2.0
+  11:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
+  12:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Licensed under the Apache License, Version 2.0 (the License); you may
+  13:Drivers/CMSIS/Include/cmsis_gcc.h ****  * not use this file except in compliance with the License.
+  14:Drivers/CMSIS/Include/cmsis_gcc.h ****  * You may obtain a copy of the License at
+  15:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
+  16:Drivers/CMSIS/Include/cmsis_gcc.h ****  * www.apache.org/licenses/LICENSE-2.0
+  17:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
+  18:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Unless required by applicable law or agreed to in writing, software
+  19:Drivers/CMSIS/Include/cmsis_gcc.h ****  * distributed under the License is distributed on an AS IS BASIS, WITHOUT
+  20:Drivers/CMSIS/Include/cmsis_gcc.h ****  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  21:Drivers/CMSIS/Include/cmsis_gcc.h ****  * See the License for the specific language governing permissions and
+  22:Drivers/CMSIS/Include/cmsis_gcc.h ****  * limitations under the License.
+  23:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+  24:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+  25:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef __CMSIS_GCC_H
+  26:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __CMSIS_GCC_H
+  27:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+  28:Drivers/CMSIS/Include/cmsis_gcc.h **** /* ignore some GCC warnings */
+  29:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic push
+  30:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wsign-conversion"
+  31:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wconversion"
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 35
+
+
+  32:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wunused-parameter"
+  33:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+  34:Drivers/CMSIS/Include/cmsis_gcc.h **** /* Fallback for __has_builtin */
+  35:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef __has_builtin
+  36:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __has_builtin(x) (0)
+  37:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  38:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+  39:Drivers/CMSIS/Include/cmsis_gcc.h **** /* CMSIS compiler specific defines */
+  40:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __ASM
+  41:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __ASM                                  __asm
+  42:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  43:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __INLINE
+  44:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __INLINE                               inline
+  45:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  46:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __STATIC_INLINE
+  47:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __STATIC_INLINE                        static inline
+  48:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  49:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __STATIC_FORCEINLINE                 
+  50:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __STATIC_FORCEINLINE                   __attribute__((always_inline)) static inline
+  51:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif                                           
+  52:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __NO_RETURN
+  53:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __NO_RETURN                            __attribute__((__noreturn__))
+  54:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  55:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __USED
+  56:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __USED                                 __attribute__((used))
+  57:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  58:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __WEAK
+  59:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __WEAK                                 __attribute__((weak))
+  60:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  61:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __PACKED
+  62:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __PACKED                               __attribute__((packed, aligned(1)))
+  63:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  64:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __PACKED_STRUCT
+  65:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __PACKED_STRUCT                        struct __attribute__((packed, aligned(1)))
+  66:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  67:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __PACKED_UNION
+  68:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __PACKED_UNION                         union __attribute__((packed, aligned(1)))
+  69:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  70:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32        /* deprecated */
+  71:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  72:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  73:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  74:Drivers/CMSIS/Include/cmsis_gcc.h ****   struct __attribute__((packed)) T_UINT32 { uint32_t v; };
+  75:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+  76:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32(x)                  (((struct T_UINT32 *)(x))->v)
+  77:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  78:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT16_WRITE
+  79:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  80:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  81:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  82:Drivers/CMSIS/Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT16_WRITE { uint16_t v; };
+  83:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+  84:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_WRITE(addr, val)    (void)((((struct T_UINT16_WRITE *)(void *)(addr))-
+  85:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  86:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT16_READ
+  87:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  88:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 36
+
+
+  89:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  90:Drivers/CMSIS/Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT16_READ { uint16_t v; };
+  91:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+  92:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_READ(addr)          (((const struct T_UINT16_READ *)(const void *)(add
+  93:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  94:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_WRITE
+  95:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  96:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  97:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  98:Drivers/CMSIS/Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT32_WRITE { uint32_t v; };
+  99:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+ 100:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32_WRITE(addr, val)    (void)((((struct T_UINT32_WRITE *)(void *)(addr))-
+ 101:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 102:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_READ
+ 103:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+ 104:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+ 105:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+ 106:Drivers/CMSIS/Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT32_READ { uint32_t v; };
+ 107:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+ 108:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32_READ(addr)          (((const struct T_UINT32_READ *)(const void *)(add
+ 109:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 110:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __ALIGNED
+ 111:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __ALIGNED(x)                           __attribute__((aligned(x)))
+ 112:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 113:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __RESTRICT
+ 114:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __RESTRICT                             __restrict
+ 115:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 116:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 117:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 118:Drivers/CMSIS/Include/cmsis_gcc.h **** /* ###########################  Core Function Access  ########################### */
+ 119:Drivers/CMSIS/Include/cmsis_gcc.h **** /** \ingroup  CMSIS_Core_FunctionInterface
+ 120:Drivers/CMSIS/Include/cmsis_gcc.h ****     \defgroup CMSIS_Core_RegAccFunctions CMSIS Core Register Access Functions
+ 121:Drivers/CMSIS/Include/cmsis_gcc.h ****   @{
+ 122:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 123:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 124:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 125:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Enable IRQ Interrupts
+ 126:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
+ 127:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
+ 128:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 129:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __enable_irq(void)
+ 130:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 131:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsie i" : : : "memory");
+ 132:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 133:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 134:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 135:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 136:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Disable IRQ Interrupts
+ 137:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Disables IRQ interrupts by setting the I-bit in the CPSR.
+ 138:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
+ 139:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 140:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __disable_irq(void)
+ 221              		.loc 4 140 27 view .LVU51
+ 222              	.LBB45:
+ 141:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 142:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsid i" : : : "memory");
+ 223              		.loc 4 142 3 view .LVU52
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 37
+
+
+ 224              		.syntax unified
+ 225              	@ 142 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 226 0000 72B6     		cpsid i
+ 227              	@ 0 "" 2
+ 228              		.thumb
+ 229              		.syntax unified
+ 230              	.L9:
+ 231              	.LBE45:
+ 232              	.LBE44:
+ 109:Core/Src/main.c ****   while (1)
+ 233              		.loc 1 109 3 discriminator 1 view .LVU53
+ 110:Core/Src/main.c ****   {
+ 111:Core/Src/main.c ****   }
+ 234              		.loc 1 111 3 discriminator 1 view .LVU54
+ 109:Core/Src/main.c ****   while (1)
+ 235              		.loc 1 109 9 discriminator 1 view .LVU55
+ 236 0002 FEE7     		b	.L9
+ 237              		.cfi_endproc
+ 238              	.LFE399:
+ 240              		.text
+ 241              	.Letext0:
+ 242              		.file 5 "C:\\ST\\STM32CubeIDE_1.17.0\\STM32CubeIDE\\plugins\\com.st.stm32cube.ide.mcu.externaltool
+ 243              		.file 6 "C:\\ST\\STM32CubeIDE_1.17.0\\STM32CubeIDE\\plugins\\com.st.stm32cube.ide.mcu.externaltool
+ 244              		.file 7 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ 245              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_utils.h"
+ 246              		.file 9 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_dma.h"
+ARM GAS  C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s 			page 38
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s:19     .text.SystemClock_Config:00000000 $t
+C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s:25     .text.SystemClock_Config:00000000 SystemClock_Config
+C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s:196    .text.SystemClock_Config:00000074 $d
+C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s:203    .text.Error_Handler:00000000 $t
+C:\Users\hecto\AppData\Local\Temp\cc9QOtjV.s:209    .text.Error_Handler:00000000 Error_Handler
+
+UNDEFINED SYMBOLS
+LL_Init1msTick
+LL_SetSystemCoreClock

@@ -43,7 +43,9 @@ Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.c \
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_gpio.c \
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_rcc.c \
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_utils.c \
-Core/Src/system_stm32f1xx.c  
+Core/Src/system_stm32f1xx.c  \
+src/drivers/io.c \
+src/state_machine_run.c
 
 # ASM sources
 ASM_SOURCES =  \
@@ -114,7 +116,8 @@ C_INCLUDES =  \
 -ICore/Inc \
 -IDrivers/STM32F1xx_HAL_Driver/Inc \
 -IDrivers/CMSIS/Device/ST/STM32F1xx/Include \
--IDrivers/CMSIS/Include
+-IDrivers/CMSIS/Include \
+-Iinc/
 
 
 # compile gcc flags
