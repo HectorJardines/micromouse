@@ -15,13 +15,13 @@
 io_config_t pin_configurations[PIN_COUNT] = {
     // PORT A
     [IO_UNUSED_0] = UNUSED_CONFIG, [IO_UNUSED_1] = UNUSED_CONFIG, [IO_M1_PWM] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp}, [IO_M2_PWM] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp},
-    [IO_UNUSED_4] = UNUSED_CONFIG, [IO_UNUSED_5] = UNUSED_CONFIG, [IO_UNUSED_6] = UNUSED_CONFIG, [IO_UNUSED_7] = UNUSED_CONFIG,
+    [IO_UNUSED_4] = UNUSED_CONFIG, [IO_UNUSED_5] = UNUSED_CONFIG, [M1_ENC_A] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp}, [M1_ENC_B] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp},
     [IO_UNUSED_8] = UNUSED_CONFIG, [IO_UNUSED_9] = UNUSED_CONFIG, [IO_UNUSED_10] = UNUSED_CONFIG, [IO_UNUSED_11] = UNUSED_CONFIG,
     [IO_UNUSED_12] = UNUSED_CONFIG, [IO_UNUSED_13] = UNUSED_CONFIG, [IO_UNUSED_14] = UNUSED_CONFIG, [IO_UNUSED_15] = UNUSED_CONFIG,
 
     // PORT B
     [IO_UNUSED_16] = UNUSED_CONFIG, [IO_UNUSED_17] = UNUSED_CONFIG, [IO_UNUSED_18] = UNUSED_CONFIG, [IO_UNUSED_19] = UNUSED_CONFIG,
-    [IO_UNUSED_20] = UNUSED_CONFIG, [IO_UNUSED_21] = UNUSED_CONFIG, [IO_UNUSED_22] = UNUSED_CONFIG, [IO_UNUSED_23] = UNUSED_CONFIG,
+    [IO_UNUSED_20] = UNUSED_CONFIG, [IO_UNUSED_21] = UNUSED_CONFIG, [M2_ENC_B] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp}, [M2_ENC_A] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp},
     [IO_UNUSED_24] = UNUSED_CONFIG, [IO_UNUSED_25] = UNUSED_CONFIG, [IO_UNUSED_26] = UNUSED_CONFIG, [IO_UNUSED_27] = UNUSED_CONFIG,
     [IO_UNUSED_28] = UNUSED_CONFIG, [IO_UNUSED_29] = UNUSED_CONFIG, [IO_UNUSED_30] = UNUSED_CONFIG, [IO_UNUSED_31] = UNUSED_CONFIG,
 

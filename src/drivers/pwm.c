@@ -50,9 +50,25 @@ void pwm_init(void)
     initialized = true;
 }
 
-void pwm_enable(pwm_channel_e pwm, uint8_t EnOrDi)
+static bool pwm_enabled = false;
+static void pwm_enable(bool EnOrDi)
+{
+    if (pwm_enabled != EnOrDi && EnOrDi == true) {
+            // enable capture compare output
+            TIM2->CCER |= TIM_CCER_CC1E;
+            // enable counter
+            TIM2->CR1 |= TIM_CR1_CEN;
+    }
+    else if (pwm_enabled != EnOrDi && EnOrDi == false) {
+        TIM2->CR1 &= ~(TIM_CR1_CEN);
+    }
+    pwm_enabled = EnOrDi;
+}
+
+void pwm_channel_enable(pwm_channel_e pwm, uint8_t EnOrDi)
 {
     if (pwm_congfigs[pwm].enabled != ENABLE) {
+        // preload is enabled
         *pwm_congfigs[pwm].ccmrx |= (TIM_CCMR1_OC1PE);
         TIM2->CR1 |= (TIM_CR1_ARPE);
         TIM2->CR1 &= ~(TIM_CR1_CMS | TIM_CR1_DIR);
@@ -60,13 +76,10 @@ void pwm_enable(pwm_channel_e pwm, uint8_t EnOrDi)
         pwm_congfigs[pwm].enabled = EnOrDi;
 
         if (EnOrDi == ENABLE) {
-            // enable capture compare output
-            TIM2->CCER |= TIM_CCER_CC1E;
-            // enable counter
-            TIM2->CR1 |= TIM_CR1_CEN;
+            pwm_enable(ENABLE);
         }
         else if (all_pwm_channels_disbaled())
-            TIM2->CR1 &= ~(TIM_CR1_CEN);
+            pwm_enable(DISABLE);       
     }
 }
 
