@@ -3,8 +3,8 @@
 
 #define NO_OF_PWM_CFGS          (2U)
 #define PWM_TIMER_FREQ          (SYSCLK_FREQ_HZ)
-#define PWM_PERIOD_FREQ_HZ      (20000U) // 20KHz timer freq
-#define PWM_TIMER_PSC           (3U)
+#define PWM_PERIOD_FREQ_HZ      (5000U) // 5KHz timer freq (highest the l293d is rated for)
+#define PWM_TIMER_PSC           (15U)
 #define PWM_TIMER_TICK_COUNTS   ((PWM_TIMER_FREQ / PWM_PERIOD_FREQ_HZ) / (PWM_TIMER_PSC + 1))
 #define PWM_TIMER_PERIOD        (PWM_TIMER_TICK_COUNTS - 1)
 
