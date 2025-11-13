@@ -54,8 +54,8 @@ typedef enum
 {
     IO_UNUSED_0 = IO_A0,
     IO_UNUSED_1 = IO_A1,
-    IO_UNUSED_2 = IO_A2,
-    IO_UNUSED_3 = IO_A3,
+    IO_M1_PWM = IO_A2,
+    IO_M2_PWM = IO_A3,
     IO_UNUSED_4 = IO_A4,
     IO_UNUSED_5 = IO_A5,
     IO_UNUSED_6 = IO_A6,

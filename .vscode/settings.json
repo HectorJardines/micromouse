@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "io.h": "c",
-        "stm32f1xx_ll_rcc.h": "c"
+        "stm32f1xx_ll_rcc.h": "c",
+        "stm32f1xx_ll_tim.h": "c"
     }
 }
