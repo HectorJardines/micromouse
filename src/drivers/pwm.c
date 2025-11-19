@@ -65,7 +65,7 @@ static void pwm_enable(bool EnOrDi)
     pwm_enabled = EnOrDi;
 }
 
-void pwm_channel_enable(pwm_channel_e pwm, uint8_t EnOrDi)
+static void pwm_channel_enable(pwm_channel_e pwm, uint8_t EnOrDi)
 {
     if (pwm_congfigs[pwm].enabled != ENABLE) {
         // preload is enabled
@@ -90,5 +90,5 @@ void pwm_set_duty_cycle(pwm_channel_e pwm, uint8_t duty)
     bool enable = duty > 0;
     if (enable)
         *pwm_congfigs[pwm].ccrx = duty;
-    pwm_enable(pwm, enable);
+    pwm_channel_enable(pwm, enable);
 }

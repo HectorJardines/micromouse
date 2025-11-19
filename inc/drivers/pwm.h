@@ -10,7 +10,6 @@ typedef enum {
 } pwm_channel_e;
 
 void pwm_init(void);
-void pwm_set_duty_cycle(uint32_t duty);
-void pwm_channel_enable(pwm_channel_e pwm, uint8_t EnOrDi);
+void pwm_set_duty_cycle(pwm_channel_e pwm, uint32_t duty);
 
 #endif
