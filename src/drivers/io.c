@@ -16,16 +16,16 @@ io_config_t pin_configurations[PIN_COUNT] = {
     // PORT A
     [IO_UNUSED_0] = UNUSED_CONFIG, [IO_UNUSED_1] = UNUSED_CONFIG, [IO_M1_PWM] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp}, [IO_M2_PWM] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp},
     [IO_UNUSED_4] = UNUSED_CONFIG, [IO_UNUSED_5] = UNUSED_CONFIG, [M1_ENC_A] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp}, [M1_ENC_B] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp},
-    [IO_UNUSED_8] = UNUSED_CONFIG, [IO_UNUSED_9] = UNUSED_CONFIG, [IO_UNUSED_10] = UNUSED_CONFIG, [IO_UNUSED_11] = UNUSED_CONFIG,
+    [M1_DRIVER_IN1] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_gpio_pp}, [IO_UNUSED_9] = UNUSED_CONFIG, [IO_UNUSED_10] = UNUSED_CONFIG, [IO_UNUSED_11] = UNUSED_CONFIG,
     [IO_UNUSED_12] = UNUSED_CONFIG, [IO_UNUSED_13] = UNUSED_CONFIG, [IO_UNUSED_14] = UNUSED_CONFIG, [IO_UNUSED_15] = UNUSED_CONFIG,
 
     // PORT B
     [IO_UNUSED_16] = UNUSED_CONFIG, [IO_UNUSED_17] = UNUSED_CONFIG, [IO_UNUSED_18] = UNUSED_CONFIG, [IO_UNUSED_19] = UNUSED_CONFIG,
     [IO_UNUSED_20] = UNUSED_CONFIG, [IO_UNUSED_21] = UNUSED_CONFIG, [M2_ENC_B] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp}, [M2_ENC_A] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp},
     [IO_UNUSED_24] = UNUSED_CONFIG, [IO_UNUSED_25] = UNUSED_CONFIG, [IO_UNUSED_26] = UNUSED_CONFIG, [IO_UNUSED_27] = UNUSED_CONFIG,
-    [IO_UNUSED_28] = UNUSED_CONFIG, [IO_UNUSED_29] = UNUSED_CONFIG, [IO_UNUSED_30] = UNUSED_CONFIG, [IO_UNUSED_31] = UNUSED_CONFIG,
+    [IO_UNUSED_28] = UNUSED_CONFIG, [M2_DRIVER_IN1] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_gpio_pp}, [M1_DRIVER_IN2] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_gpio_pp}, [M2_DRIVER_IN2] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_gpio_pp},
 
-    // PORT B
+    // PORT C
     [IO_UNUSED_32] = UNUSED_CONFIG, [IO_UNUSED_33] = UNUSED_CONFIG, [IO_UNUSED_34] = UNUSED_CONFIG, [IO_UNUSED_35] = UNUSED_CONFIG,
     [IO_UNUSED_36] = UNUSED_CONFIG, [IO_UNUSED_37] = UNUSED_CONFIG, [IO_UNUSED_38] = UNUSED_CONFIG, [IO_UNUSED_39] = UNUSED_CONFIG,
     [IO_UNUSED_40] = UNUSED_CONFIG, [IO_UNUSED_41] = UNUSED_CONFIG, [IO_UNUSED_42] = UNUSED_CONFIG, [IO_UNUSED_43] = UNUSED_CONFIG,
@@ -159,4 +159,15 @@ void io_interrupt_configure(io_e io, exti_no_e exti_no, io_it_trigger_e trigger)
 
     // unmask the interrupts on corresponding exti line
     EXTI->IMR |= (SET << exti_no);
+}
+
+void io_set_out(io_e io, io_out_e out)
+{
+    uint8_t port = io_port(io);
+    uint8_t pin_no = io_pin_idx(io);
+
+    if (out == LOW)
+        gpiox[port]->ODR &= ~(0x1U << io);
+    else
+        gpiox[port]->ODR |= (0x1U << io);
 }

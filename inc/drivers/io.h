@@ -60,7 +60,7 @@ typedef enum
     IO_UNUSED_5 = IO_A5,
     M1_ENC_A = IO_A6,
     M1_ENC_B = IO_A7,
-    IO_UNUSED_8 = IO_A8,
+    M1_DRIVER_IN1 = IO_A8,
     IO_UNUSED_9 = IO_A9,
     IO_UNUSED_10 = IO_A10,
     IO_UNUSED_11 = IO_A11,
@@ -81,9 +81,9 @@ typedef enum
     IO_UNUSED_26 = IO_B10,
     IO_UNUSED_27 = IO_B11,
     IO_UNUSED_28 = IO_B12,
-    IO_UNUSED_29 = IO_B13,
-    IO_UNUSED_30 = IO_B14,
-    IO_UNUSED_31 = IO_B15,
+    M2_DRIVER_IN1 = IO_B13,
+    M1_DRIVER_IN2 = IO_B14,
+    M2_DRIVER_IN2 = IO_B15,
     IO_UNUSED_32 = IO_C0,
     IO_UNUSED_33 = IO_C1,
     IO_UNUSED_34 = IO_C2,
@@ -152,6 +152,12 @@ typedef enum
     io_it_ft_rt
 } io_it_trigger_e;
 
+typedef enum 
+{
+    LOW,
+    HIGH
+} io_out_e;
+
 /**********************************
 *          USER IO Structs
 ***********************************/
@@ -200,6 +206,6 @@ void io_get_configuration(io_e io, io_config_t *actual);
  */
 inline bool io_verify_config(io_config_t *curr_cnf, io_config_t *expected_cnf);
 
-
+void io_set_out(io_e, io_out_e);
 
 #endif
