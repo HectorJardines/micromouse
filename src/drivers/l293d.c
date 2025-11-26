@@ -38,7 +38,14 @@ void l293d_set_dir(pwm_channel_e pwm, l293d_dir_e dir)
     }
 }
 
-void l293d_set_speed(pwm_channel_e pwm, uint8_t duty_cycle) {
-    // pwm_channel_enable(pwm, ENABLE);
+static uint8_t limit_pwm_value(int16_t duty) {
+    if (duty < 0)
+        duty = (duty * -1);
+
+    
+}
+
+void l293d_set_speed(pwm_channel_e pwm, int16_t duty_cycle) {
+    uint8_t duty = limit_pwm_value(duty_cycle);
     pwm_set_duty_cycle(pwm, duty_cycle);
 }
