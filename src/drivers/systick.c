@@ -18,13 +18,17 @@ static void systick_configure(uint32_t ticks) {
                     SysTick_CTRL_ENABLE_Msk;                         /* Enable SysTick IRQ and SysTick Timer */
     return (0UL);
 }
+
+static uint8_t initialized = 0;
 // could just use the systick config function, but i like to see what is happening so copy code here
 void systick_init(void) {
+    ASSERT(!initialized);
     systick_configure(SYSCLK_FREQ_HZ / 1000);
+    initialized = 1;
 }
 
 void SysTick_Handler(void) {
-    // pid handling every ms ensures our control is system is update frequently
+    // pid handling every ms ensures our control is system is updated frequently
     update_pid();
 
     if (encoder_read_left_count() > 31000 || encoder_read_right_count() > 31000

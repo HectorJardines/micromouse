@@ -1,5 +1,5 @@
 #include "pid.h"
-#include "l293d.h"
+#include "tb6612fng.h"
 #include "encoder.h"
 
 struct pid_cntl_dist {
