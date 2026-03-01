@@ -55,4 +55,4 @@ dkms.conf
 *.dwo
 
 #pcb
-bare_mouse/**
+/bare_mouse/*
