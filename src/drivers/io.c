@@ -35,17 +35,33 @@ io_config_t pin_configurations[PIN_COUNT] = {
 static GPIO_TypeDef *gpiox[PORT_COUNT] = { GPIOA, GPIOB, GPIOC };
 
 typedef void (*irq_handler)(void);
-static irq_handler interrupt_handlers[PIN_COUNT];
+static irq_handler interrupt_handlers[PORT_COUNT][PIN_COUNT] = {
+    [IO_PORTA_NUM] = {NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL},
+    [IO_PORTB_NUM] = {NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL},
+    [IO_PORTC_NUM] = {NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL}
+};
 
 /************************
  *      IO CONFIG APIs
  ************************/
 /**
- * these functions allow use to retrieve the io port, pin number, and pin bit position
+ * these functions allow user to retrieve the io port, pin number, and pin bit position
  * the stm32f103c8t6 has 48 pins and 3 ports, the io_e enum represents each pin as a 
  * numeric value from 0-47, the lower 4 bits can be used to represent the pin number.
  * the following 2 bits can be used to represent the three ports
 */
+
+void io_set_out(io_e io, io_out_e out)
+{
+    uint8_t port = io_port(io);
+    uint8_t pin_no = io_pin_idx(io);
+
+    if (out == LOW)
+        gpiox[port]->ODR &= ~(0x1U << io);
+    else
+        gpiox[port]->ODR |= (0x1U << io);
+}
+
 static uint8_t io_port(io_e io)
 {
     return (io & IO_PORT_MASK) >> IO_PORT_OFFSET;
@@ -97,16 +113,26 @@ void io_init(io_e io, const io_config_t *io_config)
     if (pin_idx > IO_PIN_7) {
         pin_idx = pin_idx % NO_OF_HI_BITS;
         pin_mode_bit = pin_idx * 4;
+        // clear pin mode
+        gpiox[port]->CRH &= ~(0x3U << (pin_mode_bit));
         // set pin mode
         gpiox[port]->CRH |= (io_config->mode << (pin_mode_bit));
+        
+        //clear pin cnf
+        gpiox[port]->CRH &= (0x3U << (pin_mode_bit + IO_CRx_CNF_OFF));
         // set pin configuration
         gpiox[port]->CRH |= (io_config->mode_config << (pin_mode_bit + IO_CRx_CNF_OFF));
     }
     else {
+        // clear pin mode
+        gpiox[port]->CRH &= ~(0x3U << (pin_mode_bit));
         // set pin mode
-        gpiox[port]->CRL |= (io_config->mode << (pin_mode_bit));
+        gpiox[port]->CRH |= (io_config->mode << (pin_mode_bit));
+
+        //clear pin cnf
+        gpiox[port]->CRH &= (0x3U << (pin_mode_bit + IO_CRx_CNF_OFF));
         // set pin configuration
-        gpiox[port]->CRL |= (io_config->mode_config << (pin_mode_bit + IO_CRx_CNF_OFF));
+        gpiox[port]->CRH |= (io_config->mode_config << (pin_mode_bit + IO_CRx_CNF_OFF));
     }
 }
 
@@ -127,10 +153,53 @@ void io_configure(void)
 /********************************
  *       IO INTERRUPT APIs
  */
+static IRQn_Type get_irq_no(uint8_t io_num) {
+    IRQn_Type irq_no = 0;
+    switch (io_num) {
+        case IO_PIN_0:
+            irq_no = EXTI0_IRQn;
+            break;
+        case IO_PIN_1:
+            irq_no = EXTI1_IRQn;
+            break;
+        case IO_PIN_2:
+            irq_no = EXTI2_IRQn;
+            break;
+        case IO_PIN_3:
+            irq_no = EXTI3_IRQn;
+            break;
+        case IO_PIN_4:
+            irq_no = EXTI4_IRQn;
+            break;
+        case IO_PIN_5:
+        case IO_PIN_6:
+        case IO_PIN_7:
+        case IO_PIN_8:
+        case IO_PIN_9:
+            irq_no = EXTI9_5_IRQn;
+            break;
+        case IO_PIN_10:
+        case IO_PIN_11:
+        case IO_PIN_12:
+        case IO_PIN_13:
+        case IO_PIN_14:
+        case IO_PIN_15:
+            irq_no = EXTI15_10_IRQn;
+            break;
+    }
+    return irq_no;
+}
+
+static void io_irq_enable_interrupt(IRQn_Type io_irq_no, uint32_t irq_prio) {
+    NVIC_EnableIRQ(io_irq_no);
+    NVIC_SetPriority(io_irq_no, irq_prio);
+}
 
 void register_interrupt(io_e io, irq_handler handler)
 {
-    interrupt_handlers[io] = handler;
+    io_pin_no_e pin_num = io_pin_idx(io);
+    io_port_num_e port_num = io_port(io);
+    interrupt_handlers[port_num][pin_num] = handler;
 }
 
 void io_interrupt_configure(io_e io, exti_no_e exti_no, io_it_trigger_e trigger)
@@ -140,7 +209,8 @@ void io_interrupt_configure(io_e io, exti_no_e exti_no, io_it_trigger_e trigger)
     uint8_t exticr_num = exti_no / 4;
     uint8_t exticr_bit_idx = (exti_no % 4) * NO_BITS_PER_EXTI;
 
-    // set port for EXTI line to be configured to
+    // clear and set port for EXTI line to be configured to
+    AFIO->EXTICR[exticr_num] |= ~(ENABLE << exticr_bit_idx);
     AFIO->EXTICR[exticr_num] |= (port_num << exticr_bit_idx);
 
     // configure the interrupt trigger selection
@@ -161,13 +231,88 @@ void io_interrupt_configure(io_e io, exti_no_e exti_no, io_it_trigger_e trigger)
     EXTI->IMR |= (SET << exti_no);
 }
 
-void io_set_out(io_e io, io_out_e out)
-{
-    uint8_t port = io_port(io);
-    uint8_t pin_no = io_pin_idx(io);
+static io_port_num_e retrieve_exti_port_num(IRQn_Type irq_n) {
+    io_port_num_e active_exti_port = AFIO->EXTICR[irq_n >> 2] & 0xFU;
+    return active_exti_port;
+}
 
-    if (out == LOW)
-        gpiox[port]->ODR &= ~(0x1U << io);
-    else
-        gpiox[port]->ODR |= (0x1U << io);
+void EXTI0_IRQHandler(void) {
+    // retrieve port number
+    io_port_num_e port_n = retrieve_exti_port_num(exti_no_0);
+    // call registered ISR
+    interrupt_handlers[port_n][exti_no_0]();
+    // clear pending bit
+    EXTI->PR |= (ENABLE << exti_no_0);
+}
+
+void EXTI1_IRQHandler(void) {
+    // retrieve port number
+    io_port_num_e port_n = retrieve_exti_port_num(exti_no_1);
+    // call registered ISR
+    interrupt_handlers[port_n][exti_no_1]();
+    // clear pending bit
+    EXTI->PR |= (ENABLE << exti_no_1);
+}
+
+void EXTI2_IRQHandler(void) {
+    // retrieve port number
+    io_port_num_e port_n = retrieve_exti_port_num(exti_no_2);
+    // call registered ISR
+    interrupt_handlers[port_n][exti_no_2]();
+    // clear pending bit
+    EXTI->PR |= (ENABLE << exti_no_2);
+}
+
+void EXTI3_IRQHandler(void) {
+    // retrieve port number
+    io_port_num_e port_n = retrieve_exti_port_num(exti_no_3);
+    // call registered ISR
+    interrupt_handlers[port_n][exti_no_3]();
+    // clear pending bit
+    EXTI->PR |= (ENABLE << exti_no_3);
+}
+
+void EXTI4_IRQHandler(void) {
+    // retrieve port number
+    io_port_num_e port_n = retrieve_exti_port_num(exti_no_4);
+    // call registered ISR
+    interrupt_handlers[port_n][exti_no_4]();
+    // clear pending bit
+    EXTI->PR |= (ENABLE << exti_no_4);
+}
+
+/**
+ * Used in EXTI IRQHandlers with multiple interrupt sources. Retrieve the current EXTI line that
+ * is the source of the current interrupt
+ */
+
+static inline uint8_t get_exti_line(void)
+{
+	for (uint8_t pin_trigger = EXTI_PR_PR5_Pos; pin_trigger < EXTI_PR_PR16_Pos; ++pin_trigger)
+	{
+		uint8_t check_pr_set = (EXTI->PR >> pin_trigger) & 0x1;
+		if (check_pr_set == SET)
+		{
+			return pin_trigger;
+		}
+	}
+	return RESET;
+}
+
+void EXTI9_5_IRQHandler(void) {
+    uint8_t exti_line_no = get_exti_line();
+    io_port_num_e port_n = retrieve_exti_port_num(exti_line_no);
+    // call registered ISR
+    interrupt_handlers[port_n][exti_line_no]();
+    // clear pending bit
+    EXTI->PR |= (ENABLE << exti_line_no);
+}
+
+void EXTI15_10_IRQHandler(void) {
+    uint8_t exti_line_no = get_exti_line();
+    io_port_num_e port_n = retrieve_exti_port_num(exti_line_no);
+    // call registered ISR
+    interrupt_handlers[port_n][exti_line_no]();
+    // clear pending bit
+    EXTI->PR |= (ENABLE << exti_line_no);
 }

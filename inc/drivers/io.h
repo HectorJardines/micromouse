@@ -6,9 +6,21 @@
 #include <stdint.h>
 #include <stdbool.h>
 
+#define ENABLE  (0x1U)
+#define DISABLE (0x0U)
+#define SET     (ENABLE)
+#define RESET   (DISABLE)
+
 /**********************************
 *          USER IO ENUMS
 ***********************************/
+typedef enum 
+{
+    IO_PORTA_NUM,
+    IO_PORTB_NUM,
+    IO_PORTC_NUM
+} io_port_num_e;
+
 typedef enum
 {
     IO_PIN_0,
@@ -127,10 +139,10 @@ typedef enum
 
 typedef enum
 {
-    exit_no_0,
+    exti_no_0,
     exti_no_1,
     exti_no_2,
-    exit_no_3,
+    exti_no_3,
     exti_no_4,
     exti_no_5,
     exit_no_6,
