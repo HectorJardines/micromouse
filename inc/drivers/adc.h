@@ -3,6 +3,7 @@
 
 #include "../../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_adc.h"
 #include <stdint.h>
+#include "inc/drivers/io.h"
 
 #define ADC_CHANNEL_CNT (16U)
 #define ADC_IRQ_NO      (0U)

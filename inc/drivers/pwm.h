@@ -5,8 +5,8 @@
 #include "./io.h"
 
 typedef enum {
-    PWM_L293D_LEFT,
-    PWM_L293D_RIGHT
+    PWM_TB6612FNG_LEFT,
+    PWM_TB6612FNG_RIGHT
 } pwm_channel_e;
 
 void pwm_init(void);

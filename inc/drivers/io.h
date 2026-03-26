@@ -3,6 +3,7 @@
 
 #include "../../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h"
 #include "../../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
+#include "../../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
 #include <stdint.h>
 #include <stdbool.h>
 

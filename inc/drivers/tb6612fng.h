@@ -1,20 +1,20 @@
-#ifndef _L293D_H
-#define _L293D_H
+#ifndef _TB6612FNG_H
+#define _TB6612FNG_H
 #include "pwm.h"
 
 typedef enum {
     dir_stop,
     dir_forward,
     dir_reverse
-} l293d_dir_e;
+} tb6612fng_dir_e;
 
 typedef enum {
-    l293d_motor_left,
-    l293d_motor_right
-} l293d_motor_e;
+    tb6612fng_motor_left,
+    tb6612fng_motor_right
+} tb6612fng_motor_e;
 
-void l293d_init(void);
-void l293d_set_dir(pwm_channel_e pwm, l293d_dir_e dir);
-void l293d_set_speed(pwm_channel_e pwm, int16_t duty_cycle);
+void tb6612fng_init(void);
+void tb6612fng_set_dir(pwm_channel_e pwm, tb6612fng_dir_e dir);
+void tb6612fng_set_speed(pwm_channel_e pwm, int16_t duty_cycle);
 
 #endif

@@ -7,12 +7,12 @@ struct cntl_pins {
 };
 
 struct cntl_pins driver_input_cnfgs[] = {
-    [l293d_motor_left] = {M1_DRIVER_IN1, M1_DRIVER_IN2},
-    [l293d_motor_right] = {M2_DRIVER_IN1, M2_DRIVER_IN2}
+    [tb6612fng_motor_left] = {M1_DRIVER_IN1, M1_DRIVER_IN2},
+    [tb6612fng_motor_right] = {M2_DRIVER_IN1, M2_DRIVER_IN2}
 };
 
 static bool initialized = false;
-void l293d_init(void)
+void tb6612fng_init(void)
 {
     if (initialized)
         return;
@@ -20,7 +20,7 @@ void l293d_init(void)
     initialized = true;
 }
 
-void l293d_set_dir(pwm_channel_e pwm, l293d_dir_e dir)
+void tb6612fng_set_dir(pwm_channel_e pwm, tb6612fng_dir_e dir)
 {
     switch (dir) {
         case dir_stop:
@@ -28,24 +28,18 @@ void l293d_set_dir(pwm_channel_e pwm, l293d_dir_e dir)
             io_set_out(driver_input_cnfgs[pwm].driver_in_2, LOW);
             break;
         case dir_forward:
-            io_set_out(driver_input_cnfgs[pwm].driver_in_1, LOW);
-            io_set_out(driver_input_cnfgs[pwm].driver_in_2, HIGH);
-            break;
-        case dir_reverse:
             io_set_out(driver_input_cnfgs[pwm].driver_in_1, HIGH);
             io_set_out(driver_input_cnfgs[pwm].driver_in_2, LOW);
+            break;
+        case dir_reverse:
+            io_set_out(driver_input_cnfgs[pwm].driver_in_1, LOW);
+            io_set_out(driver_input_cnfgs[pwm].driver_in_2, HIGH);
             break;
     }
 }
 
-static uint8_t limit_pwm_value(int16_t duty) {
-    if (duty < 0)
-        duty = (duty * -1);
 
-    
-}
-
-void l293d_set_speed(pwm_channel_e pwm, int16_t duty_cycle) {
+void tb6612fng_set_speed(pwm_channel_e pwm, int16_t duty_cycle) {
     uint8_t duty = limit_pwm_value(duty_cycle);
     pwm_set_duty_cycle(pwm, duty_cycle);
 }

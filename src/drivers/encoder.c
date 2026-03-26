@@ -56,6 +56,7 @@ void encoder_set_count(encoder_e encoder, int16_t count) {
 }
 
 void encoder_reset_all(void) {
-    encoder_configs[encoder_left] = 0;
-    encoder_configs[encoder_right] = 0;
+    // resets both encoder counts
+    encoder_configs[encoder_left]->CNT = 0;
+    encoder_configs[encoder_right]->CNT = 0;
 }
