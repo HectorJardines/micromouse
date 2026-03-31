@@ -56,3 +56,6 @@ dkms.conf
 
 #pcb
 /bare_mouse/*
+
+#build
+/build/*
