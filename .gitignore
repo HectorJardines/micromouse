@@ -59,3 +59,7 @@ dkms.conf
 
 #build
 /build/*
+Core/tests/build/*
+
+#.vscode
+.vscode/*

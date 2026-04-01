@@ -54,7 +54,7 @@ Core/Src/system_stm32f1xx.c \
 Core/Src/app/drive.c \
 Core/Src/app/floodfill.c \
 Core/Src/app/state_machine_run.c \
-Core/Src/common/assert.c \
+Core/Src/common/assert_handler.c \
 Core/Src/common/logging.c \
 Core/Src/common/ring_buffer.c \
 Core/Src/drivers/adc.c \
@@ -69,6 +69,7 @@ Core/Src/drivers/spi.c \
 Core/Src/drivers/systick.c \
 Core/Src/drivers/tb6612fng.c \
 Core/Src/drivers/uart.c \
+Core/tests/test_hardware.c \
 
 # ASM sources
 ASM_SOURCES =  \
