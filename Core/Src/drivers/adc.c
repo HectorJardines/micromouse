@@ -1,11 +1,18 @@
 #include "../../inc/drivers/adc.h"
 #include "../inc/common/assert_handler.h"
+#include "../Inc/drivers/dma.h"
 
 #define NUM_OF_CONV_PER_SEQ (4U)
 #define ADC1_CHAN_4 (4U)
 #define ADC1_CHAN_5 (5U)
 #define ADC1_CHAN_8 (8U)
 #define ADC1_CHAN_9 (9U)
+
+#define NO_SAMPLES_READ (1500U)
+
+adc_channel_values_t sensor_samples = {NO_SAMPLES_READ};
+// samples cache allows us to keep a stable block of memory from which we can always read
+adc_channel_values_t sensor_samples_cache = {NO_SAMPLES_READ};
 
 static void adc_power_on(void) {
     // enable ADC peripheral clock
@@ -31,6 +38,7 @@ static void adc_set_channel_sequence(void) {
 static bool initialized = false;
 void adc_init(void) {
     ASSERT(!initialized, ASSERT_PERIPHERAL_LEVEL);
+    // TODO: CHECK IF WE NEED TO POWER OFF ADC TO CONFIGURE
     adc_power_on();
     // configure the peripheral SCAN mode
     ADC1->CR1 |= (ADC_CR1_SCAN);
@@ -42,9 +50,21 @@ void adc_init(void) {
     ADC1->CR2 &= ~(ADC_CR2_ALIGN);
     // configure conversion sequence
     adc_set_channel_sequence();
+    dma_init(&ADC1->DR, sensor_samples);
     initialized = true;
 }
 
 void adc_sample_channels(adc_channel_values_t *values) {
-    
+    // TODO: DISABLE INTERRUPTS, DONT WANT TO MODIFY SAMPLES AS WE COPY OVER
+    for (int i = 0; i < NUM_OF_CONV_PER_SEQ; ++i) {
+        *values[i] = sensor_samples_cache[i];
+    }
+}
+
+void DMA1_Channel1_IRQHandler(void) {
+    // 1. move samples from dma buffer to samples cache
+    for (int i = 0; i < NUM_OF_CONV_PER_SEQ; i++)
+        sensor_samples_cache[i] = sensor_samples[i];
+    // 2. clear interrupt
+    dma_clear_tx_complete_int();
 }

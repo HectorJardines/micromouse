@@ -55,7 +55,7 @@ Core/Src/app/drive.c \
 Core/Src/app/floodfill.c \
 Core/Src/app/state_machine_run.c \
 Core/Src/common/assert_handler.c \
-Core/Src/common/logging.c \
+Core/Src/common/log.c \
 Core/Src/common/ring_buffer.c \
 Core/Src/drivers/adc.c \
 Core/Src/drivers/bmi160.c \
@@ -70,6 +70,7 @@ Core/Src/drivers/systick.c \
 Core/Src/drivers/tb6612fng.c \
 Core/Src/drivers/uart.c \
 Core/tests/test_hardware.c \
+Core/external/printf/printf.c \
 
 # ASM sources
 ASM_SOURCES =  \
@@ -129,6 +130,7 @@ AS_INCLUDES =
 
 # C includes
 C_INCLUDES =  \
+-ICore/external/printf \
 -ICore/Inc \
 -ICore/Inc/app \
 -ICore/Inc/drivers \

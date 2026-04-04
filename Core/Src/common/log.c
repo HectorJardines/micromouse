@@ -1,7 +1,7 @@
 #include "log.h"
 #include "uart.h"
 #include "assert_handler.h"
-#include "external/printf/printf.h"
+#include "../external/printf/printf.h"
 #include <stdarg.h>
 
 #define LOG(fmt, ...)
