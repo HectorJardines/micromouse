@@ -28,14 +28,14 @@ void systick_init(void) {
     initialized = 1;
 }
 
-void SysTick_Handler(void) {
-    // pid handling every ms ensures our control is system is updated frequently
-    update_pid();
+// void SysTick_Handler(void) {
+//     // pid handling every ms ensures our control is system is updated frequently
+//     update_pid();
 
-    if (encoder_read_left_count() > 31000 || encoder_read_right_count() > 31000
-        || encoder_read_left_count() < -31000 || encoder_read_right_count() < -31000) {
-            int16_t difference = encoder_read_left_count() - encoder_read_right_count();
-            encoder_reset_all();
-            encoder_set_count(encoder_left, difference);
-    }
-}
+//     if (encoder_read_left_count() > 31000 || encoder_read_right_count() > 31000
+//         || encoder_read_left_count() < -31000 || encoder_read_right_count() < -31000) {
+//             int16_t difference = encoder_read_left_count() - encoder_read_right_count();
+//             encoder_reset_all();
+//             encoder_set_count(encoder_left, difference);
+//     }
+// }

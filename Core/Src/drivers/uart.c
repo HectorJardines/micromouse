@@ -39,21 +39,30 @@ static void usart_tx_interrupt_disable(void) {
 }
 
 static void usart_configure(void) {
+    // DISABLE HWFLOWCTRL
+    USART3->CR3 &= ~(USART_CR3_CTSE | USART_CR3_RTSE);
+    // ENABLE TRANSMITTER and RECEIVER
+    USART3->CR1 |= (USART_CR1_TE | USART_CR1_RE);
     // configure 8 bit word length
     USART3->CR1 &= ~(USART_CR1_M);
     // configure 1 stop bit
-    USART3->CR1 &= ~(0x3U << USART_CR2_STOP_Pos);
+    USART3->CR2 &= ~(0x3U << USART_CR2_STOP_Pos);
+    // disable parity control
+    USART3->CR1 &= ~(USART_CR1_PCE);
     // configure baudrate register for 115200 baud rate
-    USART3->BRR |= (USART_BRR_FRAC << USART_BRR_DIV_Fraction_Pos);
-    USART3->BRR |= (USART_BRR_MANTISSA << USART_BRR_DIV_Mantissa_Pos);
+    USART3->BRR = (USART_BRR_MANTISSA << USART_BRR_DIV_Mantissa_Pos) | USART_BRR_FRAC;
+
+    // CLEAR BITS FOR ASYNC MODE
+    USART3->CR2 &= ~(USART_CR2_LINEN | USART_CR2_CLKEN);
+    USART3->CR3 &= ~(USART_CR3_SCEN | USART_CR3_HDSEL | USART_CR3_IREN);
 }
 
 void usart_init(void) {
     usart_peripheral_clk_ctl(ENABLE);
     usart_configure();
 
-    // interrupt configuration
-    usart_tx_interrupt_enable();
+    // TODO: ITS LIKELY THAT THIS WILL TRIGGER AND INTERRUPT AND POP FROM RB BEFORE SETUP
+    // usart_tx_interrupt_enable();
     NVIC_EnableIRQ(USART3_IRQn);
 
     usart_peripheral_ctl(ENABLE);
@@ -74,13 +83,12 @@ void _putchar(char c) {
         _putchar('\r');
     // TRANSMISSION ONGOING
     while (ring_buffer_full(&usart_tx_buf));
-    usart_tx_interrupt_disable();
+    usart_tx_interrupt_disable(); // shared resources with interrupt handler
     ring_buffer_push(&usart_tx_buf, &c);
     if (usart_tx_status == COMPLETE)
         usart_start_write_it();
     usart_tx_interrupt_enable();
 }
-
 
 /************************ INTERRUPT APIs *************************/
 static uint8_t usart_get_flag_status(uint32_t flag) {
@@ -93,7 +101,8 @@ static uint8_t usart_get_flag_status(uint32_t flag) {
 void USART3_IRQHandler(void) {
     //TODO: WHY DIDNT TCIE WORK? 
     // element at tail of ring buffer has already been TX
-    ring_buffer_pop(&usart_tx_buf, NULL);
+    if (!ring_buffer_empty(&usart_tx_buf))
+        ring_buffer_pop(&usart_tx_buf, NULL);
     if (usart_get_flag_status(USART_SR_TXE_Msk))
     {
         // send next byte
@@ -103,6 +112,14 @@ void USART3_IRQHandler(void) {
             return;
         }
         usart_start_write_it();
+    }
+}
+
+void usart_write(char *msg, uint8_t len) {
+    for (uint8_t i = len; i > 0; i--) {
+        while (!usart_get_flag_status(USART_SR_TXE)) {}
+        USART3->DR = *msg;
+        msg++;
     }
 }
 

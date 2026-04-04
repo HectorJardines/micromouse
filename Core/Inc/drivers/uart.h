@@ -2,6 +2,7 @@
 #define _USART_H
 
 #include "../inc/drivers/io.h"
+#define USART3_TEST              ((USART_TypeDef *)USART3_BASE)
 
 typedef enum {
     USART_OK,
@@ -51,5 +52,7 @@ void usart_assert_init(void);
  * @return void
  */
 void usart_log_assert(const char *assert_str);
+
+void usart_write(char *msg, uint8_t len);
 
 #endif

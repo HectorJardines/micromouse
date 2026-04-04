@@ -38,12 +38,12 @@ static void assert_blink(assert_type_e type) {
 
     while (1) {
         io_toggle_out(assert_pin);
-        HAL_Delay(500);
+        HAL_Delay(100);
     }
 }
 
 void assert_handler(uint32_t pc_val, assert_type_e type) {
-    BREAKPOINT;
+    // BREAKPOINT;
     assert_log(pc_val);
     assert_blink(type);
 }
