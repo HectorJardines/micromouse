@@ -19,7 +19,7 @@ struct ring_buffer
     storage uint8_t name##_buffer[size * sizeof(type)] = { 0 };                                    \
     storage struct ring_buffer name = { .buf = name##_buffer,                                   \
                                         .buf_size = size,                                       \
-                                        .elem_size = sizeof(type) }                             \
+                                        .elem_size = sizeof(type), .tail = 0, .head = 0}                          \
 
 #define STATIC_RING_BUFFER(name, size, type) RING_BUFFER(name, size, type, static)
 

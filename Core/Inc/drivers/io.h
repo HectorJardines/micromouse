@@ -63,6 +63,7 @@ typedef enum
 
 typedef enum
 {
+    // PORT A PINS
     IO_UNUSED_0 = IO_A0,
     IO_UNUSED_1 = IO_A1,
     IO_M1_PWM = IO_A2,
@@ -72,45 +73,52 @@ typedef enum
     M1_ENC_A = IO_A6,
     M1_ENC_B = IO_A7,
     M1_DRIVER_IN1 = IO_A8,
-    IO_UNUSED_9 = IO_A9,
-    IO_UNUSED_10 = IO_A10,
-    IO_UNUSED_11 = IO_A11,
-    IO_UNUSED_12 = IO_A12,
-    IO_UNUSED_13 = IO_A13,
-    IO_UNUSED_14 = IO_A14,
+
+    // TODO: VERIFY THAT WE WONT NEED THESE FOR I2C/SPI COMMS
+    IO_IR_EMIT_4 = IO_A9,
+    IO_IR_EMIT_3 = IO_A10,
+    IO_IR_EMIT_2 = IO_A11,
+    IO_IR_EMIT_1 = IO_A12,
+
+    IO_RESERVED_13 = IO_A13,
+    IO_RESERVED_14 = IO_A14,
     IO_UNUSED_15 = IO_A15,
+
+    // PORT B PINS
     IO_IR_RECEIVE_2 = IO_B0,
     IO_IR_RECEIVE_1 = IO_B1,
     IO_UNUSED_18 = IO_B2,
-    IO_UNUSED_19 = IO_B3,
-    IO_UNUSED_20 = IO_B4,
-    IO_UNUSED_21 = IO_B5,
+    M2_DRIVER_IN1 = IO_B3,
+    M1_DRIVER_IN2 = IO_B4,
+    M2_DRIVER_IN2 = IO_B5,
     M2_ENC_B = IO_B6,
     M2_ENC_A = IO_B7,
     IO_UNUSED_24 = IO_B8,
     IO_UNUSED_25 = IO_B9,
-    IO_UNUSED_26 = IO_B10,
-    IO_UNUSED_27 = IO_B11,
+    IO_USART3_TX = IO_B10,
+    IO_USART3_RX = IO_B11,
     IO_UNUSED_28 = IO_B12,
-    M2_DRIVER_IN1 = IO_B13,
-    M1_DRIVER_IN2 = IO_B14,
-    M2_DRIVER_IN2 = IO_B15,
-    IO_UNUSED_32 = IO_C0,
-    IO_UNUSED_33 = IO_C1,
-    IO_UNUSED_34 = IO_C2,
-    IO_UNUSED_35 = IO_C3,
-    IO_UNUSED_36 = IO_C4,
-    IO_UNUSED_37 = IO_C5,
-    IO_UNUSED_38 = IO_C6,
-    IO_UNUSED_39 = IO_C7,
-    IO_UNUSED_40 = IO_C8,
-    IO_LED_RED = IO_C9,
-    IO_LED_BLUE = IO_C10,
-    IO_LED_GREEN = IO_C11,
-    IO_UNUSED_44 = IO_C12,
-    IO_UNUSED_45 = IO_C13,
-    IO_UNUSED_46 = IO_C14,
-    IO_UNUSED_47 = IO_C15
+    SPI2_SCK = IO_B13,
+    SPI2_MISO = IO_B14,
+    SPI2_MOSI = IO_B15,
+
+    // PORT C PINS
+    IO_RESERVED_32 = IO_C0,
+    IO_RESERVED_33 = IO_C1,
+    IO_RESERVED_34 = IO_C2,
+    IO_RESERVED_35 = IO_C3,
+    IO_RESERVED_36 = IO_C4,
+    IO_RESERVED_37 = IO_C5,
+    IO_RESERVED_38 = IO_C6,
+    IO_RESERVED_39 = IO_C7,
+    IO_RESERVED_40 = IO_C8,
+    IO_RESERVED_41 = IO_C9,
+    IO_RESERVED_42 = IO_C10,
+    IO_RESERVED_43 = IO_C11,
+    IO_RESERVED_44 = IO_C12,
+    IO_LED_RED = IO_C13,
+    IO_LED_BLUE = IO_C14,
+    IO_LED_GREEN = IO_C15
 } io_e;
 
 typedef enum
@@ -118,7 +126,8 @@ typedef enum
     io_mode_input,
     io_mode_output_10MHz,
     io_mode_output_2MHz,
-    io_mode_output_50MHz
+    io_mode_output_50MHz,
+    io_mode_reserved
 } io_mode_e;
 
 typedef enum
@@ -133,7 +142,8 @@ typedef enum
     io_cnf_output_gpio_pp,
     io_cnf_output_gpio_od,
     io_cnf_output_af_pp,
-    io_cnf_output_af_od
+    io_cnf_output_af_od,
+    io_cnf_reserved
 } io_cnf_output_e;
 
 typedef enum

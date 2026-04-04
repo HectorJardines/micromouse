@@ -10,26 +10,27 @@
 #define IO_PORT_MASK        (0x3U << IO_PORT_OFFSET)
 #define IO_PIN_MASK         (0x0F)
 
-#define UNUSED_CONFIG       {io_mode_input, io_cnf_input_analog}
+#define UNUSED_CONFIG      {io_mode_input, io_cnf_input_analog}
+#define RESERVED_CONFIG    {io_mode_reserved, io_cnf_reserved}
 
 io_config_t pin_configurations[PIN_COUNT] = {
     // PORT A
     [IO_UNUSED_0] = UNUSED_CONFIG, [IO_UNUSED_1] = UNUSED_CONFIG, [IO_M1_PWM] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp}, [IO_M2_PWM] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp},
     [IO_IR_RECEIVE_4] = UNUSED_CONFIG, [IO_IR_RECEIVE_3] = UNUSED_CONFIG, [M1_ENC_A] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp}, [M1_ENC_B] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp},
-    [M1_DRIVER_IN1] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_gpio_pp}, [IO_UNUSED_9] = UNUSED_CONFIG, [IO_UNUSED_10] = UNUSED_CONFIG, [IO_UNUSED_11] = UNUSED_CONFIG,
-    [IO_UNUSED_12] = UNUSED_CONFIG, [IO_UNUSED_13] = UNUSED_CONFIG, [IO_UNUSED_14] = UNUSED_CONFIG, [IO_UNUSED_15] = UNUSED_CONFIG,
+    [M1_DRIVER_IN1] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_gpio_pp}, [IO_IR_EMIT_4] = UNUSED_CONFIG, [IO_IR_EMIT_3] = UNUSED_CONFIG, [IO_IR_EMIT_2] = UNUSED_CONFIG,
+    [IO_IR_EMIT_1] = UNUSED_CONFIG, [IO_RESERVED_13] = RESERVED_CONFIG, [IO_RESERVED_14] = RESERVED_CONFIG, [IO_UNUSED_15] = UNUSED_CONFIG,
 
     // PORT B
-    [IO_IR_RECEIVE_2] = UNUSED_CONFIG, [IO_IR_RECEIVE_1] = UNUSED_CONFIG, [IO_UNUSED_18] = UNUSED_CONFIG, [IO_UNUSED_19] = UNUSED_CONFIG,
-    [IO_UNUSED_20] = UNUSED_CONFIG, [IO_UNUSED_21] = UNUSED_CONFIG, [M2_ENC_B] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp}, [M2_ENC_A] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp},
-    [IO_UNUSED_24] = UNUSED_CONFIG, [IO_UNUSED_25] = UNUSED_CONFIG, [IO_UNUSED_26] = UNUSED_CONFIG, [IO_UNUSED_27] = UNUSED_CONFIG,
-    [IO_UNUSED_28] = UNUSED_CONFIG, [M2_DRIVER_IN1] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_gpio_pp}, [M1_DRIVER_IN2] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_gpio_pp}, [M2_DRIVER_IN2] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_gpio_pp},
+    [IO_IR_RECEIVE_2] = UNUSED_CONFIG, [IO_IR_RECEIVE_1] = UNUSED_CONFIG, [IO_UNUSED_18] = UNUSED_CONFIG, [M2_DRIVER_IN1] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_gpio_pp},
+    [M1_DRIVER_IN2] = UNUSED_CONFIG, [M2_DRIVER_IN2] = UNUSED_CONFIG, [M2_ENC_B] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp}, [M2_ENC_A] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp},
+    [IO_UNUSED_24] = UNUSED_CONFIG, [IO_UNUSED_25] = UNUSED_CONFIG, [IO_USART3_TX] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp}, [IO_USART3_RX] = {.mode = io_mode_input, .mode_config = io_cnf_input_float},
+    [IO_UNUSED_28] = UNUSED_CONFIG, [SPI2_SCK] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp}, [SPI2_MISO] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp}, [SPI2_MOSI] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp},
 
     // PORT C
-    [IO_UNUSED_32] = UNUSED_CONFIG, [IO_UNUSED_33] = UNUSED_CONFIG, [IO_UNUSED_34] = UNUSED_CONFIG, [IO_UNUSED_35] = UNUSED_CONFIG,
-    [IO_UNUSED_36] = UNUSED_CONFIG, [IO_UNUSED_37] = UNUSED_CONFIG, [IO_UNUSED_38] = UNUSED_CONFIG, [IO_UNUSED_39] = UNUSED_CONFIG,
-    [IO_UNUSED_40] = UNUSED_CONFIG, [IO_LED_RED] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_gpio_pp}, [IO_LED_BLUE] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_gpio_pp}, [IO_LED_GREEN] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_gpio_pp},
-    [IO_UNUSED_44] = UNUSED_CONFIG, [IO_UNUSED_45] = UNUSED_CONFIG, [IO_UNUSED_46] = UNUSED_CONFIG, [IO_UNUSED_47] = UNUSED_CONFIG
+    [IO_RESERVED_32] = RESERVED_CONFIG, [IO_RESERVED_33] = RESERVED_CONFIG, [IO_RESERVED_34] = RESERVED_CONFIG, [IO_RESERVED_35] = RESERVED_CONFIG,
+    [IO_RESERVED_36] = RESERVED_CONFIG, [IO_RESERVED_37] = RESERVED_CONFIG, [IO_RESERVED_38] = RESERVED_CONFIG, [IO_RESERVED_39] = RESERVED_CONFIG,
+    [IO_RESERVED_40] = RESERVED_CONFIG, [IO_RESERVED_41] = RESERVED_CONFIG, [IO_RESERVED_42] = RESERVED_CONFIG, [IO_RESERVED_43] = RESERVED_CONFIG,
+    [IO_RESERVED_44] = RESERVED_CONFIG, [IO_LED_RED] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_gpio_pp}, [IO_LED_BLUE] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_gpio_pp}, [IO_LED_GREEN] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_gpio_pp}
 };
 
 static GPIO_TypeDef *gpiox[PORT_COUNT] = { GPIOA, GPIOB, GPIOC };
@@ -99,15 +100,15 @@ void io_get_configuration(io_e io, io_config_t *actual)
         pin_idx = pin_idx % NO_OF_HI_BITS;
         pin_mode_bit = pin_idx * 4;
         // get pin mode
-        actual->mode = (gpiox[port]->CRH & (0x3U << pin_mode_bit));
+        actual->mode = (gpiox[port]->CRH & (0x3U << pin_mode_bit)) >> pin_mode_bit;
         // get pin configuration
-        actual->mode_config = (gpiox[port]->CRH & (0x3U << (pin_mode_bit + IO_CRx_CNF_OFF)));
+        actual->mode_config = ((gpiox[port]->CRH & (0x3U << (pin_mode_bit + IO_CRx_CNF_OFF))) >> (pin_mode_bit + IO_CRx_CNF_OFF));
     }
     else {
         // get pin mode
-        actual->mode = (gpiox[port]->CRL & (0x3U << pin_mode_bit));
+        actual->mode = (gpiox[port]->CRL & (0x3U << pin_mode_bit)) >> pin_mode_bit;
         // get pin configuration
-        actual->mode_config = (gpiox[port]->CRL & (0x3U << (pin_mode_bit + IO_CRx_CNF_OFF)));
+        actual->mode_config = ((gpiox[port]->CRL & (0x3U << (pin_mode_bit + IO_CRx_CNF_OFF))) >> (pin_mode_bit + IO_CRx_CNF_OFF));
     }
 }
 
@@ -126,27 +127,37 @@ void io_init(io_e io, const io_config_t *io_config)
         gpiox[port]->CRH |= (io_config->mode << (pin_mode_bit));
         
         //clear pin cnf
-        gpiox[port]->CRH &= (0x3U << (pin_mode_bit + IO_CRx_CNF_OFF));
+        gpiox[port]->CRH &= ~(0x3U << (pin_mode_bit + IO_CRx_CNF_OFF));
         // set pin configuration
         gpiox[port]->CRH |= (io_config->mode_config << (pin_mode_bit + IO_CRx_CNF_OFF));
     }
     else {
         // clear pin mode
-        gpiox[port]->CRH &= ~(0x3U << (pin_mode_bit));
+        gpiox[port]->CRL &= ~(0x3U << (pin_mode_bit));
         // set pin mode
-        gpiox[port]->CRH |= (io_config->mode << (pin_mode_bit));
+        gpiox[port]->CRL |= (io_config->mode << (pin_mode_bit));
 
         //clear pin cnf
-        gpiox[port]->CRH &= (0x3U << (pin_mode_bit + IO_CRx_CNF_OFF));
+        gpiox[port]->CRL &= ~(0x3U << (pin_mode_bit + IO_CRx_CNF_OFF));
         // set pin configuration
-        gpiox[port]->CRH |= (io_config->mode_config << (pin_mode_bit + IO_CRx_CNF_OFF));
+        gpiox[port]->CRL |= (io_config->mode_config << (pin_mode_bit + IO_CRx_CNF_OFF));
     }
+}
+
+static void io_enable_ports(void) {
+    RCC->APB2ENR |= (RCC_APB2ENR_IOPAEN | RCC_APB2ENR_IOPBEN | RCC_APB2ENR_IOPCEN);
+    RCC->APB2ENR |= (RCC_APB2ENR_AFIOEN);
 }
 
 void io_configure(void)
 {
+    io_enable_ports();
     io_config_t actual_config;
     for (io_e pin_no = 0; pin_no < PIN_COUNT; ++pin_no) {
+        // SKIP INITIALIZATION OF RESERVED PINS
+        if (pin_configurations[pin_no].mode == io_mode_reserved || pin_configurations[pin_no].mode_config == io_cnf_reserved)
+            continue;
+
         io_init(pin_no, &pin_configurations[pin_no]);
         io_get_configuration(pin_no, &actual_config);
         if (io_verify_config(&actual_config, &pin_configurations[pin_no]) == false) {

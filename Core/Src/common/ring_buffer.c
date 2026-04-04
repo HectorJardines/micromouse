@@ -18,7 +18,7 @@ void ring_buffer_push(struct ring_buffer *rb, const void *data)
 
 void ring_buffer_pop(struct ring_buffer *rb, void *data)
 {
-    // ASSERT(!ring_buffer_empty(rb));
+    ASSERT(!ring_buffer_empty(rb), ASSERT_APP_LEVEL);
     if (data)
         memcpy(data, &rb->buf[rb->tail * rb->elem_size], rb->elem_size);
 
