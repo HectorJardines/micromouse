@@ -21,9 +21,9 @@ io_config_t pin_configurations[PIN_COUNT] = {
     [IO_IR_EMIT_1] = UNUSED_CONFIG, [IO_RESERVED_13] = RESERVED_CONFIG, [IO_RESERVED_14] = RESERVED_CONFIG, [IO_UNUSED_15] = UNUSED_CONFIG,
 
     // PORT B
-    [IO_IR_RECEIVE_2] = UNUSED_CONFIG, [IO_IR_RECEIVE_1] = UNUSED_CONFIG, [IO_UNUSED_18] = UNUSED_CONFIG, [M2_DRIVER_IN1] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_gpio_pp},
-    [M1_DRIVER_IN2] = UNUSED_CONFIG, [M2_DRIVER_IN2] = UNUSED_CONFIG, [M2_ENC_B] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp}, [M2_ENC_A] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp},
-    [IO_UNUSED_24] = UNUSED_CONFIG, [IO_UNUSED_25] = UNUSED_CONFIG, [IO_USART3_TX] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp}, [IO_USART3_RX] = {.mode = io_mode_input, .mode_config = io_cnf_input_float},
+    [IO_IR_RECEIVE_2] = UNUSED_CONFIG, [IO_IR_RECEIVE_1] = UNUSED_CONFIG, [IO_UNUSED_18] = UNUSED_CONFIG, [IO_UNUSED_19] = UNUSED_CONFIG,
+    [IO_UNUSED_20] = UNUSED_CONFIG, [M2_DRIVER_IN2] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_gpio_pp}, [M2_ENC_B] = {.mode = io_mode_input, .mode_config = io_cnf_input_float}, [M2_ENC_A] = {.mode = io_mode_input, .mode_config = io_cnf_input_float},
+    [M2_DRIVER_IN1] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_gpio_pp}, [M1_DRIVER_IN2] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_gpio_pp}, [IO_USART3_TX] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp}, [IO_USART3_RX] = {.mode = io_mode_input, .mode_config = io_cnf_input_float},
     [IO_UNUSED_28] = UNUSED_CONFIG, [SPI2_SCK] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp}, [SPI2_MISO] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp}, [SPI2_MOSI] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp},
 
     // PORT C

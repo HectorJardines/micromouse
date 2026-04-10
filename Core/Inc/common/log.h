@@ -3,7 +3,7 @@
 
 #include "uart.h"
 
-#define LOG(fmt, ...) log_message("%s:%d:" fmt "\n", __FILE__, __LINE__, __VA_ARGS__)
+#define LOG(fmt, ...) log_message("%s:%d: " fmt "\n", __FILE__, __LINE__, ##__VA_ARGS__)
 
 #ifndef DISABLE_LOG
 /**

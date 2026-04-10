@@ -1,5 +1,6 @@
 #include "../inc/drivers/encoder.h"
 #include <stdbool.h>
+#include "../inc/common/assert_handler.h"
 
 #define TIM_MAX_ARR_VALUE       (65535UL)
 
@@ -30,9 +31,7 @@ static void encoder_configure(encoder_e encoder) {
 static bool initialized = false;
 void encoder_init(void)
 {
-    if (initialized) {
-        return;
-    }
+    ASSERT(!initialized, ASSERT_DRIVER_LEVEL)
     // utilize timer 3 and timer 4
     tim_peripheral_clk_enable();
     // configure timers 3 and 4 in encoder interface mode
@@ -41,6 +40,7 @@ void encoder_init(void)
     initialized = true;
 }
 
+// TODO: VERIFY THAT THERE ISN'T A BETTER WAY TO RETRIEVE ENCODER VALUES
 int16_t encoder_read_left_count(void)
 {
     return ((int16_t)TIM3->CNT);

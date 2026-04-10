@@ -11,11 +11,6 @@ struct cntl_pins driver_input_cnfgs[] = {
     [tb6612fng_motor_right] = {M2_DRIVER_IN1, M2_DRIVER_IN2}
 };
 
-static uint8_t limit_pwm_value(int16_t duty_cycle)
-{
-    return 0;
-}
-
 static bool initialized = false;
 void tb6612fng_init(void)
 {
@@ -43,8 +38,6 @@ void tb6612fng_set_dir(pwm_channel_e pwm, tb6612fng_dir_e dir)
     }
 }
 
-
 void tb6612fng_set_speed(pwm_channel_e pwm, int16_t duty_cycle) {
-    uint8_t duty = limit_pwm_value(duty_cycle);
-    pwm_set_duty_cycle(pwm, duty);
+    pwm_set_duty_cycle(pwm, duty_cycle);
 }
