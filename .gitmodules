@@ -1,6 +1,6 @@
-[submodule "dependencies/printf"]
-	path = Core/external/printf
-	url = https://github.com/mpaland/printf
 [submodule "Core/external/bmi160_api"]
 	path = Core/external/bmi160_api
 	url = https://github.com/boschsensortec/BMI160_SensorAPI.git
+[submodule "Core/external/printf"]
+	path = Core/external/printf
+	url = https://github.com/mpaland/printf.git
