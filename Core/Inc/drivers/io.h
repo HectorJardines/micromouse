@@ -65,7 +65,7 @@ typedef enum
 {
     // PORT A PINS
     IO_UNUSED_0 = IO_A0,
-    IO_UNUSED_1 = IO_A1,
+    BMI160_INT_CH1 = IO_A1,
     IO_M1_PWM = IO_A2,
     IO_M2_PWM = IO_A3,
     IO_IR_RECEIVE_4 = IO_A4,
@@ -98,7 +98,7 @@ typedef enum
     M1_DRIVER_IN2 = IO_B9,
     IO_USART3_TX = IO_B10,
     IO_USART3_RX = IO_B11,
-    IO_UNUSED_28 = IO_B12,
+    SPI2_NSS = IO_B12,
     SPI2_SCK = IO_B13,
     SPI2_MISO = IO_B14,
     SPI2_MOSI = IO_B15,

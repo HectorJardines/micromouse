@@ -2,6 +2,7 @@
 #define _ASSERT_H
 
 #include <stdint.h>
+#include <stdbool.h>
 
 typedef enum {
     ASSERT_APP_LEVEL,

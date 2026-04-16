@@ -9,9 +9,17 @@
 #define CM_PER_COUNT_X1000   (11U)   // 6.283 wheel circ / 560 counts per rev (scale by 1000)
 #define MOTOR_CNT            (2U)
 
+
 // stop wasting time optimizing early
 #define PID_DIST_TO_ENC_COUNT(dist_cm) (((dist_cm) * COUNTS_PER_CM_X1000) / 1000U) // Note: expects dist in CM
 #define PID_ENC_COUNT_TO_DIST(count) (((count) * CM_PER_COUNT_X1000) / 1000U) // Note: allowed range of encoder counts is 0-65535
+
+#define PI             (3.1415926f)
+#define CNTS_PER_REV   (560U)
+#define DIST_BW_WHEELS (10U) // in cm
+#define WHEEL_RADIUS   (1U)
+#define PID_ANGLE_TO_ENC_COUNT(angle_rad) (((DIST_BW_WHEELS * CNTS_PER_REV) / (2.0f*PI*WHEEL_RADIUS)) * angle_rad)
+#define PID_ENC_COUNT_TO_ANGLE(count)   
 
 /**
  * @brief PID Initialization function; initializes encoder and pwm modules

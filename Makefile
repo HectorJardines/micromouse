@@ -58,7 +58,7 @@ Core/Src/common/assert_handler.c \
 Core/Src/common/log.c \
 Core/Src/common/ring_buffer.c \
 Core/Src/drivers/adc.c \
-Core/Src/drivers/bmi160.c \
+Core/Src/drivers/imu_interface.c \
 Core/Src/drivers/dma.c \
 Core/Src/drivers/encoder.c \
 Core/Src/drivers/io.c \
@@ -71,6 +71,7 @@ Core/Src/drivers/tb6612fng.c \
 Core/Src/drivers/uart.c \
 Core/tests/test_hardware.c \
 Core/external/printf/printf.c \
+Core/external/bmi160_api/bmi160.c \
 
 # ASM sources
 ASM_SOURCES =  \
@@ -130,6 +131,7 @@ AS_INCLUDES =
 
 # C includes
 C_INCLUDES =  \
+-ICore/external/bmi160_api \
 -ICore/external/printf \
 -ICore/Inc \
 -ICore/Inc/app \

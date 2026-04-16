@@ -3,13 +3,14 @@
 #include "../inc/drivers/encoder.h"
 #include "../Inc/common/log.h"
 #include "../Inc/common/assert_handler.h"
+#include "../Inc/drivers/imu_interface.h"
 
 #define GOAL_MARGIN_BEHIND  (500U)    // this number should encode mouse roughly 5cm behind center of goal
 #define GOAL_MARGIN_AHEAD   (-500U)   // this number should encode mouse roughly 5cm ahead of center of goal
 
-#define DERIV_CONST_DIST    (0U)
+#define DERIV_CONST_DIST    (5U)
 #define PROP_CONST_DIST     (5U)
-#define DERIV_CONST_ANG     (0U)
+#define DERIV_CONST_ANG     (5U)
 #define PROP_CONST_ANG      (10U)
 #define MAX_TIM_CNT_VAL     (65535U)
 
@@ -48,6 +49,8 @@ struct pid_cntl_angle {
     int32_t angle_correction;
     int32_t total_ticks;
     int32_t prev_tick_sample;
+    
+    int32_t total_difference;
 };
 
 // we can have .kD/P be a number between 0-100, do some kind of scaling and division to avoid using floating point numbers
@@ -58,6 +61,7 @@ static bool initialized = false;
 void pid_init(void) {
     ASSERT(!initialized, ASSERT_DRIVER_LEVEL);
     encoder_init();
+    imu_init();
     pwm_init();
     initialized = true;
 }
@@ -104,17 +108,41 @@ static int16_t pid_clamp_duty_cycle(int32_t pid_duty_val) {
 static void pid_update_global_tick_cnt(uint32_t curr_enc_tick_sample, encoder_e encoder) {
     tb6612fng_dir_e motor_dir = encoder_left ? pid_dist.motor_dir_left : pid_dist.motor_dir_right;
     int32_t prev_enc_tick_sample = encoder == encoder_left ? pid_dist.prev_tick_sample_l : pid_dist.prev_tick_sample_r;
-
+    int32_t count = 0;
     // overflow occurs when our motor direction is forward and prev_sample > current_sample
-    if ((motor_dir == dir_forward) && (prev_enc_tick_sample > curr_enc_tick_sample))
-        pid_dist.total_ticks += ((curr_enc_tick_sample - prev_enc_tick_sample) % MAX_TIM_CNT_VAL); // not sure if there is a cheaper way to do this
+    if ((motor_dir == dir_forward) && (prev_enc_tick_sample > curr_enc_tick_sample)) {
+        count = ((curr_enc_tick_sample - prev_enc_tick_sample) % MAX_TIM_CNT_VAL);
+        pid_dist.total_ticks += count;
+        if (encoder == encoder_left)
+            pid_angle.total_difference += count;
+        else
+            pid_angle.total_difference -= count;
+    }
     // underflow occurs when motor direction is reverse and prev_sample < current_sample
-    else if ((motor_dir == dir_reverse) && (prev_enc_tick_sample < curr_enc_tick_sample))
-        pid_dist.total_ticks -= ((prev_enc_tick_sample - curr_enc_tick_sample) % MAX_TIM_CNT_VAL);
-    else if (motor_dir == dir_forward)
-        pid_dist.total_ticks += (curr_enc_tick_sample - prev_enc_tick_sample);
-    else if (motor_dir == dir_reverse)
-        pid_dist.total_ticks -= (prev_enc_tick_sample - curr_enc_tick_sample);
+    else if ((motor_dir == dir_reverse) && (prev_enc_tick_sample < curr_enc_tick_sample)) {
+        count = ((prev_enc_tick_sample - curr_enc_tick_sample) % MAX_TIM_CNT_VAL);
+        pid_dist.total_ticks -= count;
+        if (encoder == encoder_left)
+            pid_angle.total_difference -= count;
+        else
+            pid_angle.total_difference += count;
+    }
+    else if (motor_dir == dir_forward) {
+        count = (curr_enc_tick_sample - prev_enc_tick_sample);
+        pid_dist.total_ticks += count;
+        if (encoder == encoder_left)
+            pid_angle.total_difference += count;
+        else
+            pid_angle.total_difference -= count;
+    }
+    else if (motor_dir == dir_reverse) {
+        count = (prev_enc_tick_sample - curr_enc_tick_sample);
+        pid_dist.total_ticks -= count;
+        if (encoder == encoder_left)
+            pid_angle.total_difference += count;
+        else
+            pid_angle.total_difference -= count;
+    }
 }
 
 /**
@@ -137,9 +165,10 @@ void pid_update(void)
     // change this to be interrupt driven
     uint32_t encoder_cnt_left = encoder_read_left_count();
     pid_update_global_tick_cnt(encoder_cnt_left, encoder_left);
-
     uint32_t encoder_cnt_right = encoder_read_right_count();
     pid_update_global_tick_cnt(encoder_cnt_right, encoder_right);
+    float gyro_z = 0;
+    // imu_get_gyro_z(&gyro_z, 1);
 
     // error is considered as the goal - average of the two encoder counts
     pid_dist.prev_err = pid_dist.err;
@@ -148,11 +177,11 @@ void pid_update(void)
 
     pid_angle.prev_err = pid_angle.err;
     // again at most we will have 65535 (when goal_angle = enc_left = 0 and enc_right = 65535)
-    // pid_angle.err = pid_angle.goal_angle - (encoder_cnt_left - encoder_cnt_right);
+    pid_angle.err = pid_angle.goal_angle - (pid_angle.total_difference);
 
     // at most will be 13106, when pid_dist.err = 65535 and pid_dist.prev_err = 0
     pid_dist.goal_correction = ((pid_dist.kP * pid_dist.err) / 100U) + ((pid_dist.kD * ((pid_dist.err - pid_dist.prev_err))) / 100U);
-    // pid_angle.angle_correction = ((pid_angle.kPw * pid_angle.err) / 100U) + ((pid_angle.kDw * (pid_angle.err - pid_angle.prev_err)) / 100U);
+    pid_angle.angle_correction = ((pid_angle.kPw * pid_angle.err) / 100U) + ((pid_angle.kDw * (gyro_z)) / 100U);
 
     pid_dist.duty_cycle_r = pid_clamp_duty_cycle(pid_dist.goal_correction - pid_angle.angle_correction);
     pid_dist.duty_cycle_l = pid_clamp_duty_cycle(pid_dist.goal_correction + pid_angle.angle_correction);
@@ -162,6 +191,8 @@ void pid_update(void)
     pid_dist.motor_dir_left = pid_dist.duty_cycle_l < 0 ? dir_reverse : pid_dist.duty_cycle_l > 0 ? dir_forward : dir_stop;
 
     pid_update_motor_ctl();
+    LOG("PID DIST: ERR = %d, TOTAL_CNTS = %d\n", pid_dist.err, pid_dist.total_ticks);
+    LOG("PID ANGLE: ERR = %d, TOTAL DIFF CNTS = %d\n", pid_angle.err, pid_angle.total_difference);
 }
 
 void set_pid_goal_dist(int32_t distance)
