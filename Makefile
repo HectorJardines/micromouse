@@ -69,6 +69,8 @@ Core/Src/drivers/spi.c \
 Core/Src/drivers/systick.c \
 Core/Src/drivers/tb6612fng.c \
 Core/Src/drivers/uart.c \
+Core/Src/drivers/i2c.c \
+Core/Src/drivers/ssd1306.c \
 Core/tests/test_hardware.c \
 Core/external/printf/printf.c \
 Core/external/bmi160_api/bmi160.c \

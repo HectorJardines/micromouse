@@ -7,6 +7,6 @@
 #define APB1_TIM_CLK_FREQ_HZ    (SYSCLK_FREQ_HZ)
 #define APB2_TIM_CLK_FREQ_HZ    (SYSCLK_FREQ_HZ)  
 
-
+#define DIV_8   (0x3U)
 
 #endif
