@@ -156,8 +156,8 @@ static void pid_update_motor_ctl(void) {
     // set motor speeds
     tb6612fng_set_speed(tb6612fng_motor_right, pid_dist.duty_cycle_r);
     tb6612fng_set_speed(tb6612fng_motor_left, pid_dist.duty_cycle_l);
-    LOG("RIGHT MOTOR VALUES - PWM: %d, DIR: %d", pid_dist.duty_cycle_r, pid_dist.motor_dir_right);
-    LOG("LEFT MOTOR VALUES - PWM: %d, DIR: %d", pid_dist.duty_cycle_l, pid_dist.motor_dir_left);
+    LOG(LOG_LEVEL_DEBUG, "RIGHT MOTOR VALUES - PWM: %d, DIR: %d", pid_dist.duty_cycle_r, pid_dist.motor_dir_right);
+    LOG(LOG_LEVEL_DEBUG, "LEFT MOTOR VALUES - PWM: %d, DIR: %d", pid_dist.duty_cycle_l, pid_dist.motor_dir_left);
 }
 
 void pid_update(void)
@@ -191,8 +191,8 @@ void pid_update(void)
     pid_dist.motor_dir_left = pid_dist.duty_cycle_l < 0 ? dir_reverse : pid_dist.duty_cycle_l > 0 ? dir_forward : dir_stop;
 
     pid_update_motor_ctl();
-    LOG("PID DIST: ERR = %d, TOTAL_CNTS = %d\n", pid_dist.err, pid_dist.total_ticks);
-    LOG("PID ANGLE: ERR = %d, TOTAL DIFF CNTS = %d\n", pid_angle.err, pid_angle.total_difference);
+    LOG(LOG_LEVEL_DEBUG, "PID DIST: ERR = %d, TOTAL_CNTS = %d\n", pid_dist.err, pid_dist.total_ticks);
+    LOG(LOG_LEVEL_DEBUG, "PID ANGLE: ERR = %d, TOTAL DIFF CNTS = %d\n", pid_angle.err, pid_angle.total_difference);
 }
 
 void set_pid_goal_dist(int32_t distance)

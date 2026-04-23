@@ -7,7 +7,7 @@
 typedef enum {
     USART_OK,
     USART_TX_ERROR,
-    USART_RX_ERROR
+    USART_TX_BUSY
 } usart_status_e;
 
 /**
@@ -20,18 +20,11 @@ typedef enum {
 void usart_init(void);
 
 /**
- * @brief Serial read over interrupt driven usart peripheral.
- * 
- * @return usart_status_e
- */
-usart_status_e usart_read_it(void);
-
-/**
  * @brief Serial write over interrupt driven usart peripheral.
  * 
  * @return usart_status_e 
  */
-usart_status_e usart_write_it(void);
+usart_status_e usart_write_it(uint8_t *buf, uint32_t len);
 
 /**
  * @brief Initialize USART peripheral for polling based TX.
@@ -52,7 +45,5 @@ void usart_assert_init(void);
  * @return void
  */
 void usart_log_assert(const char *assert_str);
-
-void usart_write(char *msg, uint8_t len);
 
 #endif

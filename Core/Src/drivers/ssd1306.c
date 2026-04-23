@@ -172,21 +172,21 @@ static void set_addressing_scheme(void) {
                                 OPT_ADDR_MODE_HORI};
     int8_t res = send_multi_byte_cmd(hori_addressing, sizeof(hori_addressing));
     if (res)
-        LOG("FAILED TO SET HORIZONTAIL ADDR SCHEME\n");
+        LOG(LOG_LEVEL_ERROR, "FAILED TO SET HORIZONTAIL ADDR SCHEME\n");
     uint8_t hori_strt_end_col[] = {SSD1306_CTL_BYTE_CMD, 
                                     CMD_SET_COL_STRT_END_ADDR, 
                                     0x00, 
                                     0x7F};
     res = send_multi_byte_cmd(hori_strt_end_col, sizeof(hori_strt_end_col));
     if (res)
-        LOG("FAILED TO SET COL STRT/END ADDRS\n");
+        LOG(LOG_LEVEL_ERROR, "FAILED TO SET COL STRT/END ADDRS\n");
     uint8_t hori_strt_end_pg[] = {SSD1306_CTL_BYTE_CMD, 
                                     CMD_SET_PAGE_STRT_END_ADDR, 
                                     0x00, 
                                     0x07};
     res = send_multi_byte_cmd(hori_strt_end_pg, sizeof(hori_strt_end_pg));
     if (res)
-        LOG("FAILED TO SET PAGE STRT/END ADDRS\n");
+        LOG(LOG_LEVEL_ERROR, "FAILED TO SET PAGE STRT/END ADDRS\n");
 }
 
 static int8_t send_single_byte_cmd(uint8_t cmd) {
@@ -195,8 +195,6 @@ static int8_t send_single_byte_cmd(uint8_t cmd) {
     uint8_t cmd_pair[] = {SSD1306_CTL_BYTE_CMD, cmd};
     while (retry-- && res == I2C_BUSY_IN_TX)
         res = display.i2c_tx(cmd_pair, SINGLE_BYTE);
-    if (res)
-        LOG("ERR: I2C SEND SINGLE BYTE CMD FAILED\n");
     return res;
 }
 
@@ -205,8 +203,6 @@ static int8_t send_multi_byte_cmd(uint8_t *cmds, uint8_t len) {
     int8_t res = I2C_BUSY_IN_TX;
     while (retry-- && res == I2C_BUSY_IN_TX)
         res = display.i2c_tx(cmds, len);
-    if (res)
-        LOG("ERR: I2C SEND MULTI BYTE CMD FAILED\n");
     return res;
 }
 
@@ -216,8 +212,6 @@ static int8_t send_single_byte_data(uint8_t *data) {
     uint8_t data_pair[] = {SSD1306_CTL_BYTE_DATA, *data};
     while (retry-- && res == I2C_BUSY_IN_TX)
         res = display.i2c_tx(data_pair, SINGLE_BYTE);
-    if (res)
-        LOG("ERR: I2C SEND SINGLE BYTE DATA FAILED\n");
     return res;
 }
 
@@ -228,7 +222,5 @@ static int8_t send_multi_byte_data(uint8_t *data, uint32_t len) {
     memcpy(&data_buf[1], data, len);
     while (retry-- && res == I2C_BUSY_IN_TX)
         res = display.i2c_tx(data_buf, LEN_DATA_CTL_AND_DATA);
-    if (res)
-        LOG("ERR: I2C SEND MULTI BYTE DATA FAILED\n");
     return res;
 }

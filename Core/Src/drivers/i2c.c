@@ -85,11 +85,11 @@ i2c_status_e i2c_transmit_poll(uint8_t *data, uint32_t len) {
  */
 i2c_status_e i2c_transmit(uint8_t *data, uint32_t len) {
     if (i2c1_handle.tx_status == TX_ONGOING) {
-        LOG("I2C TRANSMISSION ALREADY ONGOING\n");
+        LOG(LOG_LEVEL_DEBUG, "I2C TRANSMISSION ALREADY ONGOING\n");
         return I2C_BUSY_IN_TX;
     }
     else if (i2c1_handle.rx_status == RX_ONGOING) {
-        LOG("I2C TX FAILED; I2C BUSY IN RX\n");
+        LOG(LOG_LEVEL_DEBUG, "I2C TX FAILED; I2C BUSY IN RX\n");
         return I2C_BUSY_IN_RX;
     }
 
@@ -115,11 +115,11 @@ i2c_status_e i2c_transmit(uint8_t *data, uint32_t len) {
  */
 i2c_status_e i2c_receive(uint8_t *data, uint32_t len) {
     if (i2c1_handle.rx_status == RX_ONGOING) {
-        LOG("I2C RECEPTION ALREADY ONGOING\n");
+        LOG(LOG_LEVEL_DEBUG, "I2C RECEPTION ALREADY ONGOING\n");
         return I2C_BUSY_IN_RX;
     }
     else if (i2c1_handle.tx_status == TX_ONGOING) {
-        LOG("I2C RX FAILED; I2C BUSY IN TX\n");
+        LOG(LOG_LEVEL_DEBUG, "I2C RX FAILED; I2C BUSY IN TX\n");
         return I2C_BUSY_IN_RX;
     }
 

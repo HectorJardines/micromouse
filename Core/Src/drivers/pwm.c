@@ -97,12 +97,12 @@ static void pwm_channel_enable(pwm_channel_e pwm, uint8_t EnOrDi)
 
     if (EnOrDi == ENABLE) {
         pwm_timer_ctl(ENABLE);
-        LOG("PWM CHANNEL %d ENABLED\n", pwm);
+        LOG(LOG_LEVEL_DEBUG, "PWM CHANNEL %d ENABLED\n", pwm);
     }
     else {
         if (pwm_all_channels_disabled()) {
             pwm_timer_ctl(DISABLE);
-            LOG("PWM CHANNELS IDLE, DISABLED...\n");
+            LOG(LOG_LEVEL_DEBUG, "PWM CHANNELS IDLE, DISABLED...\n");
         }
     }
     pwm_configs[pwm].enabled = EnOrDi;
@@ -116,11 +116,11 @@ static uint32_t limit_duty_cycle(int32_t duty) {
         duty_cycle = duty;
 
     if (duty_cycle > MAX_DUTY_VALUE) {
-        LOG("DUTY CYCLE VALUE EXCEEDS 100: SETTING DUTY = 3199\n");
+        LOG(LOG_LEVEL_DEBUG, "DUTY CYCLE VALUE EXCEEDS 100: SETTING DUTY = 3199\n");
         duty_cycle = MAX_DUTY_VALUE;
     }
     else if (duty_cycle < MIN_DUTY_VALUE) {
-        LOG("DUTY CYCLE VALUE LOWER THAN 30: SETTING DUTY = 960\n");
+        LOG(LOG_LEVEL_DEBUG, "DUTY CYCLE VALUE LOWER THAN 30: SETTING DUTY = 960\n");
         duty_cycle = MIN_DUTY_VALUE;
     }
 

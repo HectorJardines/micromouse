@@ -29,7 +29,7 @@ void imu_init(void) {
     imu_configure();
     int8_t rslt = imu_compare_cnf(&imu_cnf, &actual_cnf);
     if (rslt)
-        LOG("INCORRECT CONFIGURATION...\n");
+        LOG(LOG_LEVEL_DEBUG, "INCORRECT CONFIGURATION...\n");
     imu_compute_gyro_z_bias();
     initialzed = true;
 }
@@ -39,7 +39,7 @@ int8_t imu_self_test_gyro(void) {
     // self test API resets the sensor; reconfigure
     res = imu_restore_sensor_cfg();
     if (res == BMI160_W_GYRO_SELF_TEST_FAIL) {
-        LOG("GYRO SELF TEST ROUTINE FAILED...\n");
+        LOG(LOG_LEVEL_DEBUG, "GYRO SELF TEST ROUTINE FAILED...\n");
     }
     return res;
 }
@@ -48,7 +48,7 @@ int8_t imu_self_test_accel(void) {
     int8_t res = bmi160_perform_self_test(BMI160_ACCEL_ONLY, &imu_cnf);
     res = imu_restore_sensor_cfg();
     if (res == BMI160_W_ACCEl_SELF_TEST_FAIL)
-        LOG("ACCELEROMETER SELF TEST FAILED...\n");
+        LOG(LOG_LEVEL_DEBUG, "ACCELEROMETER SELF TEST FAILED...\n");
     return res;
 }
 
@@ -89,12 +89,12 @@ static int8_t imu_compare_cnf(struct bmi160_dev *expected, struct bmi160_dev *ac
         return rslt;
     // Compare accel
     rslt = expected->accel_cfg.bw == actual->accel_cfg.bw && expected->accel_cfg.odr == actual->accel_cfg.odr && expected->accel_cfg.range == actual->accel_cfg.range;
-    LOG("ACTUAL ACCEL BW, ODR, RANGE: %d, %d, %d | EXPECTED ACCEL BW, ODR, RANGE: %d, %d, %d\n", actual->accel_cfg.bw, actual->accel_cfg.odr, actual->accel_cfg.range, expected->accel_cfg.bw, expected->accel_cfg.odr, expected->accel_cfg.range);
+    LOG(LOG_LEVEL_DEBUG, "ACTUAL ACCEL BW, ODR, RANGE: %d, %d, %d | EXPECTED ACCEL BW, ODR, RANGE: %d, %d, %d\n", actual->accel_cfg.bw, actual->accel_cfg.odr, actual->accel_cfg.range, expected->accel_cfg.bw, expected->accel_cfg.odr, expected->accel_cfg.range);
     if (!rslt)
         return -1;
     // compare gyro
     rslt = expected->gyro_cfg.bw == actual->gyro_cfg.bw && expected->gyro_cfg.odr == actual->gyro_cfg.odr && expected->gyro_cfg.range == actual->gyro_cfg.range;
-    LOG("ACTUAL gyro BW, ODR, RANGE: %d, %d, %d | EXPECTED gyro BW, ODR, RANGE: %d, %d, %d\n", actual->gyro_cfg.bw, actual->gyro_cfg.odr, actual->gyro_cfg.range, expected->gyro_cfg.bw, expected->gyro_cfg.odr, expected->gyro_cfg.range);
+    LOG(LOG_LEVEL_DEBUG, "ACTUAL gyro BW, ODR, RANGE: %d, %d, %d | EXPECTED gyro BW, ODR, RANGE: %d, %d, %d\n", actual->gyro_cfg.bw, actual->gyro_cfg.odr, actual->gyro_cfg.range, expected->gyro_cfg.bw, expected->gyro_cfg.odr, expected->gyro_cfg.range);
     if (!rslt)
         return -1;
 
@@ -153,7 +153,7 @@ static int8_t imu_restore_sensor_cfg(void) {
 
     res = imu_compare_cnf(&imu_cnf, &actual_cnf);
     if (res)
-        LOG("INCORRECT CONFIGURATION AFTER SELF TEST\n");
+        LOG(LOG_LEVEL_DEBUG, "INCORRECT CONFIGURATION AFTER SELF TEST\n");
 
     return res;
 }
