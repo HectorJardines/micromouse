@@ -64,6 +64,8 @@ ir_read_status_e ir_read_single_sensor(ir_receiver_samples_t *sensors, ir_sensor
  * @brief Read all ADC channels samples of the IR sensors
  * 
  * @param sensors array of uint16_t values that hold channel samples
+ * @note Though unlikely, there is a chance of emitter collision, e.g. left diagonal emitter
+ * signal may be picked up on left receiver or vice versa.
  */
 ir_read_status_e ir_read_all_sensors(ir_receiver_samples_t *receiver_values);
 

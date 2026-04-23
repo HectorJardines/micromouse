@@ -5,7 +5,7 @@
 #define DMA_NUM_BYTES_TO_TX (4U) // 2 bytes per DMA transfer
 
 static inline void dma_peripheral_clk_enable(void) {
-    RCC->APB1ENR |= (RCC_AHBENR_DMA1EN);
+    RCC->AHBENR |= (RCC_AHBENR_DMA1EN);
 }
 
 static void dma_transfer_complete_enable(void) {
@@ -40,7 +40,6 @@ static void dma_configure_adc_transfer(uint32_t dma_src_addr, uint32_t dma_dst_a
     //enable memory increment mode
     DMA1_Channel1->CCR |= (DMA_CCR_MINC);
     // configure TRANSFER COMPLETE interrupts
-    dma_transfer_complete_enable();
 
     // configure number of bytes per DMA rotation
     DMA1_Channel1->CNDTR = ((DMA_NUM_BYTES_TO_TX & 0x0FFFF));
@@ -58,19 +57,15 @@ void dma_init(uint32_t dma_src_addr, uint32_t dma_dst_addr) {
     initialized = true;
 }
 
-void dma_set_dst_address(uint32_t dma_dst_addr) {
-    // should only try to reset destination address on transfer complete
-    ASSERT((DMA1->ISR & DMA_ISR_TCIF1_Msk), ASSERT_PERIPHERAL_LEVEL);
-    DMA1_Channel1->CMAR = dma_dst_addr;
-}
-
 void dma_clear_tx_complete_int(void) {
     DMA1->IFCR |= (DMA_IFCR_CTCIF1);
 }
 
 void dma_adc_transfer_control(uint8_t EnOrDi) {
-    if (EnOrDi == ENABLE)
+    if (EnOrDi == ENABLE) {
+        dma_transfer_complete_enable();
         DMA1_Channel1->CCR |= (DMA_CCR_EN);
+    }
     else
         DMA1_Channel1->CCR &= ~(DMA_CCR_EN);
 }

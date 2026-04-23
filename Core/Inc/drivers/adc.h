@@ -17,6 +17,6 @@ void adc_init(void);
 /**
  * @brief Read cached adc channel samples
  */
-void adc_sample_channels(adc_channel_values_t *values);
+void adc_sample_channels(adc_channel_values_t values);
 
 #endif

@@ -9,12 +9,14 @@
 #include "../Inc/drivers/pwm.h"
 #include "../Inc/drivers/imu_interface.h"
 #include "../Inc/drivers/ssd1306.h"
+#include "../Inc/drivers/ir_interface.h"
 
 void test_setup(void) {
     SystemClock_Config();
     // HAL_MspInit();
     io_configure();
     log_init();
+    log_set_level(LOG_LEVEL_DEBUG);
 }
 
 void test_uart(void) {
@@ -46,7 +48,7 @@ void test_log(void) {
     // log_init();
 
     while(1) {
-        LOG("HELLO IM GAY...\n");
+        LOG(LOG_LEVEL_DEBUG, "HELLO IM GAY...\n");
     }
 }
 
@@ -61,8 +63,8 @@ void test_encoder(void) {
         left_count = encoder_read_left_count();
         right_count = encoder_read_right_count();
 
-        LOG("ENCODER COUNT RIGHT = %d\n", right_count);
-        LOG("ENCODER COUNT LEFT = %d\n", left_count);
+        LOG(LOG_LEVEL_DEBUG, "ENCODER COUNT RIGHT = %d\n", right_count);
+        LOG(LOG_LEVEL_DEBUG, "ENCODER COUNT LEFT = %d\n", left_count);
 
         HAL_Delay(500);
     }
@@ -107,7 +109,7 @@ void test_pid(void) {
         if (pid_done()) {
             // reset_pid();
             // set_pid_goal_dist(PID_DIST_TO_ENC_COUNT(18));
-            LOG("TRAVELED 18 CM...\n");
+            LOG(LOG_LEVEL_DEBUG, "TRAVELED 18 CM...\n");
 
             break;
         }
@@ -163,15 +165,15 @@ void test_imu_read_accel_values(void) {
     while (1) {
         int8_t res = imu_read_sensor_data(&accel, &gyro);
         if (res) {
-            LOG("ERRO RETRIEVING DATA...\n");
+            LOG(LOG_LEVEL_DEBUG, "ERRO RETRIEVING DATA...\n");
             while(1) {
                 HAL_Delay(100);
                 io_toggle_out(IO_LED_RED);
             } 
         }
 
-        LOG("ACCEL - X: %d, Y: %d, Z: %d\n", accel.x, accel.y, accel.z);
-        LOG("GYRO - X: %d, Y: %d, Z: %d\n", gyro.x, gyro.y, gyro.z);
+        LOG(LOG_LEVEL_DEBUG, "ACCEL - X: %d, Y: %d, Z: %d\n", accel.x, accel.y, accel.z);
+        LOG(LOG_LEVEL_DEBUG, "GYRO - X: %d, Y: %d, Z: %d\n", gyro.x, gyro.y, gyro.z);
         HAL_Delay(500);
     }
 }
@@ -184,14 +186,14 @@ void test_imu_read_left_right_drift(void) {
         
         int8_t res = imu_get_angle_z(&angle_z, .01);
         if (res) {
-            LOG("ERRO RETRIEVING PITCH/ROLL...\n");
+            LOG(LOG_LEVEL_DEBUG, "ERRO RETRIEVING PITCH/ROLL...\n");
             while(1) {
                 HAL_Delay(100);
                 io_toggle_out(IO_LED_RED);
             } 
         }
 
-        LOG("ANGLE Z: %f degrees\n", angle_z);
+        LOG(LOG_LEVEL_DEBUG, "ANGLE Z: %f degrees\n", angle_z);
 
         HAL_Delay(10);
     }
@@ -208,7 +210,7 @@ void test_pid_with_angle_correction(void) {
         if (pid_done()) {
             // reset_pid();
             // set_pid_goal_dist(PID_DIST_TO_ENC_COUNT(18));
-            LOG("TRAVELED 100 CM...\n");
+            LOG(LOG_LEVEL_DEBUG, "TRAVELED 100 CM...\n");
 
             break;
         }
@@ -704,7 +706,21 @@ void test_oled_control(void) {
     ssd1306_display();
 }
 
+static void test_ir_interface(void) {
+    ir_init();
+    ir_receiver_samples_t samples;
+    while (1) {
+        ir_start_multi_sample();
+        ir_read_all_sensors(&samples);
+        LOG(LOG_LEVEL_DEBUG, "RIGHT SENSOR VALUE: %d\n", samples.RIGHT_SAMPLE);
+        LOG(LOG_LEVEL_DEBUG, "RIGHT DIAG SENSOR VALUE: %d\n", samples.RIGHT_DIAG_SAMPLE);
+        LOG(LOG_LEVEL_DEBUG, "LEFT_DIAG SENSOR VALUE: %d\n", samples.LEFT_DIAG_SAMPLE);
+        LOG(LOG_LEVEL_DEBUG, "LEFT SENSOR VALUE: %d\n", samples.LEFT_SAMPLE);
+        HAL_Delay(500);
+    }
+}
+
 int main(void) {
     test_setup();
-    test_oled_control();
+    test_ir_interface();
 }

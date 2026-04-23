@@ -9,4 +9,7 @@
 
 #define DIV_8   (0x3U)
 
+#define GEN_ERROR   (-1)
+#define GEN_OK      (0)
+
 #endif

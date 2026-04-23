@@ -19,15 +19,16 @@ io_config_t pin_configurations[PIN_COUNT] = {
     // PORT A
     [IO_UNUSED_0] = UNUSED_CONFIG, [BMI160_INT_CH1] = {.mode = io_mode_input, .mode_config = io_cnf_input_pupd}, 
     [IO_M1_PWM] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp}, [IO_M2_PWM] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp},
-    [IO_IR_RECEIVE_4] = UNUSED_CONFIG, [IO_IR_RECEIVE_3] = UNUSED_CONFIG, 
+    [IO_IR_RECEIVE_4] = {.mode = io_mode_input, .mode_config = io_cnf_input_analog}, [IO_IR_RECEIVE_3] = {.mode = io_mode_input, .mode_config = io_cnf_input_analog}, 
     [M1_ENC_A] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp}, [M1_ENC_B] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_pp},
-    [M1_DRIVER_IN1] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_gpio_pp}, [IO_IR_EMIT_4] = UNUSED_CONFIG, 
-    [IO_IR_EMIT_3] = UNUSED_CONFIG, [IO_IR_EMIT_2] = UNUSED_CONFIG,
-    [IO_IR_EMIT_1] = UNUSED_CONFIG, [IO_RESERVED_13] = RESERVED_CONFIG, 
+    [M1_DRIVER_IN1] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_gpio_pp}, [IO_IR_EMIT_4] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_gpio_pp}, 
+    [IO_IR_EMIT_3] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_gpio_pp}, [IO_IR_EMIT_2] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_gpio_pp},
+    [IO_IR_EMIT_1] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_gpio_pp}, [IO_RESERVED_13] = RESERVED_CONFIG, 
     [IO_RESERVED_14] = RESERVED_CONFIG, [IO_UNUSED_15] = UNUSED_CONFIG,
 
     // PORT B
-    [IO_IR_RECEIVE_2] = UNUSED_CONFIG, [IO_IR_RECEIVE_1] = UNUSED_CONFIG, [M2_DRIVER_IN1] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_gpio_pp}, [IO_UNUSED_19] = UNUSED_CONFIG,
+    [IO_IR_RECEIVE_2] = {.mode = io_mode_input, .mode_config = io_cnf_input_analog}, [IO_IR_RECEIVE_1] = {.mode = io_mode_input, .mode_config = io_cnf_input_analog}, 
+    [M2_DRIVER_IN1] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_gpio_pp}, [IO_UNUSED_19] = UNUSED_CONFIG,
     [M1_DRIVER_IN2] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_gpio_pp}, [M2_DRIVER_IN2] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_gpio_pp}, 
     [I2C1_SCL] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_od}, [I2C1_SDA] = {.mode = io_mode_output_10MHz, .mode_config = io_cnf_output_af_od},
     [M2_ENC_B] = {.mode = io_mode_input, .mode_config = io_cnf_input_float}, [M2_ENC_A] = {.mode = io_mode_input, .mode_config = io_cnf_input_float}, 
